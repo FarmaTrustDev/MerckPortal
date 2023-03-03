@@ -1,0 +1,70 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+
+/CGT_API/bin/*
+/CGT_API/obj/*
+/.vs/Supercharger/CGT_API
+/CGT_API/obj/*
+.vs/*
+/CGT_API/wwwroot/Patient/*
+/CGT_API/Properties/PublishProfiles
+/CGT_API/.config/dotnet-tools.json
+/CGT_API/appsettings.json
+/CGT_API/wwwroot/Uploads/*
+/CGT_API/wwwroot/web/*
+/CGT_API/wwwroot/Icons/flags/1x1
+/CGT_API/wwwroot/Icons/*
+/Merck/bin/Debug/net5.0
+/Merck/obj/Debug/net5.0
+/Merck/obj

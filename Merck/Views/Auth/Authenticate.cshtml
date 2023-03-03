@@ -1,0 +1,10 @@
+﻿@model Merck.DTOS.Auth.AuthResponse
+@{
+    ViewData["Title"] = "View";
+}
+@Model.Message
+<h1>Welcome</h1>
+
+<script>
+    localStorage.setItem("Auth",@Model.AccessToken);
+</script>
