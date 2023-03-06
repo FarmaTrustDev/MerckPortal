@@ -29,6 +29,8 @@ namespace Merck
             services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 			services.AddSingleton(Configuration.GetSection("AppConfiguration").Get<AppConfiguration>());
 			services.AddControllersWithViews();
+            ServiceConfiguration.Register(services);
+            ServiceProviderResolver.ServiceProvider = services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
