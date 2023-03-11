@@ -52,19 +52,21 @@ Mkfile.old
 dkms.conf
 
 
-/CGT_API/bin/*
-/CGT_API/obj/*
+/Merck/bin/*
+/Merck/obj/*
 /.vs/Supercharger/CGT_API
-/CGT_API/obj/*
+/Merck/obj/*
 .vs/*
-/CGT_API/wwwroot/Patient/*
-/CGT_API/Properties/PublishProfiles
-/CGT_API/.config/dotnet-tools.json
-/CGT_API/appsettings.json
-/CGT_API/wwwroot/Uploads/*
-/CGT_API/wwwroot/web/*
-/CGT_API/wwwroot/Icons/flags/1x1
-/CGT_API/wwwroot/Icons/*
+/Merck/wwwroot/Patient/*
+/Merck/Properties/PublishProfiles
+/Merck/.config/dotnet-tools.json
+/Merck/appsettings.json
+/Merck/wwwroot/Uploads/*
+/Merck/wwwroot/web/*
+/Merck/wwwroot/Icons/flags/1x1
+/Merck/wwwroot/Icons/*
 /Merck/bin/Debug/net5.0
 /Merck/obj/Debug/net5.0
 /Merck/obj
+/Merck/appsettings.json
+/Merck/appsettings.Development.json
