@@ -15,8 +15,10 @@ namespace Merck.Infrastructure
         {
             //Repositories
             services.AddScoped<ITreatmentEventRepository, TreatmentEventRepository>();
+            services.AddScoped<IUserRepositories, UserRepositories>();
             //Services
             services.AddScoped<TreatmentEventServices>();
+            services.AddScoped<UserServices>();
         }
     }
 }

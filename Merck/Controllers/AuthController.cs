@@ -23,17 +23,21 @@ namespace Merck.Controllers
             _context = context;
             _appConfiguration= appConfiguration;
         }
-
+        public IActionResult Home()
+        {
+            return View("Authenticate");
+        }
         public IActionResult Index()
         {
             return View();
         }
-        [HttpGet]
+        [HttpPost]
         public IActionResult Authenticate(AuthRequest request)
         {
             AuthResponse response = AuthenticateUser(request);
             return View(response);
         }
+
         private AuthResponse AuthenticateUser(AuthRequest request)
         {
             Expression<Func<User, bool>> expression = x => ((x.Email.ToLower() == Convert.ToString(request.Username).ToLower()) || x.UserName.ToLower() == Convert.ToString(request.Username).ToLower() && x.Active == true);

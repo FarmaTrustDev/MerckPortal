@@ -1,37 +1,47 @@
 ﻿@model Merck.DTOS.Auth.AuthRequest
 
 @{
+    Layout = null;
     ViewData["Title"] = "Index";
 }
 
-<h1>Login</h1>
-@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Get))
+
+@using (Html.BeginForm("Authenticate", "Auth", FormMethod.Post))
 {
-<hr />
-<div class="row">
-    <div class="col-md-4">
-       
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                 @Html.TextBoxFor(m => m.Username)
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                    @Html.PasswordFor(m => m.Password)
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-    </div>
-</div>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+    </head>
+    <body class="text-center pt-5">
+        <main role="main" class=" pb-3">
+                                <h1>Login</h1>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="Username" class="control-label"></label>
+                                    @Html.TextBoxFor(m => m.Username)
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    @Html.PasswordFor(m => m.Password)
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" class="btn btn-primary" />
+                                </div>
+        </main>
+    </body>
 }
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

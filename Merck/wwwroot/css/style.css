@@ -7,9 +7,9 @@
     font-family: Raleway, sans-serif;
 }
 
-body {
+/*body {
     background: linear-gradient(90deg, #C7C5F4, #776BCC);
-}
+}*/
 
 .container {
     display: flex;
@@ -176,3 +176,25 @@ body {
     .social-login__icon:hover {
         transform: scale(1.5);
     }
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+    height: 550px
+}
+
+/* Set gray background color and 100% height */
+
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100% !important;
+    align-content:center;
+}
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+    .row.content {
+        height: auto;
+    }
+}
+.nav{
+    display:contents !important;
+}
