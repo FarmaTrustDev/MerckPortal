@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Merck.Models
 {
@@ -9,5 +10,6 @@ namespace Merck.Models
 
         [Column(TypeName = "nvarchar(256)")]
         public string Password { get; set; }
+        public ICollection<UserRoles> UserRoles { get; set; }
     }
 }

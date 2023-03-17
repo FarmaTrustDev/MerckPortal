@@ -22,8 +22,8 @@ namespace Merck.Seed
             users.Add(new User()
             {
                 Id = 1,
-                FirstName = "User",
-                LastName = "Ahmed",
+                FirstName = "Ahmed",
+                LastName = "Hassan",
                 UserName = "AhmedHassan",
                 Password = "sf/WPJ/YEvZZrFchRMF92A==", // test123
                 Email = "ahmed@gmail.com",
