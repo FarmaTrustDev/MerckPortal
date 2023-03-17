@@ -3,67 +3,72 @@
 @{
     ViewData["Title"] = "TreatmentEventList";
 }
+<div class="container mt-4 bg-white">
+    <h1>TreatmentEventList</h1>
 
-<h1>TreatmentEventList</h1>
+    <p>
+        @*<a asp-action="Create">Create New</a>*@
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeviceSerialNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Event)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RecordType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timestamp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransmissionTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hash)
+                </th>
 
-<p>
-    @*<a asp-action="Create">Create New</a>*@
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DeviceSerialNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RecordType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransmissionTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Value)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hash)
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeviceSerialNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Event)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecordType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Timestamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransmissionTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Value)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hash)
-            </td>
-           
-           
-        </tr>
-}
-    </tbody>
-</table>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeviceSerialNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Event)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RecordType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Timestamp)
+                        03/07/2022 10:31:22
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TransmissionTime)
+                        03/07/2022 10:31:22
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value)
+                        12/30/2022 7:10:39 PM
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hash)
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
