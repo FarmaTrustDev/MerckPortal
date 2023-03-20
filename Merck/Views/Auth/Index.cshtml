@@ -19,58 +19,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/assets/css/site.css" />
         <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="~/assets/css/style.css" />
     <style>
-            .heading{
-                background-color: #fcfcfc;
-                width: 55%;
-                margin: auto;
-                margin-top: 2%;
-                border-radius:10px;
-            }
-            .my-custom-class {
-                width:90%;
-                height:50px;
-                margin-left:5%;
-                border-radius: 8px;
-            }
-            .header-class{
-                padding-top:3%;
-                padding-bottom:2%;
-                color:#000;
-                font-weight:bold;
-                text-align:center;
-            }
-            .button-class {
-                width: 42%; 
-                margin-bottom: 1%;
-                border-radius:8px;
-                height: 50px;
-                margin-left: 5%;
-            }
-            .ml-class{
-                margin-left:5%;
-                margin-bottom:1%
-            }
-            .mt-class{
-                margin-top:2%;
-            }
-            .txt-style{
-                color:#000;
-                font-weight:bold;
-            }
-            .txt-forgot-style {
-                color: #000;
-                font-weight: bold;
-                padding-bottom:3%;
-                text-align:center;
-            }
+            
             
     </style>
     </head>
-    <body >
-        <main role="main" class=" pb-3">
+    <body class="bg-color-light-gray">
+        @*<main role="main" class=" pb-3">
             <div class="heading">
                 <h2 class="header-class">Login To Merck</h2>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -94,8 +52,55 @@
                    <a href="#"> Forgot Password? </a>
                 </div>
             </div>
-        </main>
+        </main>*@
+        <section class="vh-100 ">
+            <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100  m-t-40">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+
+                    </div>
+                    <div class="col-md-8 col-lg-4 col-xl-4 offset-xl-1 card bg-white p-b-30 radius">
+
+
+                        <h2 class="header-class">Login To Merck</h2>
+
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4 m-t-20">
+                            
+                            @Html.TextBoxFor(m=>m.Username, new {@class="form-control", placeholder="Username"})
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3 m-t-20">
+                            
+                            @Html.PasswordFor(m=>m.Password, new {@class="form-control", placeholder="Password"})
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center m-t-20">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                <label class="form-check-label" for="form2Example3">
+                                    Remember me
+                                </label>
+                            </div>
+
+                            <a href="#!" class="text-body">Forgot password?</a>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2 m-t-20">
+                            <input type="submit" value="Login" class="btn btn-primary button-class txt-style" />
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </body>
+    
 }
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
