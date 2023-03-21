@@ -270,3 +270,15 @@
 .bg-color-light-gray{
     background-color:#fbfbfb;
 }
+.text-right{
+    text-align:right;
+}
+.text-left{
+    text-align:left;
+}
+.display-flex{
+    display:flex !important;
+}
+.ml-30{
+    margin-left:30% !important;
+}

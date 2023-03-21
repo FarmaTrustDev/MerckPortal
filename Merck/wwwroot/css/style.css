@@ -706,7 +706,7 @@ Layouts
 ******************/
 .card-no-border .card {
   border: 0px;
-  border-radius: 0px;
+  border-radius: 35px;
   -webkit-box-shadow: none;
   box-shadow: none; }
 
@@ -807,12 +807,15 @@ sidebar navigation
         font-size: 15px;
         font-weight: 400; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-          color: #20aee3; }
-          .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
-            color: #20aee3; }
+            color: #2255c2 !important;
+        }
+            .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
+                color: #2255c2 !important;
+            }
         .sidebar-nav ul li a.active {
           font-weight: 500;
-          color: #263238; }
+          color: #263238;
+        }
       .sidebar-nav ul li ul {
         padding-left: 40px; }
         .sidebar-nav ul li ul li a {
@@ -844,15 +847,17 @@ sidebar navigation
     .sidebar-nav > ul > li > a.active {
       font-weight: 400;
       color: #26c6da;
-      border-left: 3px solid #20aee3; }
+      border-left: 3px solid red !important; }
   .sidebar-nav > ul > li {
     margin-bottom: 8px;
     margin-top: 8px; }
     .sidebar-nav > ul > li.active > a {
-      color: #20aee3;
-      font-weight: 500; }
+        color: #2255c2 !important;
+        font-weight: 500;
+        background-color: #f2f5fb !important;
+    }
       .sidebar-nav > ul > li.active > a i {
-        color: #20aee3; }
+        color: #2255c2 !important; }
   .sidebar-nav .waves-effect {
     transition: none;
     -webkit-transition: none;
@@ -1009,7 +1014,8 @@ File: scss
     .topbar .top-navbar .navbar-header {
       line-height: 72px;
       padding-left: 10px;
-      border-right: 1px solid rgba(120, 130, 140, 0.13); }
+      /*border-right: 1px solid rgba(120, 130, 140, 0.13);*/ 
+    }
       .topbar .top-navbar .navbar-header .navbar-brand {
         margin-right: 0px;
         padding-bottom: 0px;
@@ -3990,7 +3996,8 @@ Table Cell
 
 .table td,
 .table th {
-  border-color: #f3f1f1; }
+  border-color: #f3f1f1;
+}
 
 .table thead th,
 .table th {
@@ -4542,7 +4549,7 @@ File: scss
 .ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
   position: absolute;
   /* please don't change 'position' */
-  background-color: rgba(0, 0, 0, 0.2);
+  /*background-color: rgba(0, 0, 0, 0.2);*/
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
