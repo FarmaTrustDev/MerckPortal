@@ -3,46 +3,85 @@
 @{
     ViewData["Title"] = "Users";
 }
-<div class="container mt-4 bg-white">
-<h1>Index</h1>
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0">
 
-<p>
-    
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-        </tr>
+    <!-- begin:: Content -->
+    <div class="kt-container container  kt-container--fluid  kt-grid__item kt-grid__item--fluid manf_responsive_heading p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile table-container ">
+
+                    <div class="table-search-header row">
+                        <div class="col-md-6 col-12">
+                            <h3 class="heading">Users</h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body kt-portlet__body--fit">
+                        <!--begin: Datatable -->
+                        <div class="table-responsive user">
+                            <div class="tab-pane active table c-table ">
+                                <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
+
+
+                                    <table class="kt-datatable__table" style="display: block;">
+                                        <thead class="kt-datatable__head">
+                                            <tr class="kt-datatable__row" style="left: 0px;">
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                        @Html.DisplayNameFor(model => model.UserName)
+                                                        </span>
+                                                </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                     @Html.DisplayNameFor(model => model.FirstName)
+                                                    </span>
+                                                </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                            @Html.DisplayNameFor(model => model.LastName)
+                                                    </span>
+                                                </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                        @Html.DisplayNameFor(model => model.Email)
+                                                    </span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="kt-datatable__body">
+                                        @foreach (var item in Model) {
+                                                <tr class="kt-datatable__row" style="left: 0px;">
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @Html.DisplayFor(modelItem => item.UserName)
+                                                            </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @Html.DisplayFor(modelItem => item.LastName)
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @Html.DisplayFor(modelItem => item.Email)
+                                                        </span>
+                                                    </td>
+                                                </tr>
 }
-    </tbody>
-</table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--end: Datatable -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

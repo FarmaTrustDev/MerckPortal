@@ -1,18 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Merck</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/style.css"/>
-</head>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -25,234 +12,117 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="~/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-    <!-- This page CSS -->
-    <!-- chartist CSS -->
     <link href="~/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--c3 CSS -->
     <link href="~/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link href="~/css/style2.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="~/css/pages/dashboard1.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
+    <link href="~/css/pages/dashboard1.css" rel="stylesheet" />
+    <!--css color-->
     <link href="/css/colors/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
 </head>
 
-<body class="fix-header fix-sidebar card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="loader__figure"></div>
-            <p class="loader__label">Merck</p>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-                            <!-- dark Logo text -->
-                            <img src="~/assets/images/logo-text.jpg" alt="homepage" class="dark-logo img-responsive" />
-                            <!-- Light Logo text -->
-                            <img src="~/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                        </span>
-                    </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                  
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- Profile -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        
-        <aside class="left-sidebar ">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li>
-                            <a class="waves-effect waves-dark" asp-controller="Auth" asp-action="Home" aria-expanded="false">
-                                <i class="fa fa-tachometer"></i>
-                                <span class="hide-menu">Home</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" asp-controller="TreatmentEvent" asp-action="TreatmentEventList" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Treatment</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" asp-controller="User" asp-action="GetAllUser" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Users</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" asp-controller="Role" asp-action="index" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Roles</span></a>
-                        </li>
-                        @*<li>
-                            <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">Icons</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
-                        </li>*@
-                    </ul>
-                    <div class="text-center m-t-30">
-                        <a asp-controller="Auth" asp-action="Index" class="btn waves-effect waves-light btn-info hidden-md-down"> Logout</a>
-                    </div>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <div class="page-wrapper" style="min-height: 312px;">
-            <div class="container-fluid">
-        <div class="row m-t-40">
-            <div class="col-12">
-                <div class="card">
-        <!-- ============================================================== -->
-        <div class="card-body">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div>
 
-                @RenderBody()
-                    
-                    <!-- End Feeds -->
-                </div>
-                    </div>
-            </div>
+<header>
+    <nav class="navbar navbar-expand-md  navbar-default  bg-white border-none">
+        <a class="navbar-brand logo-responsive" href="index.html">
+          Merck
+        </a>
+        <button class="navbar-toggler float-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style=" position: initial; ">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <span href="javascript:;"></span>
+                </li>
+            </ul>
+            
         </div>
+    </nav>
+</header>
+<section class="main-container">
+    <aside class="main-sidebar side-bar">
+        <a class=" navbar-brand logo-responsive">
+            <img src="https://cgt.hataali.net/images/v2/logo.svg?v =HYx8loh6-rTC92sPxpkpHvu45ylx5I1m1BwFugLs7v8" />
+        </a>
+        <div class="vertical-menu" id="aside_menu">
+            <a asp-controller="Auth" asp-action="Home" class="sidebar-link active">
+                <span class="nav-container">
+                    <span>Home</span>
+                </span>
+            </a>
+            <a asp-controller="TreatmentEvent" asp-action="TreatmentEventList" class="sidebar-link">
+                <span class="nav-container">
+                    <span> TreatmentEvent List</span>
+                </span>
+            </a>
+            <a asp-controller="User" asp-action="GetAllUser" class="sidebar-link">
+                <span class="nav-container">
+                    <span> Users</span>
+                </span>
+            </a>
+            <a asp-controller="Role" asp-action="index" class="sidebar-link">
+                <span class="nav-container">
+                    <span> Roles</span>
+                </span>
+            </a>        
+            @*<a href="/patients/Label" class="sidebar-link">
+                <span class="nav-container">
+                    <span>Labelling</span>
+                </span>
+            </a>
+            <a href="/chat" class="sidebar-link">
+                <span class="nav-container">
+                    <span>Chat</span>
+                </span>
+            </a>
+            <a href="/admin" class="sidebar-link">
+                <span class="nav-container">
+                    <span>Adminstration</span>
+                </span>
+            </a>
+            <a href="/User" class="sidebar-link">
+                <span class="nav-container">
+                    <span>Users </span>
+                </span>
+            </a>*@
+            <a asp-controller="Auth" asp-action="Index" id="logout" class="sidebar-link logout">
+                <span class="nav-container"
+                    <span class="pl-3">Logout</span>
+                </span>
+            </a>
+
+
+
+        </div>
+    </aside>
+    <div class="content-wrapper ">
+        <div class="container homePage">
+        @RenderBody()       
         </div>
             </div>
         </div>
     </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="~/assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap popper Core JavaScript -->
-    <script src="~/assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="~/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="/js/custom.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!--morris JavaScript -->
-    <script src="~/assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="~/assets/node_modules/morrisjs/morris.min.js"></script>
-    <!--c3 JavaScript -->
-    <script src="~/assets/node_modules/d3/d3.min.js"></script>
-    <script src="~/assets/node_modules/c3-master/c3.min.js"></script>
-    <!-- Chart JS -->
-    <script src="/js/dashboard1.js"></script>
-</body>
+</section>
+</html>
 
-@*</html>
-<body>
-    <div class="container-fluid">
-        <div class="row content">
-            <div class="col-sm-3 sidenav hidden-xs">
-                <h2>Logo</h2>
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#section1">Dashboard</a></li>
-                    <li>
-                        <a class="nav-link text-dark" asp-controller="Auth" asp-action="Home">Home</a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="TreatmentEvent" asp-action="TreatmentEventList">Treatment</a>
-                    </li>
-                    <li><a class="nav-link text-dark" asp-controller="User" asp-action="GetAllUser">User</a></li>
-                </ul>
-                <input type="button" class="btn btn-primary col-sm-3" value="Logout" onclick="location.href='@Url.Action("Index", "Auth")'" />
-            </div>
-            <br>
-
-            <div class="col-sm-9">
-                <main role="main" class=" pb-3">
-                    <div class="col-xl-12 mb-xl-10">
-                        <!--begin::Card-->
-                        <div class="card">
-                            <!--begin::Card body-->
-                            <div class="card-body p-0">
-                                <!--begin::Wrapper-->
-                                <div class="card-px text-center py-20 my-10">
-                                    @RenderBody()
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
-
-</body>
-
-</html>*@
 <script src="/js/general.js" asp-append-version="true"></script>
 
 
