@@ -39,7 +39,7 @@ namespace Merck.Controllers
 
         // GET: RoleController/Create
         [Authorize]
-        [AuthFilter(roles: new[] { "Admin" }, permissions: new[] { "Delete", "Edit" })]
+        [AuthFilter(roles: new[] { "Admin" }, permissions: new[] { "Delete", "View" })]
         public ActionResult Create()
         {
             ViewBag.Permissions = _permissionService.GetAllPermissions();
@@ -50,7 +50,7 @@ namespace Merck.Controllers
         
         [HttpPost]
 		[Authorize]
-        [AuthFilter(roles: new[] { "Admin"}, permissions: new[] { "Delete", "Edit" })]
+        [AuthFilter(roles: new[] { "Admin"}, permissions: new[] { "Delete", "View" })]
         public IActionResult CreateRoleWithPermission([Bind("Id,Name, PermissionRoles")] Roles role, int[] PermissionRoles)
 		{
 			if (ModelState.IsValid)
