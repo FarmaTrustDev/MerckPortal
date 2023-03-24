@@ -4,45 +4,56 @@
     ViewData["Title"] = "Users";
 }
 <div class="container mt-4 bg-white">
-<h1>Index</h1>
+<h3>Index</h3>
 
-<p>
-    
-</p>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <a class="btn " href="/user/create">Create User</a>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                User Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                First Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                Last Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Email
+            </th>
+            <th>
+                Roles
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-        </tr>
-}
+        @foreach (var item in ViewBag.Users) {
+                <tr>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        @item.LastName
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @foreach (var role in item.Roles)
+                        {
+                            <li>@role.Name</li>
+                        }
+                    </td>
+                </tr>
+        }
     </tbody>
 </table>
 </div>

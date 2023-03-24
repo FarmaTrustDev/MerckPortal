@@ -1,19 +1,19 @@
-﻿@model Roles
+﻿@model Permissions
 @{
-    ViewData["Title"] = "Roles";
+    ViewData["Title"] = "Permissions";
 }
 
 
 <div class="container mt-4 bg-white">
-    <h2>Roles Management</h2>
+    <h2>Permissions Management</h2>
     <div class="row mt-4">
         <div class="col-md-6">
-            <a class="btn " href="/role/create">Create Role</a>
+            <a class="btn " href="/permission/create">Create Permissions</a>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col-md-6">
-            <h2>Current Roles</h2>
+            <h2>Current Permissions</h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -21,41 +21,39 @@
                             S#
                         </th>
                         <th>
-                            Roles
-                        </th>
-                        <th>
                             Permissions
                         </th>
-                        
+                        <th>
+                            
+                        </th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     @{
                         int i = 1;
-                        foreach (var role in ViewBag.Roles)
+                        foreach (var permission in ViewBag.Permissions)
                         {
-                        
+
                             <tr>
                                 <td>
                                     @i
                                 </td>
                                 <td>
-                                    @role.Name
+                                    @permission.Name
                                 </td>
                                 <td>
-                                    @foreach (var permission in role.Permissions)
-                                    {
-                                        <li>@permission.Name</li>
-                                    }
+                                   
                                 </td>
-                            
+
                             </tr>
                             i++;
                         }
                     }
                 </tbody>
             </table>
+            
         </div>
     </div>
 </div>

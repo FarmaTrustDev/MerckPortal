@@ -40,13 +40,7 @@ namespace Merck.Seed
                 RoleId = 1,
                 Active = true
             });
-            userRoles.Add(new UserRoles()
-            {
-                Id = 4,
-                UserId = 3,
-                RoleId = 2,
-                Active = true
-            });
+            
             return userRoles;
         }
     }
