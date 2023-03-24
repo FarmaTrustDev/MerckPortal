@@ -7,51 +7,39 @@
 <div class="container mt-4 bg-white">
     <h2>Roles Management</h2>
     <div class="row mt-4">
-        <div class="col-md-6">
-            <a class="btn " href="/role/create">Create Role</a>
+        <div class="col-md-12">
+            <a class="btn" href="/role/create"><h4>Create Role</h4></a>
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h2>Current Roles</h2>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>
-                            S#
-                        </th>
-                        <th>
-                            Roles
-                        </th>
-                        <th>
-                            Permissions
-                        </th>
                         
+                        <th>Roles</th>
+                        <th>Permissions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     
                     @{
-                        int i = 1;
+                        
                         foreach (var role in ViewBag.Roles)
                         {
                         
                             <tr>
-                                <td>
-                                    @i
-                                </td>
-                                <td>
-                                    @role.Name
-                                </td>
+                                
+                                <td>@role.Name</td>
                                 <td>
                                     @foreach (var permission in role.Permissions)
                                     {
-                                        <li>@permission.Name</li>
+                                        <span>@permission.Name |</span> 
                                     }
                                 </td>
-                            
                             </tr>
-                            i++;
+                           
                         }
                     }
                 </tbody>
