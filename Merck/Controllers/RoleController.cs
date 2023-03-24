@@ -11,12 +11,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using static Glimpse.AspNet.AlternateType.RouteBase.GetVirtualPath;
-using static Glimpse.AspNet.AlternateType.RouteBase.ProcessConstraint;
-using static Glimpse.AspNet.AlternateType.RouteConstraint.Match;
-using static Glimpse.Mvc.AlternateType.ModelBinder.BindModel;
-using static Glimpse.Mvc.AlternateType.ModelBinder.BindProperty;
-
 namespace Merck.Controllers
 {
     public class RoleController : Controller
