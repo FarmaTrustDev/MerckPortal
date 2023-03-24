@@ -18,6 +18,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Merck.Interfaces.Repositories;
+using Merck.Services;
 
 namespace Merck.Controllers
 {
@@ -57,9 +58,11 @@ namespace Merck.Controllers
             }
             IActionResult response = Unauthorized();
             User validUser = GetUser(request);
+            
 
             if (validUser != null)
             {
+                ViewBag.Users = _userRepository.GetRolesByUserId(validUser.UserName);
                 generatedToken = _tokenService.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), _config["Jwt:Audience"].ToString(), validUser);
                 if (generatedToken != null)
                 {

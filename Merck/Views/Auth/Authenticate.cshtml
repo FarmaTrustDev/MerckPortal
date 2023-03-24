@@ -6,7 +6,17 @@
 <html lang="en">
 <body>
     <article class="article">
-        <h1 class="heading"><strong>Welcome To Admin Portal</strong></h1>
+        @{
+            string roles = "";
+            if (ViewBag.Users != null)
+            {
+                foreach (var item in ViewBag.Users.Roles)
+                {
+                    roles += item.Name;
+                }
+            }
+        }
+        <h1 class="heading"><strong>Welcome To @roles Portal</strong></h1>
     </article>
    @* <div class="container-fluid">
         <div class="row content">

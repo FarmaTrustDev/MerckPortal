@@ -9,5 +9,6 @@ namespace Merck.Interfaces.Repositories
     {
         User GetUser(AuthRequest userMode);
         public List<UserRoleDTO> GetAllUserWithRoles();
+        public UserRoleDTO GetRolesByUserId(string UserId);
     }
 }

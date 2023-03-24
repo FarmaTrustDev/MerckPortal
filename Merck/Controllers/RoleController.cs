@@ -18,7 +18,7 @@ namespace Merck.Controllers
         public readonly RoleServices _roleService;
         public readonly PermissionServices _permissionService;
 		public readonly PermissionRoleServices _permissionRoleService;
-        public RoleController(PermissionRoleServices permissionRoleService,RoleServices roleService, PermissionServices permissionService)
+        public RoleController(PermissionRoleServices permissionRoleService, RoleServices roleService, PermissionServices permissionService)
         {
             _roleService = roleService;
             _permissionService = permissionService;

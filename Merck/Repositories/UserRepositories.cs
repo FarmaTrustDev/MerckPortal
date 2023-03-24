@@ -38,5 +38,17 @@ namespace Merck.Repositories
             }).ToList();
             return userRoleDTOs;
         }
+        public UserRoleDTO GetRolesByUserId(string UserId)
+        {
+            UserRoleDTO userRoleDTO = _dbContext.User.Where(usr=>usr.UserName==UserId)
+                .Include(userRoles => userRoles.UserRoles)
+                .ThenInclude(role=>role.Role)
+                .Select(userRole => new UserRoleDTO()
+                {
+                        UserName=userRole.UserName,
+                        Roles=userRole.UserRoles.Select(usR=>usR.Role).ToList(),
+                }).FirstOrDefault();
+            return userRoleDTO;
+        }
     }
 }
