@@ -109,7 +109,7 @@
                 </span>
             </a>*@
             <a asp-controller="Auth" asp-action="Index" id="logout" class="sidebar-link logout">
-                <span class="nav-container"
+                <span class="nav-container">
                     <span class="pl-3">Logout</span>
                 </span>
             </a>
@@ -119,9 +119,9 @@
         </div>
     </aside>
     <div class="content-wrapper ">
-        <div class="container homePage">
+        @*<div class="container homePage">*@
         @RenderBody()       
-        </div>
+        @*</div>*@
             </div>
         </div>
     </div>
