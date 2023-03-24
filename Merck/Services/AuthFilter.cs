@@ -18,12 +18,10 @@ namespace Merck.Repositories
     {
         
         private readonly string[] _roles;
-        private readonly string[] _users;
         private readonly string[] _permissions;
-        public AuthFilter(string[] roles = null, string[] users = null, string[] permissions = null)
+        public AuthFilter(string[] roles = null, string[] permissions = null)
         {
             _roles = roles;
-            _users = users;
             _permissions = permissions;
            
         }
