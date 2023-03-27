@@ -299,9 +299,13 @@ html body .m-t-30 {
 
 html body .m-t-40 {
   margin-top: 40px; }
+
 html body .m-t-70 {
-    margin-top: 70px;
-}
+    margin-top: 70px;}
+
+html body .m-t-80 {
+    margin-top: 80px;}
+
 html body .m-b-0 {
   margin-bottom: 0px; }
 
@@ -427,6 +431,9 @@ Text Colors
 *******************/
 .text-white {
   color: #ffffff !important; }
+
+.text-black {
+    color: black !important; }
 
 .text-danger {
   color: #ff5c6c !important; }
