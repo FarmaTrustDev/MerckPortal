@@ -192,6 +192,10 @@ html body .p-l-10 {
 html body .p-l-20 {
   padding-left: 20px; }
 
+html body .p-l-100 {
+    padding-right: 400px;
+}
+
 html body .p-r-0 {
   padding-right: 0px; }
 
@@ -260,6 +264,10 @@ html body .m-l-30 {
 
 html body .m-l-40 {
   margin-left: 40px; }
+
+html body .m-l-130 {
+    margin-left: 130px;
+}
 
 html body .m-r-5 {
   margin-right: 5px; }
@@ -2550,7 +2558,7 @@ Form-control
     /* display: initial; */
     background-color: #f3f6f9;
     border-radius: 18px;
-    padding: 6px 11px;
+    padding: 6px 20px;
     height: 55px;
 }
 
