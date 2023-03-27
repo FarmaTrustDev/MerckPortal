@@ -5,13 +5,17 @@
 @using (Html.BeginForm("CreateRoleWithPermission", "Role", FormMethod.Post))
 {
 
-	<div class="container m-t-10 bg-white mb-4">
-	<h2 class="m-t-70">Create Role</h2>
-	<div class="row mt-4">
-		<div class="col-md-6">
-			<form>
-				
-				<div class="form-group">
+<div class="container m-t-80">
+		<div class="grey-card container p-sm-3">
+			<div class="white-card row m-2 pills-container">
+				<div class="kt-container   kt-container--fluid  kt-grid__item kt-grid__item--fluid p-0">
+					<div class="row user-form-padding">
+						<div class="col-lg-12">
+							<div class="kt-portlet">
+								<h2 class="kt-portlet__head-title">Create Role</h2>
+								<form class="kt-form kt-form--fit kt-form--label-right m-t-30">
+									<div class="kt-portlet__body">
+				<div class="form-group row">
 					<label asp-for="Name" class="control-label"></label>
 					<input asp-for="Name" class="form-control" />
 					<span asp-validation-for="Name" class="text-danger"></span>
@@ -29,8 +33,13 @@
 					}
 				</div>
 					<button type="submit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Create Role</button>
+					</div>
 			</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
 }
