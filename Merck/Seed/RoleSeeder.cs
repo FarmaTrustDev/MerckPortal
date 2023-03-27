@@ -29,7 +29,7 @@ namespace Merck.Seed
             roles.Add(new Roles()
             {
                 Id = 2,
-                Name = "Operator",
+                Name = "Patient",
                 Active = true
             });
 
