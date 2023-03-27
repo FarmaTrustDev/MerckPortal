@@ -1,40 +1,36 @@
-﻿@{
+﻿@model Roles
+@{
     ViewData["Title"] = "Create Roles";
 }
+@using (Html.BeginForm("CreateRoleWithPermission", "Role", FormMethod.Post))
+{
 
-
-<div class="container mt-4 bg-white mb-4">
-	<h1>Create Role</h1>
+	<div class="container m-t-10 bg-white mb-4">
+	<h2 class="m-t-70">Create Role</h2>
 	<div class="row mt-4">
 		<div class="col-md-6">
 			<form>
+				
 				<div class="form-group">
-					<label for="rolename">Role Name:</label>
-					<input type="text" class="form-control" id="rolename" placeholder="Enter role name">
+					<label asp-for="Name" class="control-label"></label>
+					<input asp-for="Name" class="form-control" />
+					<span asp-validation-for="Name" class="text-danger"></span>
 				</div>
 				<div class="form-group">
-					<label for="permissions">Permissions:</label>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="permission1" value="permission1">
-						<label class="form-check-label" for="permission1">
-							Read
-						</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="permission2" value="permission2">
-						<label class="form-check-label" for="permission2">
-							Assign
-						</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="permission3" value="permission3">
-						<label class="form-check-label" for="permission3">
-							write
-						</label>
-					</div>
+					<label for="permissions">Select Permission(s) for the Role:</label>
+					@foreach (var permission in ViewBag.Permissions)
+					{
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="permissions_@permission.Id" name="PermissionRoles" value="@permission.Id">
+							<label class="form-check-label" for="permissions_@permission.Id">
+								@permission.Name
+							</label>
+						</div>
+					}
 				</div>
-				<button type="submit" class="btn btn-primary">Create Role</button>
+					<button type="submit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Create Role</button>
 			</form>
 		</div>
 	</div>
 </div>
+}

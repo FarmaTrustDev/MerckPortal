@@ -5,35 +5,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <div class="container-fluid">
-        <div class="row content">
-            <br>
-
-            <div class="col-sm-9">
-                <div class="col-xl-12 mb-xl-10  m-t-40">
-                    <!--begin::Card-->
-                    <div class="card">
-                        <!--begin::Card body-->
-                        <div class="card-body p-0">
-                            <!--begin::Wrapper-->
-                            <div class="card-px text-center py-20 my-10 display-5">
-                                <!--begin::Title-->
-                                <h2 class="fs-4x fw-bolder mb-10">Welcome to the Admin Portal!</h2>
-                                <!--end::Title-->
-                                <!--begin::Description-->
-                                <!--end::Description-->
-
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <article class="article">
+        @{
+            string roles = "";
+            if (ViewBag.Users != null)
+            {
+                foreach (var item in ViewBag.Users.Roles)
+                {
+                    roles += item.Name;
+                }
+            }
+        }
+        <h1 class="heading"><strong>Welcome To @roles Portal</strong></h1>
+    </article>
 </body>
 </html>
 

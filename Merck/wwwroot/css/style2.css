@@ -1,0 +1,3181 @@
+﻿@import"https://fonts.googleapis.com/css2?family=Poppins&display=swap";
+
+.shadow-input-bg, .form-control, .shadow-input-group input {
+    background-color: #f3f6f9
+}
+
+.cerulean-blue, .side-bar .logout-core, .side-bar .logout span.nav-container:hover, .side-bar .logout span.nav-container, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary, .image-card figure:before, .btn-primary, .swal2-styled.swal2-confirm {
+    background-color: #3869d1
+}
+
+.white-bg, .white-card, .bg-white, .homePage .white-card:hover img, .main-sidebar, .image-card figure img {
+    background-color: #fff
+}
+
+.bg-grey {
+    background-color: #909090
+}
+
+.bg-resolved {
+    background-color: #d1f2dd
+}
+
+.bg-archive {
+    background-color: #f3e5f4
+}
+
+.bg-InProgress {
+    background-color: #ecf6fd
+}
+
+.bg-alabaster, .table-header-type, .c-table thead th, .homePage .white-card img, .time-line-tabs .nav-tabs .nav-link, .pills-container .base-nav-link, .pills-container .nav-pills .nav-link, .bullet-sm-nav-disable, .table-logistic .bar, .patient-timeline a.btn, .bullet-nav, .pills-container .base-nav-link, .select2-container .select2-selection__rendered, .select2-container, .input-group .input-group-prepend .input-group-text, .form-control, .grey-input, .grey-card {
+    background-color: #f9f9f9
+}
+
+.bg-danger, .time-danger, .btn-danger, .patient-timeline a.btn-outline-danger {
+    background-color: #fa6363
+}
+
+.bg-cerulean, .base-blue-xx, .statistic_card, .card-blue-hover:hover {
+    background-color: #3869d1
+}
+
+.bg-secondary, .table-nav-tab > .nav-tabs .active, .lg-calendar .fc-button-group, .time-line-tabs .nav-tabs .active, .pills-container .nav-pills .active, .side-bar > div .active .nav-container, .bullet-sm-nav, .table-logistic .processing, .patient-timeline a.btn-outline-brand, .bullet-sm-nav-active, .active-timeline-bar, .logistic-timeline .btn-outline-brand, .base-received .manufacturing, .table-time-line .process-received .manufacturing, .base-not-received .inbound, .table-time-line .process-not-received .inbound, .base-manufacture-outbound .outbound, .table-time-line .manufacture-outbound .outbound {
+    background-color: #f2f5fb
+}
+
+.bg-french-grey, .table-logistic .v-sep, .patient-timeline .sep-line-disabled {
+    background-color: #bebfcb
+}
+
+.bg-rejected, .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default, .badge-rejected, .btn-rejected {
+    background-color: #ffdbdb
+}
+
+.bg-new, .badge-new, .btn-border-new {
+    background-color: #fff8e5
+}
+
+.bg-green, .table-logistic .sep-line, .patient-timeline .sep-line, .logistic-timeline .sep-line, .base-manufacture-outbound .sep-line, .table-time-line .manufacture-outbound .sep-line, .base-not-received .sep-line, .table-time-line .process-not-received .sep-line, .base-received .sep-line, .table-time-line .process-received .sep-line {
+    background-color: #1bb558
+}
+
+.bg-success-tab, .time-line-tabs .nav-tabs .done, .pills-container .nav-pills .success, .bullet-danger-sm-nav, .patient-timeline a.btn-outline-danger, .bullet-sccuess-sm-nav, .table-logistic .completed, .patient-timeline a.btn-brand {
+    background-color: #d1f2dc
+}
+
+.bg-grey-sep {
+    background-color: #e2e2e2
+}
+
+.btn:focus {
+    outline: 0
+}
+
+.btn {
+    font-weight: 500;
+    line-height: 1
+}
+
+.btn-lg {
+    padding: 1.5em;
+    font-size: 14px
+}
+
+.width163height56 {
+    width: 163px;
+    height: 56px
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    color: #2860d9
+}
+
+    .btn-light:hover {
+        background-color: #f8f9fa;
+        border-color: #f8f9fa;
+        color: #2860d9
+    }
+
+.menu-dot {
+    background-image: url("../images/v2/icons/dot-menu.svg");
+    height: 18px;
+    width: 6px;
+    padding: 0 !important;
+    background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat
+}
+
+    .menu-dot:after {
+        display: none
+    }
+
+.btn-bullet-active {
+    height: 40px;
+    width: 40px;
+    background-size: 100%;
+    vertical-align: middle
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .swal2-styled.swal2-confirm:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .swal2-styled.swal2-confirm:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus, .show > .dropdown-toggle.swal2-styled.swal2-confirm:focus {
+    box-shadow: none
+}
+
+.flash {
+    color: red;
+    -webkit-animation-name: flash;
+    animation-name: flash;
+    -webkit-animation: flash linear 1.5s infinite;
+    animation: flash linear 1.5s infinite;
+    border-color: #dc4e41
+}
+
+.default-badge, .badge-rejected, .badge-new, .btn-border-new {
+    font-weight: 500
+}
+
+h1, h2, h3, h4, h5, h6, p, label, span, body {
+    font-family: Poppins,Helvetica,"sans-serif"
+}
+
+.h3, .login-card .heading, .c-card .heading {
+    font-size: 1.75rem
+}
+
+.weight-400, .shadow-input-group label {
+    font-weight: 400
+}
+
+.article .heading {
+    font-size: 25px
+}
+
+.font-weight-400 {
+    font-weight: 400
+}
+
+.decoration-none, a.btn:not([href]):not([tabindex]), a.btn {
+    text-decoration: none
+}
+
+.heading-page {
+    font-size: 1.3em;
+    margin-bottom: 1.5em;
+    font-weight: 900
+}
+
+.title, .swal2-title {
+    color: #909090
+}
+
+.sub-heading {
+    font-size: 24px
+}
+
+.color-grey, .c-table tbody tr, .common-detail dt, .details dt, .pills-container .tab-content .tab-pane label, .shadow-input-group label, .with-arrow:before {
+    color: #909090
+}
+
+.color-white, .homePage .with-arrow:hover:before, .side-bar .logout-core, .side-bar .logout span.nav-container:hover, .side-bar .logout span.nav-container, .base-blue-xx, .statistic_card, .card-blue-hover:hover, .btn-primary, .swal2-styled.swal2-confirm {
+    color: #fff
+}
+
+.color-french, .select2-container .select2-selection__rendered, .input-group .input-group-prepend .input-group-text {
+    color: #bebfcb
+}
+
+.color-black, .table-nav-tab > .nav-tabs .nav-link, .c-table tbody tr td, .homePage .white-card, .side-bar .sidebar-link, .bullet-danger-sm-nav, .patient-timeline a.btn-outline-danger, .bullet-sm-nav-disable, .table-logistic .bar, .patient-timeline a.btn, .bullet-sccuess-sm-nav, .table-logistic .completed, .patient-timeline a.btn-brand, .bullet-sm-nav, .table-logistic .processing, .patient-timeline a.btn-outline-brand, .bullet-sm-nav-active, .active-timeline-bar, .logistic-timeline .btn-outline-brand, .base-received .manufacturing, .table-time-line .process-received .manufacturing, .base-not-received .inbound, .table-time-line .process-not-received .inbound, .base-manufacture-outbound .outbound, .table-time-line .manufacture-outbound .outbound, .bullet-nav, .time-line-tabs .nav-tabs .nav-link, .pills-container .base-nav-link, .pills-container .nav-pills .nav-link, .btn-danger, .btn-rejected, .default-badge, .badge-rejected, .badge-new, .btn-border-new {
+    color: #233151
+}
+
+    .color-cerulean, .table-nav-tab > .nav-tabs .active, .side-bar > div .active .nav-container, .side-bar .sidebar-link .nav-container:hover {
+        color: #3869d1
+    }
+
+.font-14, .c-table .btn, .c-table .admin-roles, .c-table .badge, .c-table thead th {
+    font-size: 14px
+}
+
+.font-16 {
+    font-size: 168px
+}
+
+.font-18, .homePage .white-card .heading, .with-arrow:before {
+    font-size: 18px
+}
+
+.font-24, .with-arrow:before, .article .heading {
+    font-size: 24px
+}
+
+body {
+    background: #fff
+}
+
+.vh-100 {
+    height: 100vh
+}
+
+.display-inline, .horizontal-card .heading, .grey-card .time-danger {
+    display: inline-block
+}
+
+    .display-block, .horizontal-card .heading .strong {
+        display: block
+    }
+
+.center-absoulte, .with-arrow:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+.p-y13-x15, .c-table .btn, .c-table .admin-roles, .c-table .badge {
+    padding: 13px 15px
+}
+
+.p-15, .pills-container .base-nav-link, .pills-container .nav-pills .nav-link {
+    padding: 15px
+}
+
+.p-10 {
+    padding: 10px
+}
+
+.m-15 {
+    margin: 15px
+}
+
+.user-form-padding {
+    padding: 100px;
+    padding-top: 50px
+}
+
+.padding-right-left {
+    padding-right: 30px;
+    padding-left: 30px
+}
+
+.c-card .heading {
+    color: #233151
+}
+
+.white-card {
+    box-shadow: 0px 26px 120px rgba(0,0,0,.04)
+}
+
+    .white-card > .heading {
+        font-size: 14px
+    }
+
+.grey-card {
+    font-size: 14px;
+    font-weight: bold
+}
+
+    .grey-card .time-danger {
+        padding: 8px 20px;
+        margin-right: 5px
+    }
+
+    .time-danger-box-shadow, .grey-card .time-danger {
+        margin: auto
+    }
+
+.default-box, .white-card, .grey-card {
+    padding: 10px 15px
+}
+
+.with-arrow:before {
+    content: ">";
+    right: 20px;
+    height: 23px;
+    line-height: 1
+}
+
+.card-blue-hover img {
+    transition: transform .8s ease-in-out,background-color .3s ease-in-out,color .3s ease-in-out
+}
+
+.base-blue-xx, .statistic_card, .card-blue-hover:hover {
+    color: #fff;
+    transition: transform .8s ease-in-out,background-color .3s ease-in-out,color .3s ease-in-out,background-image .3s ease-in-out;
+    background-image: url("http://sch-prod-atmps.microsysx.com/assets/media/bg/bg-hover-blue.svg")
+}
+
+    .base-blue-xx img, .statistic_card img, .card-blue-hover:hover img {
+        background-color: #4b7adf !important
+    }
+
+.image-card figure {
+    text-align: center
+}
+
+    .image-card figure:before {
+        content: "";
+        height: 100px;
+        width: 100%;
+        display: inline-block
+    }
+
+    .image-card figure img {
+        max-height: 140xpx;
+        max-width: 140px;
+        width: 100%;
+        padding: 15px;
+        margin-top: -60px;
+        margin-bottom: 15px;
+        position: relative
+    }
+
+.statistic_card {
+    background-size: cover
+}
+
+    .statistic_card .Completed {
+        width: 20px;
+        height: 22px;
+        background: #28ced9;
+        position: absolute;
+        border-radius: 10px
+    }
+
+    .statistic_card .booked {
+        width: 20px;
+        height: 22px;
+        background: #f4b71a;
+        position: absolute;
+        border-radius: 10px
+    }
+
+    .statistic_card .spoilage {
+        width: 20px;
+        height: 22px;
+        background: #fa6363;
+        position: absolute;
+        border-radius: 10px
+    }
+
+    .statistic_card .inProcess {
+        width: 20px;
+        height: 22px;
+        background: #2255c2;
+        position: absolute;
+        border-radius: 10px
+    }
+
+.card-shadow, .swal2-popup, .lg-calendar .fc-button-group, .c-card, .image-card figure img {
+    box-shadow: 0 26px 120px 0 rgba(0,0,0,.04)
+}
+
+.img-card-shadow, .image-card figure img {
+    -webkit-box-shadow: 2px 2px 15px 1px #bdb7bd;
+    -moz-box-shadow: 2px 2px 15px 1px #bdb7bd;
+    box-shadow: 2px 2px 15px 1px #bdb7bd
+}
+
+.shadow-input-group {
+    margin: 15px 0
+}
+
+    .shadow-input-group input {
+        display: block;
+        padding: 15px;
+        border: 0
+    }
+
+        .shadow-input-group input::-webkit-input-placeholder {
+            color: #bebfcb
+        }
+
+        .shadow-input-group input:-moz-placeholder {
+            color: #bebfcb
+        }
+
+        .shadow-input-group input::-moz-placeholder {
+            color: #bebfcb
+        }
+
+        .shadow-input-group input:-ms-input-placeholder {
+            color: #bebfcb
+        }
+
+    .shadow-input-group label {
+        font-size: 1em;
+        display: block;
+        padding: 5px 0
+    }
+
+.grey-input {
+    border: none;
+    border-radius: 44px
+}
+
+.input-group-search {
+    padding: 5px
+}
+
+    .input-group-search .input-group-text, .input-group-search .form-control {
+        background-color: transparent;
+        border: none
+    }
+
+    .input-group-search .input-group-prepend .input-group-text {
+        background-color: transparent
+    }
+
+    .input-group-search .form-control {
+        padding: 8px
+    }
+
+.form-control {
+    display: block;
+    padding: 15px;
+    border: 0
+}
+
+    .form-control::-webkit-input-placeholder {
+        color: #bebfcb
+    }
+
+    .form-control:-moz-placeholder {
+        color: #bebfcb
+    }
+
+    .form-control::-moz-placeholder {
+        color: #bebfcb
+    }
+
+    .form-control:-ms-input-placeholder {
+        color: #bebfcb
+    }
+
+.input-group .input-group-prepend .input-group-text {
+    border-top-left-radius: 44px;
+    border-bottom-left-radius: 44px
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: auto
+}
+
+.select2-container--default .select2-selection--single {
+    border: 0 !important
+}
+
+.select2-container {
+    padding: 15px;
+    height: inherit;
+    border: 0
+}
+
+    .select2-container .select2-selection__rendered {
+        border: 0
+    }
+
+        .select2-container .select2-selection__rendered:focus {
+            border: 0 !important
+        }
+
+    .select2-container .select2-selection__arrow {
+        width: 20px;
+        bottom: 0;
+        margin: auto
+    }
+
+    .select2-container *:focus {
+        outline: none
+    }
+
+.select2-container--default .select2-selection--multiple {
+    border: 0 !important;
+    background-color: transparent !important
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+    border-color: #07c716;
+    color: #fff
+}
+
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px
+}
+
+.bootstrap-switch .bootstrap-switch-label {
+    color: #a7abc3;
+    background: #fff
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+    background-color: #fa6363;
+    border-color: #fa6363;
+    color: #fff
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label {
+    padding-top: .65rem;
+    padding-bottom: .65rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.5;
+    letter-spacing: .1rem;
+    font-size: .9rem;
+    font-weight: 400
+}
+
+bootstrap-switch input[type=checkbox], .bootstrap-switch input[type=radio] {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden
+}
+
+.bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
+    -webkit-transition: margin-left .5s;
+    transition: margin-left .5s
+}
+
+.bootstrap-switch .bootstrap-switch-container {
+    display: inline-block;
+    top: 0;
+    border-radius: 4px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+.bootstrap-switch {
+    border-color: #e2e5ec
+}
+
+.bootstrap-switch {
+    display: inline-block
+}
+
+.bootstrap-switch {
+    max-width: 90px;
+    display: inline-block;
+    direction: ltr;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #ccc;
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+    line-height: 38px;
+    z-index: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s
+}
+
+    .bootstrap-switch input[type=checkbox], .bootstrap-switch input[type=radio] {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        margin: 0;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label, .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px
+    }
+
+    .bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off, .bootstrap-switch .bootstrap-switch-label {
+        padding-top: .65rem;
+        padding-bottom: .65rem;
+        padding-left: 15px;
+        padding-right: 1rem;
+        line-height: 1.5;
+        letter-spacing: .1rem;
+        font-size: .9rem;
+        font-weight: 400
+    }
+
+    .bootstrap-switch span::before {
+        content: "​"
+    }
+
+    .bootstrap-switch span::before {
+        content: "​"
+    }
+
+.bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
+    content: "";
+    width: 37px;
+    display: inline-block;
+    height: 35px;
+    margin-right: 10px;
+    vertical-align: middle
+}
+
+@media(max-width: 768px) {
+    .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
+        background-size: 20px;
+        height: 20px;
+        width: 20px
+    }
+}
+
+.base-sm-nav, .bullet-sm-nav, .table-logistic .processing, .patient-timeline a.btn-outline-brand, .bullet-sm-nav-active, .active-timeline-bar, .logistic-timeline .btn-outline-brand, .base-received .manufacturing, .table-time-line .process-received .manufacturing, .base-not-received .inbound, .table-time-line .process-not-received .inbound, .base-manufacture-outbound .outbound, .table-time-line .manufacture-outbound .outbound, .bullet-sccuess-sm-nav, .table-logistic .completed, .patient-timeline a.btn-brand, .bullet-sm-nav-disable, .table-logistic .bar, .patient-timeline a.btn, .bullet-danger-sm-nav, .patient-timeline a.btn-outline-danger {
+    padding: 10px;
+    font-size: 12px
+}
+
+    .base-sm-nav:before, .bullet-sm-nav:before, .table-logistic .processing:before, .patient-timeline a.btn-outline-brand:before, .bullet-sm-nav-active:before, .active-timeline-bar:before, .logistic-timeline .btn-outline-brand:before, .base-received .manufacturing:before, .table-time-line .process-received .manufacturing:before, .base-not-received .inbound:before, .table-time-line .process-not-received .inbound:before, .base-manufacture-outbound .outbound:before, .table-time-line .manufacture-outbound .outbound:before, .bullet-sccuess-sm-nav:before, .table-logistic .completed:before, .patient-timeline a.btn-brand:before, .bullet-sm-nav-disable:before, .table-logistic .bar:before, .patient-timeline a.btn:before, .bullet-danger-sm-nav:before, .patient-timeline a.btn-outline-danger:before {
+        content: "";
+        background-size: 28px;
+        height: 28px;
+        width: 28px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        background-size: 100%
+    }
+
+@media(max-width: 768px) {
+    .base-sm-nav:before, .bullet-sm-nav:before, .table-logistic .processing:before, .patient-timeline a.btn-outline-brand:before, .bullet-sm-nav-active:before, .active-timeline-bar:before, .logistic-timeline .btn-outline-brand:before, .base-received .manufacturing:before, .table-time-line .process-received .manufacturing:before, .base-not-received .inbound:before, .table-time-line .process-not-received .inbound:before, .base-manufacture-outbound .outbound:before, .table-time-line .manufacture-outbound .outbound:before, .bullet-sccuess-sm-nav:before, .table-logistic .completed:before, .patient-timeline a.btn-brand:before, .bullet-sm-nav-disable:before, .table-logistic .bar:before, .patient-timeline a.btn:before, .bullet-danger-sm-nav:before, .patient-timeline a.btn-outline-danger:before {
+        background-size: 100%;
+        height: 20px;
+        width: 20px
+    }
+}
+
+.bullet-nav, .time-line-tabs .nav-tabs .nav-link, .pills-container .base-nav-link, .pills-container .nav-pills .nav-link {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500
+}
+
+    .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
+        content: "";
+        background-size: 28px;
+        height: 28px;
+        width: 28px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        background-size: 100%
+    }
+
+@media(max-width: 768px) {
+    .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
+        background-size: 100%;
+        height: 20px;
+        width: 20px
+    }
+}
+
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none
+}
+
+.base-bullet, .bullet-disabled, .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before, .bullet-disabled-with-bg, .logistic-timeline .btn-outline-secondary, .base-not-received .outbound, .table-time-line .process-not-received .outbound, .base-not-received .manufacturing, .table-time-line .process-not-received .manufacturing, .base-received .outbound, .table-time-line .process-received .outbound, .bullet-active-disabled, .logistic-timeline .btn-brand, .base-manufacture-outbound .manufacturing, .table-time-line .manufacture-outbound .manufacturing, .base-manufacture-outbound .inbound, .table-time-line .manufacture-outbound .inbound, .base-received .inbound, .table-time-line .process-received .inbound {
+    color: transparent !important;
+    width: 43px;
+    height: 43px;
+    background-size: 100%
+}
+
+.active-bullet-image, .time-line-tabs .nav-tabs .active:before, .pills-container .nav-pills .active:before, .bullet-sm-nav:before, .table-logistic .processing:before, .patient-timeline a.btn-outline-brand:before, .bullet-sm-nav-active:before, .active-timeline-bar:before, .logistic-timeline .btn-outline-brand:before, .base-received .manufacturing:before, .table-time-line .process-received .manufacturing:before, .base-not-received .inbound:before, .table-time-line .process-not-received .inbound:before, .base-manufacture-outbound .outbound:before, .table-time-line .manufacture-outbound .outbound:before {
+    background-image: url("../images/v2/icons/circle-active.svg") !important
+}
+
+.bullet-image, .time-line-step .kt-notes__item .kt-notes__icon, .btn-bullet-active, .bullet-sm-nav-disable:before, .table-logistic .bar:before, .patient-timeline a.btn:before, .bullet-disabled, .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
+    background-image: url("../images/v2/icons/circle.svg")
+}
+
+.done-status, .time-line-tabs .nav-tabs .done:before, .pills-container .nav-pills .success:before {
+    background-image: url("../images/v2/icons/status-done-circle.svg")
+}
+
+.done-status-with-bg, .time-line-step .--completed .kt-notes__icon, .bullet-sccuess-sm-nav:before, .table-logistic .completed:before, .patient-timeline a.btn-brand:before, .bullet-active-disabled, .logistic-timeline .btn-brand, .base-manufacture-outbound .manufacturing, .table-time-line .manufacture-outbound .manufacturing, .base-manufacture-outbound .inbound, .table-time-line .manufacture-outbound .inbound, .base-received .inbound, .table-time-line .process-received .inbound {
+    background-image: url("../images/v2/icons/status-done-circle-background.svg")
+}
+
+.disabled-with-bg, .bullet-disabled-with-bg, .logistic-timeline .btn-outline-secondary, .base-not-received .outbound, .table-time-line .process-not-received .outbound, .base-not-received .manufacturing, .table-time-line .process-not-received .manufacturing, .base-received .outbound, .table-time-line .process-received .outbound {
+    background-image: url("../images/v2/icons/disabled-with-bg.svg")
+}
+
+.danger-with-bg, .time-line-tabs .nav-tabs .danger:before, .bullet-danger-sm-nav:before, .patient-timeline a.btn-outline-danger:before {
+    background-image: url("../images/v2/icons/danger-cross.svg")
+}
+
+.table-seprator .nav-tabs .nav-link {
+    border: 1px solid #ececec;
+    border-radius: 30px;
+    margin-right: 36px
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .icons-xx, .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-next, .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-back {
+    background-size: contain;
+    height: 20px;
+    width: 14px;
+    background-position: 2px 0;
+    background-repeat: no-repeat;
+    background-image: url("../images/v2/icons/arrow.svg")
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .icons-xx-x, .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-fast-next, .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-fast-back {
+    height: 14px;
+    width: 16px;
+    background-image: url("../images/v2/icons/arrow.svg")
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-back {
+    transform: rotate(180deg)
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-fast-back {
+    transform: rotate(180deg)
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link .flaticon2-fast-next {
+    background-position: 1px
+}
+
+#kt--screenings .nav-link {
+    border: 1px solid #ececec;
+    border-radius: 30px;
+    margin-right: 14px
+}
+
+#kt_CollectionTabs .nav-item .nav-link.tab-pane {
+    border: 1px solid #ececec;
+    border-radius: 30px;
+    margin-right: 30px
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 98;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #464e5f;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0 solid rgba(0,0,0,.15);
+    border-radius: .42rem;
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(82,63,105,.15);
+    box-shadow: 0px 0px 50px 0px rgba(82,63,105,.15)
+}
+
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #949fba
+}
+
+    .dropdown-item .fa.fa-plus, .fa.fa-trash-alt {
+        background: #f2f5fb;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 10px;
+        padding: 6px
+    }
+
+.table-responsive .nav-tabs {
+    border-bottom: 1px solid none !important
+}
+
+.cerulean-blue-border, .btn-primary, .swal2-styled.swal2-confirm {
+    border-color: #3869d1
+}
+
+.border-alabaster {
+    border-color: #f9f9f9
+}
+
+.radius-border-10, .lg-calendar .fc-left button, .lg-calendar .fc-button-group button {
+    border-radius: 10px
+}
+
+.radius-border-22, .homePage .white-card img, .login-page .c-card, .swal2-popup, .lg-calendar .fc-left button, .lg-calendar .fc-button-group, .time-line-step .kt-notes__content, .side-bar .sidebar-link .nav-container, .default-badge, .badge-rejected, .badge-new, .btn-border-new, .time-danger, .default-box, .white-card, .grey-card, .shadow-input-group input, .form-control, .select2-container, .bootstrap-switch, .bullet-nav, .time-line-tabs .nav-tabs .nav-link, .pills-container .base-nav-link, .pills-container .nav-pills .nav-link, .bullet-sm-nav, .table-logistic .processing, .patient-timeline a.btn-outline-brand, .bullet-sccuess-sm-nav, .table-logistic .completed, .patient-timeline a.btn-brand, .bullet-sm-nav-disable, .table-logistic .bar, .patient-timeline a.btn, .bullet-danger-sm-nav, .patient-timeline a.btn-outline-danger, .bullet-sm-nav-active, .active-timeline-bar, .logistic-timeline .btn-outline-brand, .base-received .manufacturing, .table-time-line .process-received .manufacturing, .base-not-received .inbound, .table-time-line .process-not-received .inbound, .base-manufacture-outbound .outbound, .table-time-line .manufacture-outbound .outbound {
+    border-radius: 22px
+}
+
+.radius-border-15 {
+    border-radius: 15px
+}
+
+.radius-border-18, .btn-default, .swal2-cancel, .btn-primary, .swal2-styled.swal2-confirm, .btn, .btn-rejected {
+    border-radius: 18px
+}
+
+.radius-border-44, .kt-datatable__pager-nav li .kt-datatable__pager-link-number, .table-nav-tab > .nav-tabs a.active:hover, .table-nav-tab > .nav-tabs .active, .c-table tbody tr, .homePage .grey-card, .login-page:before, .grey-card, .input-group-search {
+    border-radius: 44px
+}
+
+.radius-border-25 {
+    border-radius: 25px
+}
+
+.radius-border-30, .image-card figure:before, .image-card figure img {
+    border-radius: 30px
+}
+
+.border-french, .input-group-search {
+    border: 1px solid #bebfcb
+}
+
+.border-shadow-0, .input-group-search {
+    box-shadow: none
+}
+
+.border-color-rejected, .btn-rejected {
+    border-color: #ffdbdb
+}
+
+.border-none, .c-table tbody tr td, .c-table thead th, .input-group .input-group-prepend .input-group-text {
+    border: none
+}
+
+@media(min-width: 767px) {
+    .border-r-md-15px {
+        border-right: 15px solid #f9f9f9
+    }
+}
+
+@media(min-width: 767px) {
+    .border-l-md-15px {
+        border-left: 15px solid #f9f9f9
+    }
+}
+
+.row-border-round {
+    border-radius: 22px;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    justify-content: center;
+    vertical-align: middle
+}
+
+.support .nav-link {
+    font-size: 14px;
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid #ececec;
+    font-weight: 300;
+    color: #000;
+    margin-right: 4px
+}
+
+.support .badges-container .active {
+    background-color: #f3f8ff;
+    color: #000
+}
+
+.support .badges-container .badge-default {
+    font-size: 14px;
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid #ececec;
+    font-weight: 300
+}
+
+.support .personel-container .f {
+    font-size: 12px;
+    font-weight: bold
+}
+
+.support .personel-container .tile {
+    font-size: 12px
+}
+
+    .support .personel-container .tile .tile-heading {
+        font-size: 12px
+    }
+
+@media(max-width: 767px) {
+    .support .col-md-49 {
+        max-width: 49% !important
+    }
+}
+
+.support .chat-container .time {
+    display: inline-block;
+    padding: 10px 5px;
+    color: rgba(35,49,81,.6)
+}
+
+.support .chat-container .chat {
+    padding: 15px;
+    display: inline-block;
+    border-radius: 22px;
+    margin-top: 10px;
+    max-width: 85%
+}
+
+.support .chat-container .chat-recived {
+    text-align: left
+}
+
+    .support .chat-container .chat-recived .chat {
+        background-color: #f1faff
+    }
+
+.support .chat-container .chat-send {
+    text-align: right
+}
+
+    .support .chat-container .chat-send .chat {
+        text-align: left;
+        background-color: rgba(120,98,255,.14)
+    }
+
+.grayscale, .side-bar .logout span.nav-container img, .side-bar .sidebar-link .nav-container img {
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    filter: grayscale(1)
+}
+
+.width-100, .c-table .admin-roles, .c-table .badge {
+    width: 100%
+}
+
+.clearfix::after, .pills-container .tab-content .tab-pane .heading::after {
+    display: block;
+    clear: both;
+    content: ""
+}
+
+header {
+    position: relative;
+    z-index: 2
+}
+
+    header .navbar-brand {
+        width: 265px
+    }
+
+@media(min-width: 768px) {
+    header .navbar-brand {
+        padding-left: 20px
+    }
+}
+
+header .grey-card {
+    display: inline-block
+}
+
+.main-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 120px;
+    min-height: 100%;
+    width: 265px;
+    z-index: 1;
+    transition: transform .3s ease-in-out,width .3s ease-in-out;
+    border-right: 1px solid #dedede
+}
+
+@media(max-width: 768px) {
+    .main-sidebar {
+        width: 0;
+        overflow: hidden;
+        border-right: 1px solid #dedede;
+        padding-top: 160px
+    }
+}
+
+.main-sidebar a.sidebar-link:last-child {
+    position: absolute;
+    min-width: 160px;
+    left: 0;
+    bottom: 15px;
+    right: 0;
+    margin: auto;
+    max-width: 150px
+}
+
+.asider {
+    width: 265px
+}
+
+@media(max-width: 768px) {
+    .sidebar-open .main-sidebar {
+        width: 265px;
+        overflow: hidden
+    }
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 101px);
+    margin-left: 265px;
+    padding: 15px
+}
+
+@media(max-width: 768px) {
+    .content-wrapper {
+        margin-left: 0;
+        padding: 0
+    }
+}
+
+.side-bar {
+    text-align: center;
+    position: fixed
+}
+
+    .side-bar .sidebar-link {
+        display: block;
+        text-decoration: none;
+        text-transform: capitalize;
+        position: relative;
+        margin-top: 5px;
+        font-size: 1rem
+    }
+
+        .side-bar .sidebar-link .nav-container {
+            text-align: left;
+            padding: 20px 12px;
+            display: inline-block;
+            max-width: 205px;
+            width: 100%;
+            white-space: nowrap;
+            font-size: 14px
+        }
+
+            .side-bar .sidebar-link .nav-container:hover img {
+                -webkit-filter: grayscale(0);
+                -moz-filter: grayscale(0);
+                filter: grayscale(0)
+            }
+
+        .side-bar .sidebar-link .icon {
+            margin-right: 10px
+        }
+
+    .side-bar > div .active:before {
+        content: "";
+        width: 5px;
+        display: block;
+        height: 25px;
+        background-color: #fa6363;
+        position: absolute;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%
+    }
+
+    .side-bar > div .active .nav-container img {
+        -webkit-filter: grayscale(0);
+        -moz-filter: grayscale(0);
+        filter: grayscale(0)
+    }
+
+    .side-bar .logout span.nav-container:hover img {
+        -webkit-filter: grayscale(0);
+        -moz-filter: grayscale(0);
+        filter: grayscale(0)
+    }
+
+#aside_menu {
+    padding-top: 67px !important
+}
+
+@media(min-width: 767px) {
+    #aside_menu {
+        padding-top: 30px
+    }
+}
+
+@media(max-width: 767px) {
+    #aside_menu {
+        padding-top: 30px !important
+    }
+}
+
+.pills-container .nav-pills {
+    text-decoration: none
+}
+
+    .pills-container .base-nav-link, .pills-container .nav-pills .nav-link {
+        margin-top: 15px;
+        text-decoration: none;
+        font-weight: 500
+    }
+
+@media(max-width: 768px) {
+    .pills-container .base-nav-link, .pills-container .nav-pills .nav-link {
+        font-size: 14px;
+        white-space: nowrap
+    }
+}
+
+.pills-container .tab-content {
+    margin-top: 15px
+}
+
+    .pills-container .tab-content .tab-pane .heading {
+        font-size: 16px;
+        margin-bottom: 2em
+    }
+
+@media(max-width: 767px) {
+    .pills-container .tab-content .tab-pane .heading {
+        margin-bottom: 15px
+    }
+}
+
+.pills-container .tab-content .tab-pane label {
+    font-weight: 500;
+    font-size: 14px
+}
+
+.time-line-tabs {
+    max-width: inherit
+}
+
+    .time-line-tabs .nav-tabs {
+        margin: 15px auto;
+        border: 0
+    }
+
+        .time-line-tabs .nav-tabs .nav-item:first-child:after {
+            display: none !important
+        }
+
+        .time-line-tabs .nav-tabs .nav-item:last-child:before {
+            display: none !important
+        }
+
+        .time-line-tabs .nav-tabs .nav-item {
+            position: relative;
+            z-index: 2;
+            padding: 15px;
+            text-align: left;
+            padding-left: 0
+        }
+
+            .time-line-tabs .nav-tabs .nav-item:before, .time-line-tabs .nav-tabs .nav-item:after {
+                content: "";
+                border: 2px solid #f2f5fb;
+                background-color: #f2f5fb;
+                display: inline-block;
+                position: absolute;
+                z-index: -1;
+                margin: auto
+            }
+
+@media(min-width: 768px) {
+    .time-line-tabs .nav-tabs .nav-item:before, .time-line-tabs .nav-tabs .nav-item:after {
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        height: 2px
+    }
+}
+
+@media(max-width: 768px) {
+    .time-line-tabs .nav-tabs .nav-item:before, .time-line-tabs .nav-tabs .nav-item:after {
+        right: 0;
+        left: 0;
+        width: 2px;
+        height: 50%
+    }
+}
+
+@media(min-width: 768px) {
+    .time-line-tabs .nav-tabs .nav-item:before {
+        right: -20%
+    }
+}
+
+@media(min-width: 768px) {
+    .time-line-tabs .nav-tabs .nav-item:after {
+        left: 0
+    }
+}
+
+@media(max-width: 768px) {
+    .time-line-tabs .nav-tabs .nav-item:before {
+        bottom: 0
+    }
+
+    .time-line-tabs .nav-tabs .nav-item:after {
+        top: 0
+    }
+}
+
+.time-line-tabs .nav-tabs .nav-link {
+    display: inline-block;
+    border: none;
+    font-weight: 500;
+    margin-top: 0;
+    font-size: 16px;
+    min-width: 80%;
+    width: 100%;
+    text-align: left
+}
+
+.time-line-tabs .nav-tabs .danger {
+    background-color: #fa6363 !important;
+    color: #fff
+}
+
+.time-line-tabs .done-parent:after {
+    border: 2px solid #1bb558 !important;
+    background-color: #1bb558 !important
+}
+
+.time-line-tabs .done-parent:before {
+    border: 2px solid #1bb558 !important;
+    background-color: #1bb558 !important
+}
+
+.table-time-line {
+    max-width: 350px;
+    overflow: hidden
+}
+
+    .base-seprator, .table-logistic .sep-line, .patient-timeline .sep-line-disabled, .patient-timeline .sep-line, .logistic-timeline .sep-line, .table-time-line .sep-line {
+        max-width: 20px;
+        width: 100%;
+        height: 1px;
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    .active-timeline-bar, .logistic-timeline .btn-outline-brand, .base-received .manufacturing, .table-time-line .process-received .manufacturing, .base-not-received .inbound, .table-time-line .process-not-received .inbound, .base-manufacture-outbound .outbound, .table-time-line .manufacture-outbound .outbound {
+        padding: 8px 15px;
+        text-transform: capitalize
+    }
+
+.time-line-step .kt-notes__item {
+    margin-bottom: 30px;
+    padding-left: 50px !important
+}
+
+    .time-line-step .kt-notes__item .kt-notes__icon {
+        background-color: #d1f2dc !important;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 0 !important
+    }
+
+    .time-line-step .kt-notes__item:not(:last-child):before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        width: 1px;
+        top: 41px;
+        bottom: 5px;
+        height: 100%;
+        background-color: #d1f2dc
+    }
+
+.time-line-step .kt-notes__icon {
+    padding: 21px
+}
+
+.time-line-step .--completed .kt-notes__icon {
+    background-color: #d1f2dc !important
+}
+
+.time-line-step .--completed:not(:last-child):before {
+    background-color: #1bb558
+}
+
+.time-line-step .--completed .kt-notes__content {
+    border: 2px solid #1bb558
+}
+
+.time-line-step .kt-notes__content {
+    padding: 1em;
+    border: 2px solid #909090
+}
+
+    .time-line-step .kt-notes__content h2 {
+        line-height: 0;
+        padding: 0px 0 15px 0
+    }
+
+        .time-line-step .kt-notes__content h2 a {
+            color: #000
+        }
+
+    .time-line-step .kt-notes__content .kt-notes__desc {
+        color: #a7a5a5
+    }
+
+.time-line-step .kt-notes__media {
+    position: absolute;
+    top: 10px;
+    left: -17.5px;
+    bottom: 0;
+    margin: auto
+}
+
+.time-line-step .last_event_completed:before {
+    background-color: #fa6363 !important
+}
+
+.time-line-step .last_event_completed .kt-notes__items, .time-line-step .last_event_completed .kt-notes {
+    color: #fa6363
+}
+
+.time-line-step .last_event_completed .kt-notes__icon {
+    background-image: url("../images/v2/icons/danger-cross.svg");
+    border: 1px solid #fa6363 !important
+}
+
+    .time-line-step .last_event_completed .kt-notes__icon i {
+        display: none
+    }
+
+.time-line-step .last_event_completed .kt-notes__content {
+    border: 2px solid #fa6363 !important
+}
+
+.logistic-timeline .bg-line-grey {
+    background-color: #e2e2e2
+}
+
+.patient-timeline {
+    margin-top: 15px;
+    text-align: right
+}
+
+    .patient-timeline a.btn {
+        padding: 4px 8px;
+        border: 0
+    }
+
+        .patient-timeline a.btn:before {
+            margin-right: 5px
+        }
+
+    .patient-timeline .bg-line-grey {
+        background-color: #e2e2e2
+    }
+
+    .patient-timeline a.btn-outline-danger {
+        background-color: #ffd8d8 !important
+    }
+
+    .patient-timeline .sep-line:last-child {
+        display: none
+    }
+
+    .patient-timeline .link {
+        font-size: 12px;
+        text-decoration: none
+    }
+
+    .patient-timeline .viewBtn {
+        background-color: #3869d1;
+        color: #fff;
+        border-radius: 22%;
+        padding: 5px 8px;
+        margin-left: 16px !important;
+        display: inline-block
+    }
+
+    .patient-timeline .viewBtn-alternate {
+        background-color: #fa6363;
+        color: #fff;
+        border-radius: 22%;
+        padding: 5px 8px;
+        margin-left: 16px !important;
+        display: inline-block
+    }
+
+.table-logistic .bar {
+    padding: 4px 8px
+}
+
+    .table-logistic .bar:before {
+        margin-right: 5px
+    }
+
+.table-logistic .link {
+    font-size: 12px;
+    text-decoration: none
+}
+
+.table-logistic .v-sep {
+    height: 15px;
+    display: inline-block;
+    width: 1px;
+    vertical-align: middle;
+    margin: auto 9px
+}
+
+.details dt, .details dd {
+    width: 50%;
+    padding: 5px 15px;
+    display: inline-block
+}
+
+.details dd {
+    text-align: right
+}
+
+.common-detail dt, .common-detail dd {
+    width: 50%;
+    padding: 5px 15px;
+    display: inline-block
+}
+
+.lg-calendar .fc-button-group {
+    padding: 10px 15px
+}
+
+    .lg-calendar .fc-button-group button {
+        text-transform: capitalize;
+        font-size: 14px;
+        color: #233151;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        height: auto;
+        padding: 10px 15px
+    }
+
+        .lg-calendar .fc-button-group button:focus {
+            outline: 0
+        }
+
+        .lg-calendar .fc-button-group button:hover {
+            border: 0
+        }
+
+.lg-calendar .fc-left button {
+    font-size: 14px;
+    color: #233151;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    height: auto;
+    border: 1px solid #ebedf2;
+    padding: 15px
+}
+
+    .lg-calendar .fc-left button .fc-icon {
+        display: none
+    }
+
+    .lg-calendar .fc-left button:focus {
+        outline: 0
+    }
+
+.lg-calendar .fc-left h2 {
+    display: inline-block;
+    font-size: 18px;
+    margin: 15px;
+    text-transform: uppercase
+}
+
+.lg-calendar .fc-left .fc-prev-button:before {
+    content: "<"
+}
+
+.lg-calendar .fc-left .fc-next-button:before {
+    content: ">"
+}
+
+.swal2-container {
+    background-color: rgba(0,0,0,.4)
+}
+
+.swal2-title {
+    font-size: 16px
+}
+
+.swal2-actions button {
+    border-radius: 18px !important;
+    min-width: 130px
+}
+
+.login-card {
+    padding: 1em
+}
+
+    .login-card .heading {
+        font-weight: 600
+    }
+
+    .login-card .btn-container {
+        margin-top: 3em
+    }
+
+.login-page .c-card {
+    background-color: #fff;
+    padding: 2em 2em;
+    max-width: 473px
+}
+
+.login-page:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: 30%;
+    right: 0;
+    background-color: #f9f9f9;
+    content: "";
+    top: 0;
+    bottom: 0;
+    margin: auto
+}
+
+@media(max-width: 760px) {
+    .login-page:before {
+        display: none
+    }
+}
+
+header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+    height: 100px;
+    background: #fff;
+    width: -webkit-fill-available;
+    z-index: 4
+}
+
+    header .img-25 {
+        max-width: 100px;
+        max-height: 24px
+    }
+
+    header .client-logo {
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+
+@media(max-width: 786px) {
+    header {
+        position: fixed;
+        width: 100%;
+        background-color: #fff
+    }
+
+        header .timer-container {
+            display: none
+        }
+}
+
+@media(max-width: 786px) {
+    .main-container {
+        padding-top: 100px
+    }
+}
+
+.kt-wizard-v2__content .kt-heading.kt-heading--md {
+    float: inherit;
+    font-size: 25px
+}
+
+.Treatment-Setup.kt-heading.kt-heading--md {
+    float: left;
+    font-size: 25px
+}
+
+#chck_consent {
+    border: 1px solid #bfcae3;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 15px;
+    height: 15px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #949fba
+}
+
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(calc(2.25rem + 2px) - 1px * 2);
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    content: "Browse";
+    background-color: #e9ecef;
+    border-left: 1px solid #ced4da;
+    border-radius: 36px
+}
+
+.custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    border-radius: 36px
+}
+
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    margin: 0;
+    opacity: 0;
+    border-radius: 55px;
+    border-radius: 36px
+}
+
+.Attach-Consent-Document {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #919191
+}
+
+.kt-checkbox--brand {
+    color: #919191
+}
+
+.Treatment_heading {
+    background: #f9f9f9;
+    border-radius: 18px;
+    padding: 15px
+}
+
+.homePage {
+    margin-top: 128px
+}
+
+#frm_consent .text-center {
+    text-align: center !important
+}
+
+.mt-63 {
+    margin-top: 63px
+}
+
+.mt-top-responsive {
+    margin-top: 115px
+}
+
+.fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active {
+    z-index: 3 !important
+}
+
+.heading {
+    padding-left: 10px;
+    font-size: 25px !important
+}
+
+.navbar-default button:focus {
+    outline: none;
+    outline: none
+}
+
+.fa.fa-bars {
+    color: #b4b8ce;
+    font-size: 35px
+}
+
+#kt_datatable_completed_samples {
+    background: #fbfbfb;
+    border-radius: 15px !important
+}
+
+    #kt_datatable_completed_samples .kt-datatable__pager.kt-datatable--paging-loaded {
+        margin-bottom: 1rem
+    }
+
+header {
+    z-index: 4
+}
+
+.main-sidebar {
+    padding-top: 23px;
+    z-index: 4
+}
+
+.daysName {
+    width: 74px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #233151
+}
+
+.TodaysDate {
+    width: 124px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #233151
+}
+
+.dashboardTimeCard {
+    background-image: url("/images/v2/icons/TimeBackground.svg");
+    height: 100%;
+    float: left;
+    width: 50% !important;
+    margin-top: -12px;
+    margin-left: -30px;
+    height: 100px;
+    background-repeat: no-repeat
+}
+
+@media(max-width: 786px) {
+    .dashboardTimeCard {
+        width: 67% !important;
+        margin-top: -15px !important
+    }
+}
+
+.dateTimeBox {
+    margin-top: 14px
+}
+
+@media(max-width: 786px) {
+    .dateTimeBox {
+        margin-top: 0px !important
+    }
+}
+
+.reject.heading {
+    font-size: 16px !important
+}
+
+.homePage .grey-card {
+    padding: 25px
+}
+
+.homePage .with-arrow {
+    padding: 15px 15px;
+    border-radius: 44px
+}
+
+.homePage .white-card {
+    text-decoration: none;
+    margin: 15px auto;
+    padding: 25px;
+    box-shadow: 0px 26px 120px rgba(0,0,0,.04)
+}
+
+    .homePage .white-card .heading {
+        display: inline-flex;
+        flex-flow: column;
+        vertical-align: middle;
+        margin-left: 10px
+    }
+
+    .homePage .white-card img {
+        max-width: 72px;
+        max-height: 85px;
+        padding: 13px
+    }
+
+.statistics-text {
+    color: #233151 !important
+}
+
+.statistics-text-alignment {
+    text-align: end
+}
+
+@media only screen and (max-width: 768px) {
+    .statistic_card > .white-card {
+        background: #fafafa;
+        box-shadow: 0px 26px 120px rgba(0,0,0,.04)
+    }
+}
+
+.c-table thead th {
+    padding: 15px
+}
+
+.c-table thead tr th:first-child {
+    border-top-left-radius: 44px
+}
+
+.c-table thead tr th:last-child {
+    border-top-right-radius: 44px
+}
+
+.c-table thead tr th:first-child {
+    border-bottom-left-radius: 44px
+}
+
+.c-table thead tr th:last-child {
+    border-bottom-right-radius: 44px
+}
+
+.c-table tbody tr td:first-child {
+    border-top-left-radius: 44px
+}
+
+.c-table tbody tr td:last-child {
+    border-top-right-radius: 44px
+}
+
+.c-table tbody tr td:first-child {
+    border-bottom-left-radius: 44px
+}
+
+.c-table tbody tr td:last-child {
+    border-bottom-right-radius: 44px
+}
+
+.c-table tbody tr td {
+    font-size: 14px;
+    padding: 15px;
+    vertical-align: middle
+}
+
+.c-table td, .c-table th {
+    padding: 5px
+}
+
+.c-table .badge {
+    max-width: 100px
+}
+
+.c-table .admin-roles {
+    max-width: 150px
+}
+
+.table-nav-tab {
+    margin: 15px auto
+}
+
+    .table-nav-tab > .nav-tabs {
+        border-bottom: 1px solid #dee2e6;
+        border: 0;
+        margin: auto auto 2rem auto
+    }
+
+        .table-nav-tab > .nav-tabs .active {
+            border: 1px solid #a3c9ff
+        }
+
+        .table-nav-tab > .nav-tabs a.active:hover {
+            border: 1px solid #a3c9ff
+        }
+
+        .table-nav-tab > .nav-tabs .nav-link:hover {
+            border-color: transparent
+        }
+
+.kt-datatable__table {
+    width: 100%;
+    display: inline-table !important
+}
+
+.table-search-header {
+    margin: 3rem auto
+}
+
+@media(max-width: 760px) {
+    .table-search-header .col-12 {
+        margin-top: 15px
+    }
+}
+
+.table-search-header .heading {
+    font-size: 1.3em;
+    margin-top: 15px;
+    font-weight: bold
+}
+
+.table-search-header select.grey-input {
+    height: calc(2.25rem + 15px)
+}
+
+    .table-search-header select.grey-input:not([size]):not([multiple]) {
+        height: calc(2.25rem + 15px)
+    }
+
+.kt-datatable__table tr, .c-table tr {
+    border-collapse: collapse;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #e2e2e2;
+    border-radius: 18px;
+    margin-top: 2rem
+}
+
+.kt-datatable__table {
+    width: 99%;
+    display: inline-table !important;
+    margin-left: .5%;
+    margin-top: 10px
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    text-align: center;
+    vertical-align: middle
+}
+
+.datepicker-days table {
+    border-spacing: 0
+}
+
+.kt-datatable__cell--left {
+    text-align: left;
+    padding-left: 7% !important
+}
+
+.kt-datatable__cell--right {
+    text-align: right;
+    padding-right: 7% !important
+}
+
+.table-grid {
+    padding: 2rem
+}
+
+    .table-grid .col-12 {
+        margin-top: 15px
+    }
+
+.table-nav-tab > .nav-tabs .nav-link:hover {
+    border-color: #ececec
+}
+
+.line {
+    position: absolute;
+    width: 20px;
+    height: 0px;
+    border: 1px solid #e9e9e9;
+    transform: rotate(90deg);
+    margin-top: 20px;
+    margin-left: -25px
+}
+
+@media only screen and (max-width: 700px) {
+    .line {
+        display: none
+    }
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager {
+    flex-flow: row-reverse;
+    overflow: hidden
+}
+
+.table-header-type {
+    padding: 10px;
+    border-radius: 22px;
+    margin-bottom: 10px
+}
+
+.simple-tabs .btn {
+    border: 1px solid #ececec;
+    border-radius: 30px;
+    margin-left: 5px;
+    padding: 11px 15px !important
+}
+
+.simple-tabs li:last-child:before {
+    display: none !important
+}
+
+.simple-tabs li {
+    position: relative;
+    padding: 0 10px
+}
+
+    .simple-tabs li:before {
+        content: "";
+        position: absolute;
+        height: 18px;
+        right: 0;
+        width: 1px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.1)
+    }
+
+.kt-datatable__toggle-detail {
+    display: none !important
+}
+
+@media only screen and (max-width: 768px) {
+    #kt_users .kt-datatable__table {
+        display: block;
+        width: 999px !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch
+    }
+
+    .table-responsive {
+        display: block;
+        width: 100% !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch
+    }
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: inherit;
+    -webkit-overflow-scrolling: touch
+}
+
+.datepicker {
+    width: 265px;
+    padding: 10px
+}
+
+    .datepicker.datepicker-orient-top {
+        margin-top: 8px
+    }
+
+    .datepicker table {
+        width: 100%
+    }
+
+    .datepicker td, .datepicker th {
+        font-weight: regular;
+        width: 35px;
+        height: 35px;
+        border-radius: 3px
+    }
+
+    .datepicker thead th {
+        color: #a7abc3
+    }
+
+        .datepicker thead th.prev, .datepicker thead th.datepicker-switch, .datepicker thead th.next {
+            font-weight: 500;
+            color: #a7abc3
+        }
+
+            .datepicker thead th.prev i, .datepicker thead th.datepicker-switch i, .datepicker thead th.next i {
+                font-size: 1.2rem;
+                color: #a7abc3
+            }
+
+                .datepicker thead th.prev i:before, .datepicker thead th.datepicker-switch i:before, .datepicker thead th.next i:before {
+                    line-height: 0;
+                    vertical-align: middle
+                }
+
+            .datepicker thead th.prev:hover, .datepicker thead th.datepicker-switch:hover, .datepicker thead th.next:hover {
+                background: #f7f8fa !important
+            }
+
+        .datepicker thead th.dow {
+            color: #6c7293;
+            font-weight: 500
+        }
+
+    .datepicker tbody tr > td.day {
+        color: #6c7293
+    }
+
+        .datepicker tbody tr > td.day:hover {
+            background: #ebedf2;
+            color: #6c7293
+        }
+
+        .datepicker tbody tr > td.day.old {
+            color: #a7abc3
+        }
+
+        .datepicker tbody tr > td.day.new {
+            color: #6c7293
+        }
+
+        .datepicker tbody tr > td.day.selected, .datepicker tbody tr > td.day.selected:hover, .datepicker tbody tr > td.day.active, .datepicker tbody tr > td.day.active:hover {
+            background: #3869d1;
+            color: #fff
+        }
+
+        .datepicker tbody tr > td.day.today {
+            position: relative;
+            background: #1a2df3 !important;
+            color: #fff !important
+        }
+
+            .datepicker tbody tr > td.day.today:before {
+                content: "";
+                display: inline-block;
+                border: solid transparent;
+                border-width: 0 0 7px 7px;
+                border-bottom-color: #fff;
+                border-top-color: #ebedf2;
+                position: absolute;
+                bottom: 4px;
+                right: 4px
+            }
+
+        .datepicker tbody tr > td.day.range {
+            background: #f7f8fa
+        }
+
+    .datepicker tbody tr > td span.year, .datepicker tbody tr > td span.hour, .datepicker tbody tr > td span.minute, .datepicker tbody tr > td span.month {
+        color: #6c7293
+    }
+
+        .datepicker tbody tr > td span.year:hover, .datepicker tbody tr > td span.hour:hover, .datepicker tbody tr > td span.minute:hover, .datepicker tbody tr > td span.month:hover {
+            background: #f7f8fa
+        }
+
+        .datepicker tbody tr > td span.year.focused, .datepicker tbody tr > td span.year.focused:hover, .datepicker tbody tr > td span.year.active:hover, .datepicker tbody tr > td span.year.active.focused:hover, .datepicker tbody tr > td span.year.active, .datepicker tbody tr > td span.hour.focused, .datepicker tbody tr > td span.hour.focused:hover, .datepicker tbody tr > td span.hour.active:hover, .datepicker tbody tr > td span.hour.active.focused:hover, .datepicker tbody tr > td span.hour.active, .datepicker tbody tr > td span.minute.focused, .datepicker tbody tr > td span.minute.focused:hover, .datepicker tbody tr > td span.minute.active:hover, .datepicker tbody tr > td span.minute.active.focused:hover, .datepicker tbody tr > td span.minute.active, .datepicker tbody tr > td span.month.focused, .datepicker tbody tr > td span.month.focused:hover, .datepicker tbody tr > td span.month.active:hover, .datepicker tbody tr > td span.month.active.focused:hover, .datepicker tbody tr > td span.month.active {
+            background: #1a2df3;
+            color: #fff
+        }
+
+    .datepicker tfoot tr > th.today, .datepicker tfoot tr > th.clear {
+        border-radius: 3px;
+        font-weight: 500
+    }
+
+        .datepicker tfoot tr > th.today:hover, .datepicker tfoot tr > th.clear:hover {
+            background: #ebedf2
+        }
+
+    .datepicker.datepicker-inline {
+        border: 1px solid #ebedf2
+    }
+
+.fc-unthemed .fc-axis {
+    padding-top: .5rem;
+    padding-bottom: .5rem
+}
+
+.fc-unthemed .fc-scroller .fc-content-col {
+    padding: .5rem .5rem
+}
+
+.fc-unthemed th.fc-day-header {
+    padding: .75rem .5rem;
+    font-size: 1rem;
+    font-weight: 500
+}
+
+.fc-unthemed .fc-list-heading .fc-widget-header {
+    padding: .75rem 1.25rem
+}
+
+.fc-unthemed .fc-list-heading .fc-list-heading-main, .fc-unthemed .fc-list-heading .fc-list-heading-alt {
+    font-size: 1rem;
+    font-weight: 400
+}
+
+.fc-unthemed .fc-list-heading .fc-list-heading-main {
+    font-weight: 500;
+    text-transform: uppercase
+}
+
+.fc-unthemed .fc-list-item td {
+    padding: .75rem 1.25rem
+}
+
+.fc-unthemed .fc-list-item .fc-event-dot {
+    border-radius: 50%
+}
+
+.fc-unthemed .fc-event, .fc-unthemed .fc-event-dot {
+    padding: 0;
+    border-radius: 4px
+}
+
+    .fc-unthemed .fc-event .fc-content, .fc-unthemed .fc-event-dot .fc-content {
+        padding: .55rem .55rem .55rem .01rem
+    }
+
+        .fc-unthemed .fc-event .fc-content:before, .fc-unthemed .fc-event-dot .fc-content:before {
+            display: block;
+            content: " ";
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            top: .7rem;
+            left: .75rem
+        }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end .fc-content, .fc-unthemed .fc-event-dot.fc-not-start.fc-end .fc-content {
+        padding-left: .5rem
+    }
+
+    .fc-unthemed .fc-event .fc-time, .fc-unthemed .fc-event-dot .fc-time {
+        font-size: .9rem;
+        text-transform: uppercase;
+        font-weight: 500
+    }
+
+    .fc-unthemed .fc-event .fc-title, .fc-unthemed .fc-event-dot .fc-title {
+        font-size: .9rem;
+        font-weight: 400
+    }
+
+.fc-unthemed .fc-description {
+    font-size: .9rem;
+    margin-top: .25rem;
+    font-weight: normal
+}
+
+.fc-unthemed .fc-list-item-title > a {
+    font-size: 1rem;
+    font-weight: 500
+}
+
+.fc-unthemed a.fc-more {
+    font-size: .9rem;
+    font-weight: 500
+}
+
+.fc-unthemed .fc-popover {
+    border-radius: 4px
+}
+
+    .fc-unthemed .fc-popover .fc-header {
+        padding: .75rem 1.25rem;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px
+    }
+
+        .fc-unthemed .fc-popover .fc-header .fc-close {
+            margin-top: .35rem
+        }
+
+        .fc-unthemed .fc-popover .fc-header .fc-title {
+            font-weight: 400
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event-container {
+        padding: 1.25rem 1.25rem .75rem 1.25rem
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event {
+        margin-bottom: .5rem;
+        border-radius: 4px
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-end {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0
+        }
+
+.fc-unthemed .fc-toolbar {
+    margin-bottom: 1.5rem
+}
+
+    .fc-unthemed .fc-toolbar .fc-button.fc-corner-right {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px
+    }
+
+    .fc-unthemed .fc-toolbar .fc-button .fc-icon {
+        font-size: 1.1rem
+    }
+
+        .fc-unthemed .fc-toolbar .fc-button .fc-icon:after {
+            display: none
+        }
+
+        .fc-unthemed .fc-toolbar .fc-button .fc-icon.fc-icon-left-single-arrow {
+            font-family: "LineAwesome";
+            text-decoration: inherit;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased
+        }
+
+            .fc-unthemed .fc-toolbar .fc-button .fc-icon.fc-icon-left-single-arrow:before {
+                content: ""
+            }
+
+        .fc-unthemed .fc-toolbar .fc-button .fc-icon.fc-icon-right-single-arrow {
+            font-family: "LineAwesome";
+            text-decoration: inherit;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased
+        }
+
+            .fc-unthemed .fc-toolbar .fc-button .fc-icon.fc-icon-right-single-arrow:before {
+                content: ""
+            }
+
+.fc-unthemed .fc-axis > span {
+    font-size: .9rem
+}
+
+.ui-draggable-handle {
+    cursor: move;
+    cursor: grab;
+    cursor: -webkit-grab
+}
+
+.fc-unthemed .fc-toolbar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    padding-top: 7px;
+    margin-top: 15px
+}
+
+.fc-view-container {
+    background: #fff;
+    border-radius: 20px
+}
+
+@media(max-width: 1024px) {
+    .fc-unthemed .fc-toolbar {
+        margin-bottom: 1.5rem;
+        padding: 20px
+    }
+
+        .fc-unthemed .fc-toolbar .fc-left, .fc-unthemed .fc-toolbar .fc-right, .fc-unthemed .fc-toolbar .fc-center {
+            display: block;
+            float: none;
+            margin-bottom: 1rem;
+            text-align: center
+        }
+
+            .fc-unthemed .fc-toolbar .fc-left h2, .fc-unthemed .fc-toolbar .fc-right h2, .fc-unthemed .fc-toolbar .fc-center h2 {
+                text-align: center;
+                float: none
+            }
+
+            .fc-unthemed .fc-toolbar .fc-left > .fc-button-group, .fc-unthemed .fc-toolbar .fc-right > .fc-button-group, .fc-unthemed .fc-toolbar .fc-center > .fc-button-group {
+                display: inline-block;
+                float: none
+            }
+
+                .fc-unthemed .fc-toolbar .fc-left > .fc-button-group > .fc-button, .fc-unthemed .fc-toolbar .fc-right > .fc-button-group > .fc-button, .fc-unthemed .fc-toolbar .fc-center > .fc-button-group > .fc-button {
+                    float: none
+                }
+
+            .fc-unthemed .fc-toolbar .fc-left > .fc-button, .fc-unthemed .fc-toolbar .fc-right > .fc-button, .fc-unthemed .fc-toolbar .fc-center > .fc-button {
+                float: none
+            }
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+    border-color: #ebedf2
+}
+
+    .fc-unthemed td.fc-today {
+        background: rgba(44,119,244,.025)
+    }
+
+.fc-unthemed .fc-day-grid-event {
+    margin: 0
+}
+
+.fc-unthemed .fc-event, .fc-unthemed .fc-event-dot {
+    background: #fff;
+    border: 1px solid #ebedf2;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,.055);
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,.055)
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-not-end, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end {
+        border-left: 1px solid #f7f8fa
+    }
+
+    .fc-unthemed .fc-event.fc-start .fc-content:before, .fc-unthemed .fc-event-dot.fc-start .fc-content:before {
+        background: #e2e5ec
+    }
+
+    .fc-unthemed .fc-event .fc-time, .fc-unthemed .fc-event-dot .fc-time {
+        color: #6c7293
+    }
+
+    .fc-unthemed .fc-event .fc-title, .fc-unthemed .fc-event-dot .fc-title {
+        color: #6c7293
+    }
+
+.fc-unthemed .fc-description {
+    color: #a7abc3
+}
+
+.fc-unthemed .fc-list-item-title > a[href]:hover {
+    color: #3869d1;
+    text-decoration: none
+}
+
+.fc-unthemed .fc-more {
+    color: #a7abc3
+}
+
+.fc-unthemed .fc-event.fc-start.fc-event-brand .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-brand .fc-content:before {
+    background: #3869d1
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-brand, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand, .fc-unthemed .fc-event.fc-start.fc-event-solid-brand, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-brand, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-brand {
+    background: #3869d1
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-brand .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-brand .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-brand .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-brand .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-brand .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-brand .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-brand .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-brand .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-brand .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-brand .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-brand .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-brand .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-light .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-light .fc-content:before {
+    background: none
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-light, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-light, .fc-unthemed .fc-event.fc-start.fc-event-solid-light, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-light, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-light {
+    background: #fff
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-light .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-light .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-light .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-light .fc-title {
+        color: #282a3c
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-light .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-light .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-light .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-light .fc-description {
+        color: #282a3c
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-light .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-light .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-light .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-light .fc-time {
+        color: #282a3c
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-dark .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-dark .fc-content:before {
+    background: #282a3c
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-dark, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark, .fc-unthemed .fc-event.fc-start.fc-event-solid-dark, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-dark, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-dark {
+    background: #282a3c
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-dark .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-dark .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-dark .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-dark .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-dark .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-dark .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-dark .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-dark .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-dark .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-dark .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-dark .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-dark .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-primary .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-primary .fc-content:before {
+    background: #5867dd
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-primary, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary, .fc-unthemed .fc-event.fc-start.fc-event-solid-primary, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-primary, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-primary {
+    background: #5867dd
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-primary .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-primary .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-primary .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-primary .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-primary .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-primary .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-primary .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-primary .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-primary .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-primary .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-primary .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-primary .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-success .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-success .fc-content:before {
+    background: #1a2df3
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-success, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-success, .fc-unthemed .fc-event.fc-start.fc-event-solid-success, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-success, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-success {
+    background: #1a2df3
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-success .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-success .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-success .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-success .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-success .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-success .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-success .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-success .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-success .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-success .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-success .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-success .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-info .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-info .fc-content:before {
+    background: #5578eb
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-info, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-info, .fc-unthemed .fc-event.fc-start.fc-event-solid-info, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-info, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-info {
+    background: #5578eb
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-info .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-info .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-info .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-info .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-info .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-info .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-info .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-info .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-info .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-info .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-info .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-info .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-warning .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-warning .fc-content:before {
+    background: #ffb822
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-warning, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning, .fc-unthemed .fc-event.fc-start.fc-event-solid-warning, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-warning, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-warning {
+    background: #ffb822
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-warning .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-warning .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-warning .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-warning .fc-title {
+        color: #111
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-warning .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-warning .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-warning .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-warning .fc-description {
+        color: #111
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-warning .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-warning .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-warning .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-warning .fc-time {
+        color: #111
+    }
+
+.fc-unthemed .fc-event.fc-start.fc-event-danger .fc-content:before, .fc-unthemed .fc-event-dot.fc-start.fc-event-danger .fc-content:before {
+    background: #fd397a
+}
+
+.fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-danger, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger, .fc-unthemed .fc-event.fc-start.fc-event-solid-danger, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-danger, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-danger {
+    background: #fd397a
+}
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-danger .fc-title, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-title, .fc-unthemed .fc-event.fc-start.fc-event-solid-danger .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-danger .fc-title, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-title, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-danger .fc-title {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-danger .fc-description, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-description, .fc-unthemed .fc-event.fc-start.fc-event-solid-danger .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-danger .fc-description, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-description, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-danger .fc-description {
+        color: #fff
+    }
+
+    .fc-unthemed .fc-event.fc-not-start.fc-end.fc-event-solid-danger .fc-time, .fc-unthemed .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-time, .fc-unthemed .fc-event.fc-start.fc-event-solid-danger .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-end.fc-event-solid-danger .fc-time, .fc-unthemed .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-time, .fc-unthemed .fc-event-dot.fc-start.fc-event-solid-danger .fc-time {
+        color: #fff
+    }
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background: #f7f8fa
+}
+
+.fc-unthemed .fc-popover {
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,.075);
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,.075);
+    background: #fff
+}
+
+    .fc-unthemed .fc-popover .fc-header {
+        background: #fff;
+        border-bottom: 1px solid #ebedf2
+    }
+
+        .fc-unthemed .fc-popover .fc-header .fc-close {
+            color: #a7abc3
+        }
+
+            .fc-unthemed .fc-popover .fc-header .fc-close:hover {
+                color: #6c7293
+            }
+
+        .fc-unthemed .fc-popover .fc-header .fc-title {
+            color: #6c7293
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end .fc-content:before {
+        background: #ebedf2
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-brand .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-brand .fc-content:before {
+        background: #3869d1
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand {
+        background: #3869d1
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-brand .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-brand .fc-time {
+            color: #fff
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-light .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-light .fc-content:before {
+        background: #fff
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-light, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light {
+        background: #fff
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-title {
+            color: #282a3c
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-description {
+            color: #282a3c
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-light .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-light .fc-time {
+            color: #282a3c
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-dark .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-dark .fc-content:before {
+        background: #282a3c
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark {
+        background: #282a3c
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-dark .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-dark .fc-time {
+            color: #fff
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-primary .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-primary .fc-content:before {
+        background: #5867dd
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary {
+        background: #5867dd
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-primary .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-primary .fc-time {
+            color: #fff
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-success .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-success .fc-content:before {
+        background: #1a2df3
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-success, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success {
+        background: #1a2df3
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-success .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-success .fc-time {
+            color: #fff
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-info .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-info .fc-content:before {
+        background: #5578eb
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-info, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info {
+        background: #5578eb
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-info .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-info .fc-time {
+            color: #fff
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-warning .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-warning .fc-content:before {
+        background: #ffb822
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning {
+        background: #ffb822
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-title {
+            color: #111
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-description {
+            color: #111
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-warning .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-warning .fc-time {
+            color: #111
+        }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-danger .fc-content:before, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-danger .fc-content:before {
+        background: #fd397a
+    }
+
+    .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger {
+        background: #fd397a
+    }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-title, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-title {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-description, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-description {
+            color: #fff
+        }
+
+        .fc-unthemed .fc-popover .fc-body .fc-event.fc-not-start.fc-not-end.fc-event-solid-danger .fc-time, .fc-unthemed .fc-popover .fc-body .fc-event-dot.fc-not-start.fc-not-end.fc-event-solid-danger .fc-time {
+            color: #fff
+        }
+
+.fc-unthemed th.fc-day-header > a, .fc-unthemed th.fc-day-header > span {
+    color: #a7abc3
+}
+
+.fc-unthemed .fc-list-heading td {
+    background: #ebedf2;
+    border-color: #ebedf2
+}
+
+.fc-unthemed .fc-list-heading .fc-list-heading-main {
+    color: #6c7293
+}
+
+.fc-unthemed .fc-list-heading .fc-list-heading-alt {
+    color: #a7abc3
+}
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background: #f7f8fa
+}
+
+.fc-unthemed .fc-list-item:hover td {
+    background: transparent !important
+}
+
+.fc-unthemed .fc-list-item .fc-event-dot {
+    background: #e2e5ec;
+    border-color: #e2e5ec
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-brand .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-brand .fc-event-dot {
+    background: #3869d1;
+    border-color: #3869d1
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-light .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-light .fc-event-dot {
+    background: #fff;
+    border-color: #fff
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-dark .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-dark .fc-event-dot {
+    background: #282a3c;
+    border-color: #282a3c
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-primary .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-primary .fc-event-dot {
+    background: #5867dd;
+    border-color: #5867dd
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-success .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-success .fc-event-dot {
+    background: #1a2df3;
+    border-color: #1a2df3
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-info .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-info .fc-event-dot {
+    background: #5578eb;
+    border-color: #5578eb
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-warning .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-warning .fc-event-dot {
+    background: #ffb822;
+    border-color: #ffb822
+}
+
+.fc-unthemed .fc-list-item.fc-event-solid-danger .fc-event-dot, .fc-unthemed .fc-list-item.fc-event-danger .fc-event-dot {
+    background: #fd397a;
+    border-color: #fd397a
+}
+
+.fc-unthemed .fc-toolbar .fc-button .fc-icon {
+    color: #a7abc3
+}
+
+.fc-unthemed .fc-toolbar .fc-button:focus, .fc-unthemed .fc-toolbar .fc-button:active, .fc-unthemed .fc-toolbar .fc-button.fc-state-active {
+    background: #3869d1;
+    color: #fff;
+    border: #1a2df3;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none
+}
+
+    .fc-unthemed .fc-toolbar .fc-button:focus .fc-icon, .fc-unthemed .fc-toolbar .fc-button:active .fc-icon, .fc-unthemed .fc-toolbar .fc-button.fc-state-active .fc-icon {
+        color: #fff
+    }
+
+.fc-unthemed .fc-toolbar .fc-button.fc-state-disabled {
+    opacity: .7
+}
+
+.kt-datatable__pager-nav {
+    text-align: center;
+    margin-top: 15px
+}
+
+    .kt-datatable__pager-nav li {
+        display: inline-block;
+        text-align: center
+    }
+
+        .kt-datatable__pager-nav li .kt-datatable__pager-link-number {
+            padding: 15px;
+            padding: 15px 23px;
+            margin-right: 10px;
+            background-color: #f9f9f9;
+            font-size: 16px
+        }
+
+        .kt-datatable__pager-nav li .kt-datatable__pager-link--active {
+            background-color: #fa6363;
+            color: #fff
+        }
+
+.kt-datatable__pager-info {
+    position: relative
+}
+
+    .kt-datatable__pager-info .dropdown-toggle {
+        display: none
+    }
+
+    .kt-datatable__pager-info .kt-datatable__pager-size:before {
+        content: "Per Page";
+        position: absolute;
+        white-space: nowrap;
+        margin-top: 11px;
+        margin-left: 7px;
+        color: #bbbfc8
+    }
+
+    .kt-datatable__pager-info .kt-datatable__pager-size .selectpicker {
+        border-radius: 44px;
+        padding: 10px 15px 10px 82px;
+        border: 1px solid #e9e9e9
+    }
+
+    .kt-datatable__pager-info .kt-datatable__pager-detail {
+        display: none
+    }
+
+.kt-datatable__pager {
+    position: relative
+}
+
+.kt-datatable__pager-info {
+    position: relative;
+    top: 0
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager {
+    margin: 0px;
+    padding: 25px;
+    padding-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%
+}
+
+.kt-datatable.kt-datatable--default.kt-datatable--loaded {
+    display: block
+}
+
+.kt-datatable.kt-datatable--default {
+    display: block;
+    margin-bottom: 25px
+}
+
+    .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav {
+        margin: 0;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex !important
+    }
+
+        .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li {
+            padding: 0;
+            margin-right: 5px;
+            display: inline-block
+        }
+
+.kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--disabled, .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--disabled:hover {
+    color: #93a2dd;
+    background: #f0f3ff;
+    opacity: .3
+}
+
+.kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--first, .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--prev, .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--next, .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--last {
+    background: #f0f3ff
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    padding: .5rem;
+    border-radius: 3px;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 500;
+    border-radius: 51px;
+    height: 35px;
+    width: 35px
+}
+
+.kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link {
+    -webkit-transition: all .3s;
+    transition: all .3s
+}
+
+    .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--disabled, .kt-datatable > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link.kt-datatable__pager-link--disabled:hover {
+        color: #93a2dd;
+        background: #f0f3ff;
+        opacity: .3
+    }
+
+.datatable.datatable-default > .datatable-pager > .datatable-pager-nav > li > .datatable-pager-link.datatable-pager-link-first, .datatable.datatable-default > .datatable-pager > .datatable-pager-nav > li > .datatable-pager-link.datatable-pager-link-prev, .datatable.datatable-default > .datatable-pager > .datatable-pager-nav > li > .datatable-pager-link.datatable-pager-link-next, .datatable.datatable-default > .datatable-pager > .datatable-pager-nav > li > .datatable-pager-link.datatable-pager-link-last {
+    background-color: #ecf1f6
+}
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 35px
+}
+
+    .kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-info .kt-datatable__pager-size {
+        margin-right: 10px;
+        width: auto !important;
+        margin-bottom: 5px
+    }
+
+.kt-datatable.kt-datatable--default > .kt-datatable__pager > .kt-datatable__pager-nav > li > .kt-datatable__pager-link > i {
+    font-size: .6rem;
+    text-align: center;
+    display: inline-block
+}
+
+.modal-content {
+    border-radius: 1.7rem
+}
+
+.fc-content-skeleton tr {
+    box-shadow: none
+}
+
+.fc-body table tr {
+    box-shadow: none
+}
+
+#kt_calendar .fc-day-header {
+    border: 0;
+    font-size: 12px
+}
+
+    #kt_calendar .fc-day-header span {
+        color: #000
+    }
+
+#kt_calendar table tr {
+    box-shadow: none
+}
+
+#kt_calendar .fc-content-skeleton tr {
+    box-shadow: none
+}
+
+#kt_calendar .fc-unselectable .fc-row .fc-content-skeleton {
+    border-top: 1px solid #eaeaea
+}
+
+    #kt_calendar .fc-unselectable .fc-row .fc-content-skeleton tr {
+        box-shadow: none
+    }
+
+#kt_calendar .fc-unselectable .fc-day-top {
+    padding: 5px 1em 5px 5px
+}
+
+#kt_calendar .fc-unselectable .fc-event-container {
+    max-width: 82%;
+    margin: auto;
+    padding: 2px 5px;
+    font-size: 6px
+}
+
+    #kt_calendar .fc-unselectable .fc-event-container .fc-content {
+        padding: 10px 2px;
+        text-align: center
+    }
+
+    #kt_calendar .fc-unselectable .fc-event-container .fc-day-grid-event {
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 1px 1px 4px 0px rgba(50,50,50,.75)
+    }
+
+    #kt_calendar .fc-unselectable .fc-event-container .fc-title {
+        font-size: 12px
+    }
+
+#frm_scheduling .fc-month-button {
+    margin-top: 13px;
+    margin-right: 15px
+}
+
+@media(max-width: 760px) {
+    #frm_scheduling .fc-month-button {
+        line-height: 1px;
+        margin-bottom: 5px
+    }
+}
+
+#kt_scrolltop {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1;
+    display: none
+}
+
+body {
+    padding-bottom: 30px
+}
+/*!
+ * Datetimepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Improvements by Andrew Rowls
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */.datetimepicker{padding:4px;margin-top:1px;border-radius:4px;direction:ltr}.datetimepicker-inline{width:220px}.datetimepicker.datetimepicker-rtl{direction:rtl}.datetimepicker.datetimepicker-rtl table tr td span{float:right}.datetimepicker-dropdown,.datetimepicker-dropdown-left{top:0;left:0}[class*=" datetimepicker-dropdown"]:before{content:"";display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #ccc;border-bottom-color:rgba(0,0,0,.2);position:absolute}[class*=" datetimepicker-dropdown"]:after{content:"";display:inline-block;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid #fff;position:absolute}[class*=" datetimepicker-dropdown-top"]:before{content:"";display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #ccc;border-top-color:rgba(0,0,0,.2);border-bottom:0}[class*=" datetimepicker-dropdown-top"]:after{content:"";display:inline-block;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #fff;border-bottom:0}.datetimepicker-dropdown-bottom-left:before{top:-7px;right:6px}.datetimepicker-dropdown-bottom-left:after{top:-6px;right:7px}.datetimepicker-dropdown-bottom-right:before{top:-7px;left:6px}.datetimepicker-dropdown-bottom-right:after{top:-6px;left:7px}.datetimepicker-dropdown-top-left:before{bottom:-7px;right:6px}.datetimepicker-dropdown-top-left:after{bottom:-6px;right:7px}.datetimepicker-dropdown-top-right:before{bottom:-7px;left:6px}.datetimepicker-dropdown-top-right:after{bottom:-6px;left:7px}.datetimepicker>div{display:none}.datetimepicker.minutes div.datetimepicker-minutes{display:block}.datetimepicker.hours div.datetimepicker-hours{display:block}.datetimepicker.days div.datetimepicker-days{display:block}.datetimepicker.months div.datetimepicker-months{display:block}.datetimepicker.years div.datetimepicker-years{display:block}.datetimepicker table{margin:0}.datetimepicker td,.datetimepicker th{text-align:center;width:20px;height:20px;border-radius:4px;border:none}.table-striped .datetimepicker table tr td,.table-striped .datetimepicker table tr th{background-color:transparent}.datetimepicker table tr td.minute:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.hour:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.day:hover{background:#eee;cursor:pointer}.datetimepicker table tr td.new,.datetimepicker table tr td.old{color:#999}.datetimepicker table tr td.disabled,.datetimepicker table tr td.disabled:hover{background:0 0;color:#999;cursor:default}.datetimepicker table tr td.today,.datetimepicker table tr td.today.disabled,.datetimepicker table tr td.today.disabled:hover,.datetimepicker table tr td.today:hover{background-color:#fde19a;background-image:-webkit-gradient(linear, left top, left bottom, from(#fdd49a), to(#fdf59a));background-image:linear-gradient(to bottom, #fdd49a, #fdf59a);background-repeat:repeat-x;border-color:#fdf59a #fdf59a #fbed50;border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)}.datetimepicker table tr td.today.active,.datetimepicker table tr td.today.disabled,.datetimepicker table tr td.today.disabled.active,.datetimepicker table tr td.today.disabled.disabled,.datetimepicker table tr td.today.disabled:active,.datetimepicker table tr td.today.disabled:hover,.datetimepicker table tr td.today.disabled:hover.active,.datetimepicker table tr td.today.disabled:hover.disabled,.datetimepicker table tr td.today.disabled:hover:active,.datetimepicker table tr td.today.disabled:hover:hover,.datetimepicker table tr td.today.disabled:hover[disabled],.datetimepicker table tr td.today.disabled[disabled],.datetimepicker table tr td.today:active,.datetimepicker table tr td.today:hover,.datetimepicker table tr td.today:hover.active,.datetimepicker table tr td.today:hover.disabled,.datetimepicker table tr td.today:hover:active,.datetimepicker table tr td.today:hover:hover,.datetimepicker table tr td.today:hover[disabled],.datetimepicker table tr td.today[disabled]{background-color:#fdf59a}.datetimepicker table tr td.today.active,.datetimepicker table tr td.today.disabled.active,.datetimepicker table tr td.today.disabled:active,.datetimepicker table tr td.today.disabled:hover.active,.datetimepicker table tr td.today.disabled:hover:active,.datetimepicker table tr td.today:active,.datetimepicker table tr td.today:hover.active,.datetimepicker table tr td.today:hover:active{background-color:#fbf069}.datetimepicker table tr td.active,.datetimepicker table tr td.active.disabled,.datetimepicker table tr td.active.disabled:hover,.datetimepicker table tr td.active:hover{background-color:#006dcc;background-image:-webkit-gradient(linear, left top, left bottom, from(#08c), to(#04c));background-image:linear-gradient(to bottom, #08c, #04c);background-repeat:repeat-x;border-color:#04c #04c #002a80;border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.25)}.datetimepicker table tr td.active.active,.datetimepicker table tr td.active.disabled,.datetimepicker table tr td.active.disabled.active,.datetimepicker table tr td.active.disabled.disabled,.datetimepicker table tr td.active.disabled:active,.datetimepicker table tr td.active.disabled:hover,.datetimepicker table tr td.active.disabled:hover.active,.datetimepicker table tr td.active.disabled:hover.disabled,.datetimepicker table tr td.active.disabled:hover:active,.datetimepicker table tr td.active.disabled:hover:hover,.datetimepicker table tr td.active.disabled:hover[disabled],.datetimepicker table tr td.active.disabled[disabled],.datetimepicker table tr td.active:active,.datetimepicker table tr td.active:hover,.datetimepicker table tr td.active:hover.active,.datetimepicker table tr td.active:hover.disabled,.datetimepicker table tr td.active:hover:active,.datetimepicker table tr td.active:hover:hover,.datetimepicker table tr td.active:hover[disabled],.datetimepicker table tr td.active[disabled]{background-color:#04c}.datetimepicker table tr td.active.active,.datetimepicker table tr td.active.disabled.active,.datetimepicker table tr td.active.disabled:active,.datetimepicker table tr td.active.disabled:hover.active,.datetimepicker table tr td.active.disabled:hover:active,.datetimepicker table tr td.active:active,.datetimepicker table tr td.active:hover.active,.datetimepicker table tr td.active:hover:active{background-color:#039}.datetimepicker table tr td span{display:block;width:23%;height:54px;line-height:54px;float:left;margin:1%;cursor:pointer;border-radius:4px}.datetimepicker .datetimepicker-hours span{height:26px;line-height:26px}.datetimepicker .datetimepicker-hours table tr td span.hour_am,.datetimepicker .datetimepicker-hours table tr td span.hour_pm{width:14.6%}.datetimepicker .datetimepicker-hours fieldset legend,.datetimepicker .datetimepicker-minutes fieldset legend{margin-bottom:inherit;line-height:30px}.datetimepicker .datetimepicker-minutes span{height:26px;line-height:26px}.datetimepicker table tr td span:hover{background:#eee}.datetimepicker table tr td span.disabled,.datetimepicker table tr td span.disabled:hover{background:0 0;color:#999;cursor:default}.datetimepicker table tr td span.active,.datetimepicker table tr td span.active.disabled,.datetimepicker table tr td span.active.disabled:hover,.datetimepicker table tr td span.active:hover{background-color:#006dcc;background-image:-webkit-gradient(linear, left top, left bottom, from(#08c), to(#04c));background-image:linear-gradient(to bottom, #08c, #04c);background-repeat:repeat-x;border-color:#04c #04c #002a80;border-color:rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,.25)}.datetimepicker table tr td span.active.active,.datetimepicker table tr td span.active.disabled,.datetimepicker table tr td span.active.disabled.active,.datetimepicker table tr td span.active.disabled.disabled,.datetimepicker table tr td span.active.disabled:active,.datetimepicker table tr td span.active.disabled:hover,.datetimepicker table tr td span.active.disabled:hover.active,.datetimepicker table tr td span.active.disabled:hover.disabled,.datetimepicker table tr td span.active.disabled:hover:active,.datetimepicker table tr td span.active.disabled:hover:hover,.datetimepicker table tr td span.active.disabled:hover[disabled],.datetimepicker table tr td span.active.disabled[disabled],.datetimepicker table tr td span.active:active,.datetimepicker table tr td span.active:hover,.datetimepicker table tr td span.active:hover.active,.datetimepicker table tr td span.active:hover.disabled,.datetimepicker table tr td span.active:hover:active,.datetimepicker table tr td span.active:hover:hover,.datetimepicker table tr td span.active:hover[disabled],.datetimepicker table tr td span.active[disabled]{background-color:#04c}.datetimepicker table tr td span.active.active,.datetimepicker table tr td span.active.disabled.active,.datetimepicker table tr td span.active.disabled:active,.datetimepicker table tr td span.active.disabled:hover.active,.datetimepicker table tr td span.active.disabled:hover:active,.datetimepicker table tr td span.active:active,.datetimepicker table tr td span.active:hover.active,.datetimepicker table tr td span.active:hover:active{background-color:#039}.datetimepicker table tr td span.old{color:#999}.datetimepicker th.switch{width:145px}.datetimepicker th span.glyphicon{pointer-events:none}.datetimepicker tfoot th,.datetimepicker thead tr:first-child th{cursor:pointer}.datetimepicker tfoot th:hover,.datetimepicker thead tr:first-child th:hover{background:#eee}.input-append.date .add-on i,.input-group.date .input-group-addon span,.input-prepend.date .add-on i{cursor:pointer;width:14px;height:14px}/*!
+ * Timepicker Component for Twitter Bootstrap
+ *
+ * Copyright 2013 Joris de Wit
+ *
+ * Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */.bootstrap-timepicker{position:relative}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu{left:auto;right:0}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:before{left:auto;right:12px}.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu:after{left:auto;right:13px}.bootstrap-timepicker .input-group-addon{cursor:pointer}.bootstrap-timepicker .input-group-addon i{display:inline-block;width:16px;height:16px}.bootstrap-timepicker-widget.dropdown-menu{padding:4px}.bootstrap-timepicker-widget.dropdown-menu.open{display:inline-block}.bootstrap-timepicker-widget.dropdown-menu:before{border-bottom:7px solid rgba(0,0,0,.2);border-left:7px solid transparent;border-right:7px solid transparent;content:"";display:inline-block;position:absolute}.bootstrap-timepicker-widget.dropdown-menu:after{border-bottom:6px solid #fff;border-left:6px solid transparent;border-right:6px solid transparent;content:"";display:inline-block;position:absolute}.bootstrap-timepicker-widget.timepicker-orient-left:before{left:6px}.bootstrap-timepicker-widget.timepicker-orient-left:after{left:7px}.bootstrap-timepicker-widget.timepicker-orient-right:before{right:6px}.bootstrap-timepicker-widget.timepicker-orient-right:after{right:7px}.bootstrap-timepicker-widget.timepicker-orient-top:before{top:-7px}.bootstrap-timepicker-widget.timepicker-orient-top:after{top:-6px}.bootstrap-timepicker-widget.timepicker-orient-bottom:before{bottom:-7px;border-bottom:0;border-top:7px solid #999}.bootstrap-timepicker-widget.timepicker-orient-bottom:after{bottom:-6px;border-bottom:0;border-top:6px solid #fff}.bootstrap-timepicker-widget a.btn,.bootstrap-timepicker-widget input{border-radius:4px}.bootstrap-timepicker-widget table{width:100%;margin:0}.bootstrap-timepicker-widget table td{text-align:center;height:30px;margin:0;padding:2px}.bootstrap-timepicker-widget table td:not(.separator){min-width:30px}.bootstrap-timepicker-widget table td span{width:100%}.bootstrap-timepicker-widget table td a{border:1px transparent solid;width:100%;display:inline-block;margin:0;padding:8px 0;outline:0;color:#333}.bootstrap-timepicker-widget table td a:hover{text-decoration:none;background-color:#eee;border-radius:4px;border-color:#ddd}.bootstrap-timepicker-widget table td a i{margin-top:2px;font-size:18px}.bootstrap-timepicker-widget table td input{width:25px;margin:0;text-align:center}.bootstrap-timepicker-widget .modal-content{padding:4px}@media(min-width: 767px){.bootstrap-timepicker-widget.modal{width:200px;margin-left:-100px}}@media(max-width: 767px){.bootstrap-timepicker{width:100%}.bootstrap-timepicker .dropdown-menu{width:100%}}.daterangepicker{position:absolute;color:inherit;background-color:#fff;border-radius:4px;border:1px solid #ddd;width:278px;max-width:none;padding:0;margin-top:7px;top:100px;left:20px;z-index:3001;display:none;font-family:arial;font-size:15px;line-height:1em}.daterangepicker:after,.daterangepicker:before{position:absolute;display:inline-block;border-bottom-color:rgba(0,0,0,.2);content:""}.daterangepicker:before{top:-7px;border-right:7px solid transparent;border-left:7px solid transparent;border-bottom:7px solid #ccc}.daterangepicker:after{top:-6px;border-right:6px solid transparent;border-bottom:6px solid #fff;border-left:6px solid transparent}.daterangepicker.opensleft:before{right:9px}.daterangepicker.opensleft:after{right:10px}.daterangepicker.openscenter:before{left:0;right:0;width:0;margin-left:auto;margin-right:auto}.daterangepicker.openscenter:after{left:0;right:0;width:0;margin-left:auto;margin-right:auto}.daterangepicker.opensright:before{left:9px}.daterangepicker.opensright:after{left:10px}.daterangepicker.drop-up{margin-top:-7px}.daterangepicker.drop-up:before{top:initial;bottom:-7px;border-bottom:initial;border-top:7px solid #ccc}.daterangepicker.drop-up:after{top:initial;bottom:-6px;border-bottom:initial;border-top:6px solid #fff}.daterangepicker.single .daterangepicker .ranges,.daterangepicker.single .drp-calendar{float:none}.daterangepicker.single .drp-selected{display:none}.daterangepicker.show-calendar .drp-calendar{display:block}.daterangepicker.show-calendar .drp-buttons{display:block}.daterangepicker.auto-apply .drp-buttons{display:none}.daterangepicker .drp-calendar{display:none;max-width:270px}.daterangepicker .drp-calendar.left{padding:8px 0 8px 8px}.daterangepicker .drp-calendar.right{padding:8px}.daterangepicker .drp-calendar.single .calendar-table{border:none}.daterangepicker .calendar-table .next span,.daterangepicker .calendar-table .prev span{color:#fff;border:solid #000;border-width:0 2px 2px 0;border-radius:0;display:inline-block;padding:3px}.daterangepicker .calendar-table .next span{transform:rotate(-45deg);-webkit-transform:rotate(-45deg)}.daterangepicker .calendar-table .prev span{transform:rotate(135deg);-webkit-transform:rotate(135deg)}.daterangepicker .calendar-table td,.daterangepicker .calendar-table th{white-space:nowrap;text-align:center;vertical-align:middle;min-width:32px;width:32px;height:24px;line-height:24px;font-size:12px;border-radius:4px;border:1px solid transparent;white-space:nowrap;cursor:pointer}.daterangepicker .calendar-table{border:1px solid #fff;border-radius:4px;background-color:#fff}.daterangepicker .calendar-table table{width:100%;margin:0;border-spacing:0;border-collapse:collapse}.daterangepicker td.available:hover,.daterangepicker th.available:hover{background-color:#eee;border-color:transparent;color:inherit}.daterangepicker td.week,.daterangepicker th.week{font-size:80%;color:#ccc}.daterangepicker td.off,.daterangepicker td.off.end-date,.daterangepicker td.off.in-range,.daterangepicker td.off.start-date{background-color:#fff;border-color:transparent;color:#999}.daterangepicker td.in-range{background-color:#ebf4f8;border-color:transparent;color:#000;border-radius:0}.daterangepicker td.start-date{border-radius:4px 0 0 4px}.daterangepicker td.end-date{border-radius:0 4px 4px 0}.daterangepicker td.start-date.end-date{border-radius:4px}.daterangepicker td.active,.daterangepicker td.active:hover{background-color:#357ebd;border-color:transparent;color:#fff}.daterangepicker th.month{width:auto}.daterangepicker option.disabled,.daterangepicker td.disabled{color:#999;cursor:not-allowed;text-decoration:line-through}.daterangepicker select.monthselect,.daterangepicker select.yearselect{font-size:12px;padding:1px;height:auto;margin:0;cursor:default}.daterangepicker select.monthselect{margin-right:2%;width:56%}.daterangepicker select.yearselect{width:40%}.daterangepicker select.ampmselect,.daterangepicker select.hourselect,.daterangepicker select.minuteselect,.daterangepicker select.secondselect{width:50px;margin:0 auto;background:#eee;border:1px solid #eee;padding:2px;outline:0;font-size:12px}.daterangepicker .calendar-time{text-align:center;margin:4px auto 0 auto;line-height:30px;position:relative}.daterangepicker .calendar-time select.disabled{color:#ccc;cursor:not-allowed}.daterangepicker .drp-buttons{clear:both;text-align:right;padding:8px;border-top:1px solid #ddd;display:none;line-height:12px;vertical-align:middle}.daterangepicker .drp-selected{display:inline-block;font-size:12px;padding-right:8px}.daterangepicker .drp-buttons .btn{margin-left:8px;font-size:12px;font-weight:700;padding:4px 8px}.daterangepicker.show-ranges.single.rtl .drp-calendar.left{border-right:1px solid #ddd}.daterangepicker.show-ranges.single.ltr .drp-calendar.left{border-left:1px solid #ddd}.daterangepicker.show-ranges.rtl .drp-calendar.right{border-right:1px solid #ddd}.daterangepicker.show-ranges.ltr .drp-calendar.left{border-left:1px solid #ddd}.daterangepicker .ranges{float:none;text-align:left;margin:0}.daterangepicker.show-calendar .ranges{margin-top:8px}.daterangepicker .ranges ul{list-style:none;margin:0 auto;padding:0;width:100%}.daterangepicker .ranges li{font-size:12px;padding:8px 12px;cursor:pointer}.daterangepicker .ranges li:hover{background-color:#eee}.daterangepicker .ranges li.active{background-color:#08c;color:#fff}@media(min-width: 564px){.daterangepicker{width:auto}.daterangepicker .ranges ul{width:140px}.daterangepicker.single .ranges ul{width:100%}.daterangepicker.single .drp-calendar.left{clear:none}.daterangepicker.single .drp-calendar,.daterangepicker.single .ranges{float:left}.daterangepicker{direction:ltr;text-align:left}.daterangepicker .drp-calendar.left{clear:left;margin-right:0}.daterangepicker .drp-calendar.left .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0}.daterangepicker .drp-calendar.right{margin-left:0}.daterangepicker .drp-calendar.right .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.daterangepicker .drp-calendar.left .calendar-table{padding-right:8px}.daterangepicker .drp-calendar,.daterangepicker .ranges{float:left}}@media(min-width: 730px){.daterangepicker .ranges{width:auto}.daterangepicker .ranges{float:left}.daterangepicker.rtl .ranges{float:right}.daterangepicker .drp-calendar.left{clear:none !important}}.bootstrap-touchspin .input-group-btn-vertical{position:absolute;right:0;height:100%;z-index:11}.bootstrap-touchspin .input-group-btn-vertical>.btn{position:absolute;right:0;height:50%;padding:0;width:2em;text-align:center;line-height:1}.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-up{border-radius:0 4px 0 0;top:0}.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-down{border-radius:0 0 4px 0;bottom:0}.datetimepicker{width:265px;padding:10px;left:auto}.datetimepicker.datetimepicker-orient-top{margin-top:8px}.datetimepicker table{width:100%}.datetimepicker td,.datetimepicker th{width:35px;height:35px;border-radius:3px;font-weight:normal}.datetimepicker thead th i{font-size:1.2rem}.datetimepicker thead th.prev,.datetimepicker thead th.switch,.datetimepicker thead th.next{color:#a7abc3;font-weight:500}.datetimepicker thead th.prev .glyphicon,.datetimepicker thead th.switch .glyphicon,.datetimepicker thead th.next .glyphicon{color:#a7abc3}.datetimepicker thead th.prev:hover,.datetimepicker thead th.switch:hover,.datetimepicker thead th.next:hover{background:#f7f8fa !important}.datetimepicker thead th.dow{font-weight:500;color:#6c7293}.datetimepicker thead th.next>span,.datetimepicker thead th.prev>span{display:inline-block;font:normal normal normal 16px/1 "LineAwesome";font-size:inherit;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;font-size:1.2rem}.datetimepicker thead th.next>span:before{content:""}.datetimepicker thead th.prev>span:before{content:""}.datetimepicker tbody tr>td span{color:#6c7293}.datetimepicker tbody tr>td.day{color:#6c7293}.datetimepicker tbody tr>td.day:hover{background:#f7f8fa}.datetimepicker tbody tr>td.day.old{color:#a7abc3}.datetimepicker tbody tr>td.day.new{color:#6c7293}.datetimepicker tbody tr>td.day.selected,.datetimepicker tbody tr>td.day.active{background:#5867dd;color:#fff}.datetimepicker tbody tr>td.day.today{position:relative;background:rgba(44,119,244,.7) !important;color:#fff !important}.datetimepicker tbody tr>td.day.today:before{content:"";display:inline-block;border:solid transparent;border-width:0 0 7px 7px;border-bottom-color:#fff;border-top-color:#ebedf2;position:absolute;bottom:4px;right:4px}.datetimepicker tbody tr>td.day.range{background:#f7f8fa}.datetimepicker tbody tr>td span.year,.datetimepicker tbody tr>td span.hour,.datetimepicker tbody tr>td span.minute,.datetimepicker tbody tr>td span.month{color:#6c7293}.datetimepicker tbody tr>td span.year.focused,.datetimepicker tbody tr>td span.year:hover,.datetimepicker tbody tr>td span.hour.focused,.datetimepicker tbody tr>td span.hour:hover,.datetimepicker tbody tr>td span.minute.focused,.datetimepicker tbody tr>td span.minute:hover,.datetimepicker tbody tr>td span.month.focused,.datetimepicker tbody tr>td span.month:hover{background:#f7f8fa}.datetimepicker tbody tr>td span.year.active:hover,.datetimepicker tbody tr>td span.year.active,.datetimepicker tbody tr>td span.hour.active:hover,.datetimepicker tbody tr>td span.hour.active,.datetimepicker tbody tr>td span.minute.active:hover,.datetimepicker tbody tr>td span.minute.active,.datetimepicker tbody tr>td span.month.active:hover,.datetimepicker tbody tr>td span.month.active{background:#1a2df3;color:#fff}.datetimepicker tfoot tr>th.today,.datetimepicker tfoot tr>th.clear{border-radius:3px;font-weight:500}.datetimepicker tfoot tr>th.today:hover,.datetimepicker tfoot tr>th.clear:hover{background-color:#f7f8fa}.datetimepicker.datetimepicker-inline{border:1px solid #f7f8fa}.statistics .liStyle{height:86px;border:.6px solid #e2e2e2;box-sizing:border-box;border-radius:28px;padding:22px;margin:10px}.statistics .Hospital>.select2.select2-container.select2-container--default{width:40%;float:right;position:absolute;margin-top:-20px;margin-left:204px}.statistics .treatmentCount{padding:12px;margin-top:-8px;background:#e9f3ff;border-radius:18px;text-align:end;width:78px;height:54px;font-family:Poppins;font-style:normal;font-weight:600;font-size:18px;line-height:27px}.statistics i.flag:not(.icon):before{display:inline-block;content:"";background:url(../images/v2/flags.png) no-repeat -108px -1976px;width:16px;height:11px}.statistics i.flag:not(.icon){display:inline-block;width:16px;height:11px;line-height:11px;margin-top:5px;vertical-align:baseline;margin:0 .5em 0 0;text-decoration:inherit;speak:none;font-smoothing:antialiased;-webkit-backface-visibility:hidden;backface-visibility:hidden}.statistics i.flag:not(.icon):before{display:inline-block;content:"";background:url(../images/v2/flags.png) no-repeat -108px -1976px;width:16px;height:11px;margin-top:5px}.statistics i.flag.ad:before,.statistics i.flag.andorra:before{background-position:0 0}.statistics i.flag.ae:before,.statistics i.flag.uae:before,.statistics i.flag.united.arab.emirates:before{background-position:0 -26px}.statistics i.flag.af:before,.statistics i.flag.afghanistan:before{background-position:0 -52px}.statistics i.flag.ag:before,.statistics i.flag.antigua:before{background-position:0 -78px}.statistics i.flag.ai:before,.statistics i.flag.anguilla:before{background-position:0 -104px}.statistics i.flag.al:before,.statistics i.flag.albania:before{background-position:0 -130px}.statistics i.flag.am:before,.statistics i.flag.armenia:before{background-position:0 -156px}.statistics i.flag.an:before,.statistics i.flag.netherlands.antilles:before{background-position:0 -182px}.statistics i.flag.angola:before,.statistics i.flag.ao:before{background-position:0 -208px}.statistics i.flag.ar:before,.statistics i.flag.argentina:before{background-position:0 -234px}.statistics i.flag.american.samoa:before,.statistics i.flag.as:before{background-position:0 -260px}.statistics i.flag.at:before,.statistics i.flag.austria:before{background-position:0 -286px}.statistics i.flag.au:before,.statistics i.flag.australia:before{background-position:0 -312px}.statistics i.flag.aruba:before,.statistics i.flag.aw:before{background-position:0 -338px}.statistics i.flag.aland.islands:before,.statistics i.flag.ax:before{background-position:0 -364px}.statistics i.flag.az:before,.statistics i.flag.azerbaijan:before{background-position:0 -390px}.statistics i.flag.ba:before,.statistics i.flag.bosnia:before{background-position:0 -416px}.statistics i.flag.barbados:before,.statistics i.flag.bb:before{background-position:0 -442px}.statistics i.flag.bangladesh:before,.statistics i.flag.bd:before{background-position:0 -468px}.statistics i.flag.be:before,.statistics i.flag.belgium:before{background-position:0 -494px}.statistics i.flag.bf:before,.statistics i.flag.burkina.faso:before{background-position:0 -520px}.statistics i.flag.bg:before,.statistics i.flag.bulgaria:before{background-position:0 -546px}.statistics i.flag.bahrain:before,.statistics i.flag.bh:before{background-position:0 -572px}.statistics i.flag.bi:before,.statistics i.flag.burundi:before{background-position:0 -598px}.statistics i.flag.benin:before,.statistics i.flag.bj:before{background-position:0 -624px}.statistics i.flag.bermuda:before,.statistics i.flag.bm:before{background-position:0 -650px}.statistics i.flag.bn:before,.statistics i.flag.brunei:before{background-position:0 -676px}.statistics i.flag.bo:before,.statistics i.flag.bolivia:before{background-position:0 -702px}.statistics i.flag.br:before,.statistics i.flag.brazil:before{background-position:0 -728px}.statistics i.flag.bahamas:before,.statistics i.flag.bs:before{background-position:0 -754px}.statistics i.flag.bhutan:before,.statistics i.flag.bt:before{background-position:0 -780px}.statistics i.flag.bouvet.island:before,.statistics i.flag.bv:before{background-position:0 -806px}.statistics i.flag.botswana:before,.statistics i.flag.bw:before{background-position:0 -832px}.statistics i.flag.belarus:before,.statistics i.flag.by:before{background-position:0 -858px}.statistics i.flag.belize:before,.statistics i.flag.bz:before{background-position:0 -884px}.statistics i.flag.ca:before,.statistics i.flag.canada:before{background-position:0 -910px}.statistics i.flag.cc:before,.statistics i.flag.cocos.islands:before{background-position:0 -962px}.statistics i.flag.cd:before,.statistics i.flag.congo:before{background-position:0 -988px}.statistics i.flag.central.african.republic:before,.statistics i.flag.cf:before{background-position:0 -1014px}.statistics i.flag.cg:before,.statistics i.flag.congo.brazzaville:before{background-position:0 -1040px}.statistics i.flag.ch:before,.statistics i.flag.switzerland:before{background-position:0 -1066px}.statistics i.flag.ci:before,.statistics i.flag.cote.divoire:before{background-position:0 -1092px}.statistics i.flag.ck:before,.statistics i.flag.cook.islands:before{background-position:0 -1118px}.statistics i.flag.chile:before,.statistics i.flag.cl:before{background-position:0 -1144px}.statistics i.flag.cameroon:before,.statistics i.flag.cm:before{background-position:0 -1170px}.statistics i.flag.china:before,.statistics i.flag.cn:before{background-position:0 -1196px}.statistics i.flag.co:before,.statistics i.flag.colombia:before{background-position:0 -1222px}.statistics i.flag.costa.rica:before,.statistics i.flag.cr:before{background-position:0 -1248px}.statistics i.flag.cs:before,.statistics i.flag.serbia:before{background-position:0 -1274px}.statistics i.flag.cu:before,.statistics i.flag.cuba:before{background-position:0 -1300px}.statistics i.flag.cape.verde:before,.statistics i.flag.cv:before{background-position:0 -1326px}.statistics i.flag.christmas.island:before,.statistics i.flag.cx:before{background-position:0 -1352px}.statistics i.flag.cy:before,.statistics i.flag.cyprus:before{background-position:0 -1378px}.statistics i.flag.cz:before,.statistics i.flag.czech.republic:before{background-position:0 -1404px}.statistics i.flag.de:before,.statistics i.flag.germany:before{background-position:0 -1430px}.statistics i.flag.dj:before,.statistics i.flag.djibouti:before{background-position:0 -1456px}.statistics i.flag.denmark:before,.statistics i.flag.dk:before{background-position:0 -1482px}.statistics i.flag.dm:before,.statistics i.flag.dominica:before{background-position:0 -1508px}.statistics i.flag.do:before,.statistics i.flag.dominican.republic:before{background-position:0 -1534px}.statistics i.flag.algeria:before,.statistics i.flag.dz:before{background-position:0 -1560px}.statistics i.flag.ec:before,.statistics i.flag.ecuador:before{background-position:0 -1586px}.statistics i.flag.ee:before,.statistics i.flag.estonia:before{background-position:0 -1612px}.statistics i.flag.eg:before,.statistics i.flag.egypt:before{background-position:0 -1638px}.statistics i.flag.eh:before,.statistics i.flag.western.sahara:before{background-position:0 -1664px}.statistics i.flag.england:before,.statistics i.flag.gb:before{background-position:0 -1690px}.statistics i.flag.er:before,.statistics i.flag.eritrea:before{background-position:0 -1716px}.statistics i.flag.es:before,.statistics i.flag.spain:before{background-position:0 -1742px}.statistics i.flag.et:before,.statistics i.flag.ethiopia:before{background-position:0 -1768px}.statistics i.flag.eu:before,.statistics i.flag.european.union:before{background-position:0 -1794px}.statistics i.flag.fi:before,.statistics i.flag.finland:before{background-position:0 -1846px}.statistics i.flag.fiji:before,.statistics i.flag.fj:before{background-position:0 -1872px}.statistics i.flag.falkland.islands:before,.statistics i.flag.fk:before{background-position:0 -1898px}.statistics i.flag.fm:before,.statistics i.flag.micronesia:before{background-position:0 -1924px}.statistics i.flag.faroe.islands:before,.statistics i.flag.fo:before{background-position:0 -1950px}.statistics i.flag.fr:before,.statistics i.flag.france:before{background-position:0 -1976px}.statistics i.flag.ga:before,.statistics i.flag.gabon:before{background-position:-36px 0}.statistics i.flag.gb:before,.statistics i.flag.uk:before,.statistics i.flag.united.kingdom:before{background-position:-36px -26px}.statistics i.flag.gd:before,.statistics i.flag.grenada:before{background-position:-36px -52px}.statistics i.flag.ge:before,.statistics i.flag.georgia:before{background-position:-36px -78px}.statistics i.flag.french.guiana:before,.statistics i.flag.gf:before{background-position:-36px -104px}.statistics i.flag.gh:before,.statistics i.flag.ghana:before{background-position:-36px -130px}.statistics i.flag.gi:before,.statistics i.flag.gibraltar:before{background-position:-36px -156px}.statistics i.flag.gl:before,.statistics i.flag.greenland:before{background-position:-36px -182px}.statistics i.flag.gambia:before,.statistics i.flag.gm:before{background-position:-36px -208px}.statistics i.flag.gn:before,.statistics i.flag.guinea:before{background-position:-36px -234px}.statistics i.flag.gp:before,.statistics i.flag.guadeloupe:before{background-position:-36px -260px}.statistics i.flag.equatorial.guinea:before,.statistics i.flag.gq:before{background-position:-36px -286px}.statistics i.flag.gr:before,.statistics i.flag.greece:before{background-position:-36px -312px}.statistics i.flag.gs:before,.statistics i.flag.sandwich.islands:before{background-position:-36px -338px}.statistics i.flag.gt:before,.statistics i.flag.guatemala:before{background-position:-36px -364px}.statistics i.flag.gu:before,.statistics i.flag.guam:before{background-position:-36px -390px}.statistics i.flag.guinea-bissau:before,.statistics i.flag.gw:before{background-position:-36px -416px}.statistics i.flag.guyana:before,.statistics i.flag.gy:before{background-position:-36px -442px}.statistics i.flag.hk:before,.statistics i.flag.hong.kong:before{background-position:-36px -468px}.statistics i.flag.heard.island:before,.statistics i.flag.hm:before{background-position:-36px -494px}.statistics i.flag.hn:before,.statistics i.flag.honduras:before{background-position:-36px -520px}.statistics i.flag.croatia:before,.statistics i.flag.hr:before{background-position:-36px -546px}.statistics i.flag.haiti:before,.statistics i.flag.ht:before{background-position:-36px -572px}.statistics i.flag.hu:before,.statistics i.flag.hungary:before{background-position:-36px -598px}.statistics i.flag.id:before,.statistics i.flag.indonesia:before{background-position:-36px -624px}.statistics i.flag.ie:before,.statistics i.flag.ireland:before{background-position:-36px -650px}.statistics i.flag.il:before,.statistics i.flag.israel:before{background-position:-36px -676px}.statistics i.flag.in:before,.statistics i.flag.india:before{background-position:-36px -702px}.statistics i.flag.indian.ocean.territory:before,.statistics i.flag.io:before{background-position:-36px -728px}.statistics i.flag.iq:before,.statistics i.flag.iraq:before{background-position:-36px -754px}.statistics i.flag.ir:before,.statistics i.flag.iran:before{background-position:-36px -780px}.statistics i.flag.iceland:before,.statistics i.flag.is:before{background-position:-36px -806px}.statistics i.flag.it:before,.statistics i.flag.italy:before{background-position:-36px -832px}.statistics i.flag.jamaica:before,.statistics i.flag.jm:before{background-position:-36px -858px}.statistics i.flag.jo:before,.statistics i.flag.jordan:before{background-position:-36px -884px}.statistics i.flag.japan:before,.statistics i.flag.jp:before{background-position:-36px -910px}.statistics i.flag.ke:before,.statistics i.flag.kenya:before{background-position:-36px -936px}.statistics i.flag.kg:before,.statistics i.flag.kyrgyzstan:before{background-position:-36px -962px}.statistics i.flag.cambodia:before,.statistics i.flag.kh:before{background-position:-36px -988px}.statistics i.flag.ki:before,.statistics i.flag.kiribati:before{background-position:-36px -1014px}.statistics i.flag.comoros:before,.statistics i.flag.km:before{background-position:-36px -1040px}.statistics i.flag.kn:before,.statistics i.flag.saint.kitts.and.nevis:before{background-position:-36px -1066px}.statistics i.flag.kp:before,.statistics i.flag.north.korea:before{background-position:-36px -1092px}.statistics i.flag.kr:before,.statistics i.flag.south.korea:before{background-position:-36px -1118px}.statistics i.flag.kuwait:before,.statistics i.flag.kw:before{background-position:-36px -1144px}.statistics i.flag.cayman.islands:before,.statistics i.flag.ky:before{background-position:-36px -1170px}.statistics i.flag.kazakhstan:before,.statistics i.flag.kz:before{background-position:-36px -1196px}.statistics i.flag.la:before,.statistics i.flag.laos:before{background-position:-36px -1222px}.statistics i.flag.lb:before,.statistics i.flag.lebanon:before{background-position:-36px -1248px}.statistics i.flag.lc:before,.statistics i.flag.saint.lucia:before{background-position:-36px -1274px}.statistics i.flag.li:before,.statistics i.flag.liechtenstein:before{background-position:-36px -1300px}.statistics i.flag.lk:before,.statistics i.flag.sri.lanka:before{background-position:-36px -1326px}.statistics i.flag.liberia:before,.statistics i.flag.lr:before{background-position:-36px -1352px}.statistics i.flag.lesotho:before,.statistics i.flag.ls:before{background-position:-36px -1378px}.statistics i.flag.lithuania:before,.statistics i.flag.lt:before{background-position:-36px -1404px}.statistics i.flag.lu:before,.statistics i.flag.luxembourg:before{background-position:-36px -1430px}.statistics i.flag.latvia:before,.statistics i.flag.lv:before{background-position:-36px -1456px}.statistics i.flag.libya:before,.statistics i.flag.ly:before{background-position:-36px -1482px}.statistics i.flag.ma:before,.statistics i.flag.morocco:before{background-position:-36px -1508px}.statistics i.flag.mc:before,.statistics i.flag.monaco:before{background-position:-36px -1534px}.statistics i.flag.md:before,.statistics i.flag.moldova:before{background-position:-36px -1560px}.statistics i.flag.me:before,.statistics i.flag.montenegro:before{background-position:-36px -1586px}.statistics i.flag.madagascar:before,.statistics i.flag.mg:before{background-position:-36px -1613px}.statistics i.flag.marshall.islands:before,.statistics i.flag.mh:before{background-position:-36px -1639px}.statistics i.flag.macedonia:before,.statistics i.flag.mk:before{background-position:-36px -1665px}.statistics i.flag.mali:before,.statistics i.flag.ml:before{background-position:-36px -1691px}.statistics i.flag.burma:before,.statistics i.flag.mm:before,.statistics i.flag.myanmar:before{background-position:-73px -1821px}.statistics i.flag.mn:before,.statistics i.flag.mongolia:before{background-position:-36px -1743px}.statistics i.flag.macau:before,.statistics i.flag.mo:before{background-position:-36px -1769px}.statistics i.flag.mp:before,.statistics i.flag.northern.mariana.islands:before{background-position:-36px -1795px}.statistics i.flag.martinique:before,.statistics i.flag.mq:before{background-position:-36px -1821px}.statistics i.flag.mauritania:before,.statistics i.flag.mr:before{background-position:-36px -1847px}.statistics i.flag.montserrat:before,.statistics i.flag.ms:before{background-position:-36px -1873px}.statistics i.flag.malta:before,.statistics i.flag.mt:before{background-position:-36px -1899px}.statistics i.flag.mauritius:before,.statistics i.flag.mu:before{background-position:-36px -1925px}.statistics i.flag.maldives:before,.statistics i.flag.mv:before{background-position:-36px -1951px}.statistics i.flag.malawi:before,.statistics i.flag.mw:before{background-position:-36px -1977px}.statistics i.flag.mexico:before,.statistics i.flag.mx:before{background-position:-72px 0}.statistics i.flag.malaysia:before,.statistics i.flag.my:before{background-position:-72px -26px}.statistics i.flag.mozambique:before,.statistics i.flag.mz:before{background-position:-72px -52px}.statistics i.flag.na:before,.statistics i.flag.namibia:before{background-position:-72px -78px}.statistics i.flag.nc:before,.statistics i.flag.new.caledonia:before{background-position:-72px -104px}.statistics i.flag.ne:before,.statistics i.flag.niger:before{background-position:-72px -130px}.statistics i.flag.nf:before,.statistics i.flag.norfolk.island:before{background-position:-72px -156px}.statistics i.flag.ng:before,.statistics i.flag.nigeria:before{background-position:-72px -182px}.statistics i.flag.ni:before,.statistics i.flag.nicaragua:before{background-position:-72px -208px}.statistics i.flag.netherlands:before,.statistics i.flag.nl:before{background-position:-72px -234px}.statistics i.flag.no:before,.statistics i.flag.norway:before{background-position:-72px -260px}.statistics i.flag.nepal:before,.statistics i.flag.np:before{background-position:-72px -286px}.statistics i.flag.nauru:before,.statistics i.flag.nr:before{background-position:-72px -312px}.statistics i.flag.niue:before,.statistics i.flag.nu:before{background-position:-72px -338px}.statistics i.flag.new.zealand:before,.statistics i.flag.nz:before{background-position:-72px -364px}.statistics i.flag.om:before,.statistics i.flag.oman:before{background-position:-72px -390px}.statistics i.flag.pa:before,.statistics i.flag.panama:before{background-position:-72px -416px}.statistics i.flag.pe:before,.statistics i.flag.peru:before{background-position:-72px -442px}.statistics i.flag.french.polynesia:before,.statistics i.flag.pf:before{background-position:-72px -468px}.statistics i.flag.new.guinea:before,.statistics i.flag.pg:before{background-position:-72px -494px}.statistics i.flag.ph:before,.statistics i.flag.philippines:before{background-position:-72px -520px}.statistics i.flag.pakistan:before,.statistics i.flag.pk:before{background-position:-72px -546px}.statistics i.flag.pl:before,.statistics i.flag.poland:before{background-position:-72px -572px}.statistics i.flag.pm:before,.statistics i.flag.saint.pierre:before{background-position:-72px -598px}.statistics i.flag.pitcairn.islands:before,.statistics i.flag.pn:before{background-position:-72px -624px}.statistics i.flag.pr:before,.statistics i.flag.puerto.rico:before{background-position:-72px -650px}.statistics i.flag.palestine:before,.statistics i.flag.ps:before{background-position:-72px -676px}.statistics i.flag.portugal:before,.statistics i.flag.pt:before{background-position:-72px -702px}.statistics i.flag.palau:before,.statistics i.flag.pw:before{background-position:-72px -728px}.statistics i.flag.paraguay:before,.statistics i.flag.py:before{background-position:-72px -754px}.statistics i.flag.qa:before,.statistics i.flag.qatar:before{background-position:-72px -780px}.statistics i.flag.re:before,.statistics i.flag.reunion:before{background-position:-72px -806px}.statistics i.flag.ro:before,.statistics i.flag.romania:before{background-position:-72px -832px}.statistics i.flag.rs:before,.statistics i.flag.serbia:before{background-position:-72px -858px}.statistics i.flag.ru:before,.statistics i.flag.russia:before{background-position:-72px -884px}.statistics i.flag.rw:before,.statistics i.flag.rwanda:before{background-position:-72px -910px}.statistics i.flag.sa:before,.statistics i.flag.saudi.arabia:before{background-position:-72px -936px}.statistics i.flag.sb:before,.statistics i.flag.solomon.islands:before{background-position:-72px -962px}.statistics i.flag.sc:before,.statistics i.flag.seychelles:before{background-position:-72px -988px}.statistics i.flag.gb.sct:before,.statistics i.flag.scotland:before{background-position:-72px -1014px}.statistics i.flag.sd:before,.statistics i.flag.sudan:before{background-position:-72px -1040px}.statistics i.flag.se:before,.statistics i.flag.sweden:before{background-position:-72px -1066px}.statistics i.flag.sg:before,.statistics i.flag.singapore:before{background-position:-72px -1092px}.statistics i.flag.saint.helena:before,.statistics i.flag.sh:before{background-position:-72px -1118px}.statistics i.flag.si:before,.statistics i.flag.slovenia:before{background-position:-72px -1144px}.statistics i.flag.jan.mayen:before,.statistics i.flag.sj:before,.statistics i.flag.svalbard:before{background-position:-72px -1170px}.statistics i.flag.sk:before,.statistics i.flag.slovakia:before{background-position:-72px -1196px}.statistics i.flag.sierra.leone:before,.statistics i.flag.sl:before{background-position:-72px -1222px}.statistics i.flag.san.marino:before,.statistics i.flag.sm:before{background-position:-72px -1248px}.statistics i.flag.senegal:before,.statistics i.flag.sn:before{background-position:-72px -1274px}.statistics i.flag.so:before,.statistics i.flag.somalia:before{background-position:-72px -1300px}.statistics i.flag.sr:before,.statistics i.flag.suriname:before{background-position:-72px -1326px}.statistics i.flag.sao.tome:before,.statistics i.flag.st:before{background-position:-72px -1352px}.statistics i.flag.el.salvador:before,.statistics i.flag.sv:before{background-position:-72px -1378px}.statistics i.flag.sy:before,.statistics i.flag.syria:before{background-position:-72px -1404px}.statistics i.flag.swaziland:before,.statistics i.flag.sz:before{background-position:-72px -1430px}.statistics i.flag.caicos.islands:before,.statistics i.flag.tc:before{background-position:-72px -1456px}.statistics i.flag.chad:before,.statistics i.flag.td:before{background-position:-72px -1482px}.statistics i.flag.french.territories:before,.statistics i.flag.tf:before{background-position:-72px -1508px}.statistics i.flag.tg:before,.statistics i.flag.togo:before{background-position:-72px -1534px}.statistics i.flag.th:before,.statistics i.flag.thailand:before{background-position:-72px -1560px}.statistics i.flag.tajikistan:before,.statistics i.flag.tj:before{background-position:-72px -1586px}.statistics i.flag.tk:before,.statistics i.flag.tokelau:before{background-position:-72px -1612px}.statistics i.flag.timorleste:before,.statistics i.flag.tl:before{background-position:-72px -1638px}.statistics i.flag.tm:before,.statistics i.flag.turkmenistan:before{background-position:-72px -1664px}.statistics i.flag.tn:before,.statistics i.flag.tunisia:before{background-position:-72px -1690px}.statistics i.flag.to:before,.statistics i.flag.tonga:before{background-position:-72px -1716px}.statistics i.flag.tr:before,.statistics i.flag.turkey:before{background-position:-72px -1742px}.statistics i.flag.trinidad:before,.statistics i.flag.tt:before{background-position:-72px -1768px}.statistics i.flag.tuvalu:before,.statistics i.flag.tv:before{background-position:-72px -1794px}.statistics i.flag.taiwan:before,.statistics i.flag.tw:before{background-position:-72px -1820px}.statistics i.flag.tanzania:before,.statistics i.flag.tz:before{background-position:-72px -1846px}.statistics i.flag.ua:before,.statistics i.flag.ukraine:before{background-position:-72px -1872px}.statistics i.flag.ug:before,.statistics i.flag.uganda:before{background-position:-72px -1898px}.statistics i.flag.um:before,.statistics i.flag.us.minor.islands:before{background-position:-72px -1924px}.statistics i.flag.america:before,.statistics i.flag.united.states:before,.statistics i.flag.us:before{background-position:-72px -1950px}.statistics i.flag.uruguay:before,.statistics i.flag.uy:before{background-position:-72px -1976px}.statistics i.flag.uz:before,.statistics i.flag.uzbekistan:before{background-position:-108px 0}.statistics i.flag.va:before,.statistics i.flag.vatican.city:before{background-position:-108px -26px}.statistics i.flag.saint.vincent:before,.statistics i.flag.vc:before{background-position:-108px -52px}.statistics i.flag.ve:before,.statistics i.flag.venezuela:before{background-position:-108px -78px}.statistics i.flag.british.virgin.islands:before,.statistics i.flag.vg:before{background-position:-108px -104px}.statistics i.flag.us.virgin.islands:before,.statistics i.flag.vi:before{background-position:-108px -130px}.statistics i.flag.vietnam:before,.statistics i.flag.vn:before{background-position:-108px -156px}.statistics i.flag.vanuatu:before,.statistics i.flag.vu:before{background-position:-108px -182px}.statistics i.flag.gb.wls:before,.statistics i.flag.wales:before{background-position:-108px -208px}.statistics i.flag.wallis.and.futuna:before,.statistics i.flag.wf:before{background-position:-108px -234px}.statistics i.flag.samoa:before,.statistics i.flag.ws:before{background-position:-108px -260px}.statistics i.flag.ye:before,.statistics i.flag.yemen:before{background-position:-108px -286px}.statistics i.flag.mayotte:before,.statistics i.flag.yt:before{background-position:-108px -312px}.statistics i.flag.south.africa:before,.statistics i.flag.za:before{background-position:-108px -338px}.statistics i.flag.zambia:before,.statistics i.flag.zm:before{background-position:-108px -364px}.statistics i.flag.zimbabwe:before,.statistics i.flag.zw:before{background-position:-108px -390px}.todaysTreatment{height:48px;border-radius:18px;border:solid .6px #e2e2e2;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden !important;vertical-align:middle;padding-top:13px;padding-right:15px;padding-left:15px;color:#233151;font-size:14px}@media only screen and (max-width: 667px){.navbar-brand{text-align:center}.navbar-toggler.float-left{position:absolute}.statistics-text{text-align:center;padding:10px !important}.statistics-text-alignment{text-align:center !important}.white-card.statistic_card{padding:5px}#kt_treatments .kt-datatable__table{width:1105px !important}.homePage{margin-top:0px}.BackToTop{display:none}.container{padding:0}.kt-heading.kt-heading--md{text-align:center;font-size:15px;padding-bottom:15px}.fc-left>div{float:revert}.kt-form{padding:0 !important}.fc-unthemed .fc-toolbar{padding:0 !important}.fc .fc-toolbar>*>*{float:revert;margin-left:.75em;padding:10px}.kt-wizard-v2__form .text-center{text-align:center !important}.lg-calendar .fc-button-group{margin-bottom:10px}#kt_datatable_received_samples.kt-datatable__table{width:624px !important}.user-form-padding{padding:0}.order1{order:1}.order2{order:2}.mt-top-responsive{margin-top:0}.mt-top-responsive-patient-list{margin-top:-70px}.heading{padding-left:0}.kt-datatable__table{width:999px;display:inline-table !important;margin-left:.5%;margin-top:10px}#nav-tab .nav-fill .nav-item{margin-top:10px}.kt-datatable.kt-datatable--default>.kt-datatable__pager{width:999px}.statistics .Hospital>.select2.select2-container.select2-container--default{margin-left:142px}.text-alignment{text-align:center}.heading{font-size:21px !important}.swal2-actions{padding:0}.modal-responsive{padding:0;padding-left:0 !important;padding-right:0 !important}.content-wrapper{margin-left:1rem !important}#manufacturing .responsive_tabs{overflow:auto}#pills-tabContent{width:999px}.responsive_tabs .nav-tabs{width:999px}.table-search-header{margin-bottom:0 !important}.table-seprator .nav-tabs{margin-left:8% !important;margin-bottom:0 !important}.nav-fill .nav-item{margin-top:10px}#nav-tab .nav-tabs{margin-left:8%;margin-bottom:0}.sub-heading{font-size:21px;font-weight:700}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{padding:1rem !important}.time-line-tabs .nav-tabs .nav-item{z-index:0}.kt-pager-input.form-control{width:40px;height:39px;background-color:#fa6363;color:#fff;text-align:center}.details dt,.details dd{font-size:10px}.fc-view,.fc-view>table{position:relative;z-index:0}.logo-responsive{text-align:inherit !important;padding-left:15px;padding-bottom:10px}#collapsibleNavbar{padding-left:15px}.navbar-brand{width:164px !important}.manf_responsive_heading{margin-top:-76px}.navbar-brand{width:159px}.navbar-brand{width:164px !important}#frm_inboud_shipment{padding-right:5px;padding-left:5px}#v-pills-tabContent{padding-right:5px;padding-left:5px}.table-responsive #kt_datatable_completed_samples{background:#f9f9f9;border-radius:44px;padding-bottom:0 !important;padding:.5rem}#txtReceivedNote{margin-top:15px}.kt-portlet__head-title{font-size:21px}.details.float-right{float:left !important}.detils-height{height:450px !important}header{z-index:2}.main-sidebar{padding-top:123px;z-index:1}aside .logo-responsive img{display:none}.Treatment-Setup.kt-heading.kt-heading--md{text-align:center;font-size:18px;float:inherit}.Treatment-Setup-btn{text-align:center !important;display:block}.custom-file{z-index:0}.sidebar-open .main-sidebar{position:fixed}#kt_Screening_tabs_content{width:999px}#kt--screenings{overflow:auto}.table-search-header .patient-serch{float:left;width:62%}.table-search-header .add-btn{float:right;width:36%;padding:0}#collection_tabs{overflow:auto}#kt_datatable_latest_orders .patient-timeline{width:698px}.Treatment-Receiving{padding-top:10px}.Logistics .datetimepicker{padding-top:10px}.patient-detail-res{text-align:center !important}.kt-notes .kt-notes__items .kt-notes__item{width:250px !important}.time-line-tabs #pills-tabContent{width:260px !important}#pills-tabContent .text-righ{text-align:center !important}.table-grid{text-align:center !important}.table-responsive{overflow-x:auto}#kt_datatable_completed_samples>.kt-datatable--paging-loaded{width:300px}#kt_datatable_completed_samples>.kt-datatable--paging-loaded .kt-datatable__pager-info{display:none}}@media only screen and (min-width: 364px)and (max-width: 497px){.table-responsive{overflow-x:auto}.table-grid{text-align:center !important}.kt-notes .kt-notes__items .kt-notes__item{width:288px !important}.time-line-tabs #pills-tabContent{width:463px !important}#kt_datatable_completed_samples .kt-datatable__table{width:463px !important}.mt-top-responsive-patient-list{margin-top:-70px !important}}@media only screen and (min-width: 497px)and (max-width: 834px){.mt-top-responsive-patient-list{margin-top:-70px !important}.table-responsive{overflow-x:auto}#pills-tabContent .text-righ{text-align:center !important}.table-grid{text-align:center !important}.kt-notes .kt-notes__items .kt-notes__item{width:383px !important}.time-line-tabs #pills-tabContent{width:463px !important}#txtReceivedNote{margin-top:15px}.table-responsive #kt_datatable_completed_samples{background:#f9f9f9;border-radius:44px;padding-bottom:0 !important;padding:.5rem}.table-seprator .nav-tabs{margin-left:8% !important;margin-bottom:0 !important}.navbar-brand{text-align:center}.navbar-toggler.float-left{position:absolute;margin-top:0px}.statistics-text{text-align:center;padding:10px !important}.statistics-text-alignment{text-align:center !important}#kt_treatments.kt-datatable__table{width:1105px !important}.homePage{margin-top:0px}.mt-63{margin-top:0}.manf_responsive_heading{margin-top:-76px}.BackToTop{display:none}.container{padding:0}.kt-heading.kt-heading--md{text-align:center;font-size:15px !important;padding-bottom:15px}.fc-left>div{float:revert}.kt-form{padding:0 !important}.fc-unthemed .fc-toolbar{padding:0 !important}.fc .fc-toolbar>*>*{float:revert;margin-left:.75em;padding:10px}.kt-wizard-v2__form .text-center{text-align:center !important}.lg-calendar .fc-button-group{margin-bottom:10px}.user-form-padding{padding:0}.mt-top-responsive{margin-top:0}.heading{padding-left:0}.kt-datatable__table{width:999px !important;display:inline-table !important;margin-left:.5%;margin-top:10px}#nav-tab .nav-tabs{margin-left:8%;margin-bottom:0}#nav-tab .nav-fill .nav-item{margin-top:10px}.kt-datatable.kt-datatable--default>.kt-datatable__pager{width:999px}.statistics .Hospital>.select2.select2-container.select2-container--default{margin-left:142px}.text-alignment{text-align:center}.heading{font-size:21px !important}.swal2-actions{padding:0}.modal-responsive{padding:0;padding-left:0 !important;padding-right:0 !important}#manufacturing .responsive_tabs{overflow:auto}#pills-tabContent{width:999px}.responsive_tabs .nav-tabs{width:999px}.table-search-header{margin-bottom:0 !important}.sub-heading{font-size:21px;font-weight:700}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{padding:1rem !important}.time-line-tabs .nav-tabs .nav-item{z-index:0}.fc-view,.fc-view>table{position:relative;z-index:0}.navbar-brand{width:164px !important}}.c-table thead th{padding:15px}.c-table thead tr th:first-child{border-top-left-radius:44px}.c-table thead tr th:last-child{border-top-right-radius:44px}.c-table thead tr th:first-child{border-bottom-left-radius:44px}.c-table thead tr th:last-child{border-bottom-right-radius:44px}.c-table tbody tr td:first-child{border-top-left-radius:44px}.c-table tbody tr td:last-child{border-top-right-radius:44px}.c-table tbody tr td:first-child{border-bottom-left-radius:44px}.c-table tbody tr td:last-child{border-bottom-right-radius:44px}.c-table tbody tr td{font-size:14px;padding:15px;vertical-align:middle}.c-table td,.c-table th{padding:5px}.c-table .badge{max-width:100px}.c-table .admin-roles{max-width:150px}.table-nav-tab{margin:15px auto}.table-nav-tab>.nav-tabs{border-bottom:1px solid #dee2e6;border:0;margin:auto auto 2rem auto}.table-nav-tab>.nav-tabs .active{border:1px solid #a3c9ff}.table-nav-tab>.nav-tabs a.active:hover{border:1px solid #a3c9ff}.table-nav-tab>.nav-tabs .nav-link:hover{border-color:transparent}.kt-datatable__table{width:100%;display:inline-table !important}.table-search-header{margin:3rem auto}@media(max-width: 760px){.table-search-header .col-12{margin-top:15px}}.table-search-header .heading{font-size:1.3em;margin-top:15px;font-weight:bold}.table-search-header select.grey-input{height:calc(2.25rem + 15px)}.table-search-header select.grey-input:not([size]):not([multiple]){height:calc(2.25rem + 15px)}table tr{border-collapse:collapse;border-style:hidden;box-shadow:0 0 0 1px #e2e2e2;border-radius:18px;margin-top:2rem}.kt-datatable__table{width:99%;display:inline-table !important;margin-left:.5%;margin-top:10px}table{border-collapse:separate;border-spacing:0 1em;text-align:center;vertical-align:middle}.kt-datatable__cell--left{text-align:left;padding-left:7% !important}.kt-datatable__cell--right{text-align:right;padding-right:7% !important}.table-grid{padding:1rem}.table-grid .col-12{margin-top:15px}.time-icon-right-side-form{color:#bebfcb;border-top-right-radius:44px;border-bottom-right-radius:44px;background-color:#f9f9f9;border:none}/*# sourceMappingURL=style-v2.css.map */

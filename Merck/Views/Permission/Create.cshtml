@@ -1,0 +1,23 @@
+﻿@model Permissions
+@{
+	ViewData["Title"] = "Create Permissions";
+}
+@using (Html.BeginForm("CreatePermissions", "Permission", FormMethod.Post))
+{
+	<div class="container m-t-10 bg-white mb-4">
+		<h2 class="m-t-70">Create Permissions</h2>
+		<div class="row mt-4">
+			<div class="col-md-6">
+				<form>
+
+					<div class="form-group">
+						<label asp-for="Name" class="control-label"></label>
+						<input asp-for="Name" class="form-control" />
+						<span asp-validation-for="Name" class="text-danger"></span>
+					</div>
+					<button type="submit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Create Permission</button>
+				</form>
+			</div>
+		</div>
+	</div>
+}

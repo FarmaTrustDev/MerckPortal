@@ -4,8 +4,14 @@ using JWT.Serializers;
 using Merck.Helpers.Auth;
 using Merck.Helpers.ExceptionHandling;
 using Merck.Helpers.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Merck.Helpers.JWTM
 {
@@ -72,7 +78,7 @@ namespace Merck.Helpers.JWTM
 			IJwtDecoder decoder = GetJwtDecoder();
 			string payloadJson = decoder.Decode(token, secretKey, verify: true);
 
-			return Serializer.Deserialize<Dictionary<string, object>>(payloadJson);
+			return Serialization.Serializer.Deserialize<Dictionary<string, object>>(payloadJson);
 		}
 
 		public static string GenerateAccessToken(string secretKey, IDictionary<string, object> payload)
@@ -170,6 +176,45 @@ namespace Merck.Helpers.JWTM
 
 			return exists;
 		}
-	}
+        public static void SetJwtToken(HttpContext httpContext, string token)
+        {
+            httpContext.Response.Cookies.Append("jwt", token, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true, // Set to true if using HTTPS
+                SameSite = SameSiteMode.Strict // Recommended for security
+            });
+        }
+        public string GetJwtToken(HttpContext httpContext)
+        {
+            var token = httpContext.Request.Cookies["jwt"];
+            return token;
+        }
+
+        public bool IsJwtTokenValid(string token)
+        {
+            var tokenValidationParameters = GetTokenValidationParameters();
+            var handler = new JwtSecurityTokenHandler();
+            try
+            {
+                handler.ValidateToken(token, tokenValidationParameters, out _);
+                return true;
+            }
+            catch (SecurityTokenException)
+            {
+                return false;
+            }
+        }
+
+        private TokenValidationParameters GetTokenValidationParameters()
+        {
+            var serviceProvider = new ServiceCollection()
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .Services.BuildServiceProvider();
+            var options = serviceProvider.GetService<IOptions<JwtBearerOptions>>().Value;
+            return options.TokenValidationParameters;
+        }
+
+    }
 
 }

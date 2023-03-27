@@ -1,23 +1,97 @@
-﻿@{
+﻿@model Roles
+@{
     ViewData["Title"] = "Roles";
 }
 
 
-<div class="container mt-4 bg-white">
-    <h1>Roles Management</h1>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <a class="btn " href="/role/create">Create Role</a>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <h2>Current Roles</h2>
-            <ul class="list-group">
-                <li class="list-group-item">Admin</li>
-                <li class="list-group-item">Manager</li>
-                <li class="list-group-item">Employee</li>
-            </ul>
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0 mt-63">
+
+    <!-- begin:: Content -->
+    <div class="kt-container container  kt-container--fluid  kt-grid__item kt-grid__item--fluid manf_responsive_heading p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile table-container ">
+
+                    <div class="table-search-header row">
+                        <div class="col-md-6 col-12">
+                            <h3 class="heading">Roles</h3>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-8">
+                        </div>
+                        <div class="col-lg-1 col-md-3 col-2">
+                            <a href="/Role/Create" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">
+                                <i class="la la-plus"></i>
+                                Add Role
+                            </a>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body kt-portlet__body--fit">
+
+                        <!--begin: Datatable -->
+                        <div class="table-responsive user">
+                            <div class="tab-pane active table c-table ">
+                                <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
+
+                                    <table class="kt-datatable__table" style="display: block;">
+                                        <thead class="kt-datatable__head">
+                                            <tr class="kt-datatable__row" style="left: 0px;">
+
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">Roles</span>
+                                                </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">Permissions</span>
+                                                </th>
+                                                <!--<th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    Edit
+                                                </th>-->
+                                            </tr>
+                                        </thead>
+                                        <tbody class="kt-datatable__body">
+                    
+                    @{
+                        
+                        foreach (var role in ViewBag.Roles)
+                        {
+                            <tr class="kt-datatable__row" style="left: 0px;">
+                                <td class="kt-datatable__cell">
+                                    <span style="width: 161px;">
+                                @role.Name
+                                </span>
+                                </td>
+                                <td class ="kt-datatable__cell">
+                                                           
+                                    @foreach (var permission in role.Permissions)
+                                    {
+                                        <span style="width: 161px;">@permission.Name |</span>
+                                    }
+                                </td>
+                                <!--<td>
+                                    <a href="/Role/Edit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Edit</a>
+                                </td>-->
+                            </tr>
+                        }
+                        /*var controllerActions = Startup.GetControllersAndActions();
+                        foreach (var item in controllerActions)
+                        {
+                            <tr>
+                                <td>@item.Controller</td>
+                                <td>@item.Action</td>
+                            </tr>                   
+                        }*/
+                    }
+                </tbody>
+            </table>
+                                </div>
+
+                            </div>
+                            <!--end: Datatable -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
