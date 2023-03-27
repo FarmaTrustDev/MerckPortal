@@ -18,6 +18,7 @@ namespace Merck.Services
         }
 		public Permissions CreatePermissions(Permissions permission)
 		{
+            permission.Active = true;
 			return _permissionRepo.Create(permission).Result;
 		}
 	}

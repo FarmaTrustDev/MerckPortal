@@ -1,3 +1,4 @@
+using Merck.Core;
 using Merck.Infrastructure;
 using Merck.Interfaces.Repositories;
 using Merck.Repositories;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +34,31 @@ namespace Merck
         }
 
         public IConfiguration Configuration { get; }
+		public static List<ControllerList> GetControllersAndActions()
+		{
+			var result = new List<ControllerList>();
 
-        public void ConfigureServices(IServiceCollection services)
+			// Get all the types in the assembly
+			var assembly = typeof(Startup).GetTypeInfo().Assembly;
+			var controllerTypes = assembly.GetTypes().Where(type => typeof(ControllerBase).IsAssignableFrom(type));
+
+			// Loop through each controller type
+			foreach (var controllerType in controllerTypes)
+			{
+				// Get all the public methods in the controller type
+				var methods = controllerType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+
+				// Loop through each method
+				foreach (var method in methods)
+				{
+					// Add the controller and action to the list
+					result.Add(new ControllerList { Controller = controllerType.Name, Action = method.Name });
+				}
+			}
+
+			return result;
+		}
+		public void ConfigureServices(IServiceCollection services)
         {
 			services.AddTransient<ITokenRepository, TokenService>();
             services.AddAuthentication(options=> {

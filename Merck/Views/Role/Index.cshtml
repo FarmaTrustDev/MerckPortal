@@ -42,6 +42,9 @@
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
                                                     <span style="width: 161px;">Permissions</span>
                                                 </th>
+                                                <!--<th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    Edit
+                                                </th>-->
                                             </tr>
                                         </thead>
                                         <tbody class="kt-datatable__body">
@@ -50,24 +53,32 @@
                         
                         foreach (var role in ViewBag.Roles)
                         {
-
-                                                    <tr class="kt-datatable__row" style="left: 0px;">
-
-                                                        <td class="kt-datatable__cell">
-                                                            <span style="width: 161px;">
-                                                        @role.Name
-                                                        </span>
-                                                        </td>
-                                                        <td class ="kt-datatable__cell">
+                            <tr class="kt-datatable__row" style="left: 0px;">
+                                <td class="kt-datatable__cell">
+                                    <span style="width: 161px;">
+                                @role.Name
+                                </span>
+                                </td>
+                                <td class ="kt-datatable__cell">
                                                            
                                     @foreach (var permission in role.Permissions)
                                     {
-                                                                <span style="width: 161px;">@permission.Name |</span>
-                                                            }
+                                        <span style="width: 161px;">@permission.Name |</span>
+                                    }
                                 </td>
+                                <!--<td>
+                                    <a href="/Role/Edit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Edit</a>
+                                </td>-->
                             </tr>
-                           
                         }
+                        /*var controllerActions = Startup.GetControllersAndActions();
+                        foreach (var item in controllerActions)
+                        {
+                            <tr>
+                                <td>@item.Controller</td>
+                                <td>@item.Action</td>
+                            </tr>                   
+                        }*/
                     }
                 </tbody>
             </table>

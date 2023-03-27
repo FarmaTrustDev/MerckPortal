@@ -59,6 +59,11 @@
                                                         @Html.DisplayNameFor(model => model.Email)
                                                     </span>
                                                 </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                        Edit
+                                                    </span>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody class="kt-datatable__body">
@@ -90,6 +95,11 @@
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
                                                             @item.Email
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            <a href="/User/Edit?id=@item.GlobalId" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Edit</a>
                                                         </span>
                                                     </td>
                                                 </tr>

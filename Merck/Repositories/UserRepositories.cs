@@ -5,6 +5,7 @@ using Merck.Helpers.Auth;
 using Merck.Interfaces.Repositories;
 using Merck.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,7 +35,7 @@ namespace Merck.Repositories
                 Active=role.Active,
                 UserName=role.UserName,
                 Email=role.Email,
-                Roles=role.UserRoles.Select(rol=>rol.Role).ToList(),
+                Roles=role.UserRoles.Where(rol => rol.Active == true).Select(rol=>rol.Role).ToList(),
             }).ToList();
             return userRoleDTOs;
         }
@@ -46,9 +47,28 @@ namespace Merck.Repositories
                 .Select(userRole => new UserRoleDTO()
                 {
                         UserName=userRole.UserName,
-                        Roles=userRole.UserRoles.Select(usR=>usR.Role).ToList(),
+                        Roles=userRole.UserRoles.Where(rol => rol.Active == true).Select(usR=>usR.Role).ToList(),
                 }).FirstOrDefault();
             return userRoleDTO;
         }
-    }
+        public UserRoleDTO GetUserWithRolesByUserId(Guid id)
+        {
+            UserRoleDTO userRoleDTOs = _dbContext.User.Where(usr => usr.GlobalId==id).Include(usr => usr.UserRoles).Select(role => new UserRoleDTO()
+            {
+                Id = role.Id,
+                FirstName = role.FirstName,
+                LastName = role.LastName,
+                GlobalId = role.GlobalId,
+                Active = role.Active,
+                UserName = role.UserName,
+                Email = role.Email,
+                Roles = role.UserRoles.Where(rol=>rol.Active==true).Select(rol => rol.Role).ToList(),
+            }).FirstOrDefault();
+            return userRoleDTOs;
+        }
+		public User GetUserByGuid(Guid globalId)
+        {
+            return _dbContext.User.Where(user => user.GlobalId == globalId).FirstOrDefault();
+        }
+	}
 }

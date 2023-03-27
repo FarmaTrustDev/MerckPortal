@@ -2,6 +2,7 @@
 using Merck.Migrations;
 using Merck.Models;
 using Merck.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -46,8 +47,11 @@ namespace Merck.Repositories
             {
                 if (!user.Any(uR=> _roles.Contains(uR.RoleName)))
                 {
-                    context.Result = new ForbidResult();
-                    return;
+                    context.Result = new ViewResult
+                    {
+                        ViewName = "Forbid",
+                        StatusCode = StatusCodes.Status403Forbidden
+                    };
                 }
 
             }
@@ -55,8 +59,11 @@ namespace Merck.Repositories
             {
                 if (!_permissions.All(p => user.Any(up => up.PermissionsName.Contains(p))))
                 {
-                    context.Result = new ForbidResult();
-                    return;
+                    context.Result = new ViewResult
+                    {
+                        ViewName = "Forbid",
+                        StatusCode = StatusCodes.Status403Forbidden
+                    };
                 }
             }
         }

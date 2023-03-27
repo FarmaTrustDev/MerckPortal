@@ -22,6 +22,7 @@ namespace Merck.Services
         }
         public Roles CreateRole(Roles role)
 		{
+            role.Active = true;
 			return _roleRepo.Create(role).Result;
 		}
 	}

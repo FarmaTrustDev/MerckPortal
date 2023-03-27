@@ -23,6 +23,7 @@ namespace Merck.Services
 				foreach (var permissionId in perRole)
 				{
 					var rolePermission = new PermissionRoles { RoleId = role.Id, PermissionId = permissionId };
+					rolePermission.Active = true;
 					_perRoleRepo.Create(rolePermission);
 				}
 			}

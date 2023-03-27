@@ -12,5 +12,5 @@ namespace Merck.Interfaces.Repositories
         public Task<TEntity> Delete(TEntity entity);
         public List<TEntity> Get();
         public Task<TEntity> Get(int id);
-    }
+	}
 }

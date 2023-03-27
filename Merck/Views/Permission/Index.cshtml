@@ -32,7 +32,6 @@
                         <div class="table-responsive user">
                             <div class="tab-pane active table c-table ">
                                 <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
-
                                     <table class="kt-datatable__table" style="display: block;">
                                         <thead class="kt-datatable__head">
                                             <tr class="kt-datatable__row" style="left: 0px;">
@@ -46,40 +45,40 @@
                                                     Permissions
                                                     </span>
                                                 </th>
-                                                <th>
-                            
-                                                </th>
+                                                <!--<th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                    Edit
+                                                    </span>
+                                                </th>-->
 
                                             </tr>
                                         </thead>
                                         <tbody class="kt-datatable__body">
+                                        @{
+                                            int i = 1;
+                                            foreach (var permission in ViewBag.Permissions)
+                                            {
 
-                                    @{
-                                        int i = 1;
-                                        foreach (var permission in ViewBag.Permissions)
-                                        {
-
-                                                    <tr class="kt-datatable__row" style="left: 0px;">
-                                                        <td class="kt-datatable__cell">
-                                                            <span style="width: 161px;">
-                                                                @i
-                                                            </span>
-                                                        </td>
-                                                        <td class="kt-datatable__cell">
-                                                            <span style="width: 161px;">
-                                                                @permission.Name
+                                                        <tr class="kt-datatable__row" style="left: 0px;">
+                                                            <td class="kt-datatable__cell">
+                                                                <span style="width: 161px;">
+                                                                    @i
                                                                 </span>
-                                                        </td>
-                                                        <td>
-                                   
-                                                        </td>
-
-                                                    </tr>
-                                                    i++;
+                                                            </td>
+                                                            <td class="kt-datatable__cell">
+                                                                <span style="width: 161px;">
+                                                                    @permission.Name
+                                                                    </span>
+                                                            </td>
+                                                        <!--<td>
+                                                            <a href="/Permission/Edit" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Edit</a>
+                                                            </td>-->
+                                                        </tr>
+                                                        i++;
+                                            }
                                         }
-                    }
-                </tbody>
-            </table>
+                                        </tbody>
+                                    </table>
                                 </div>
 
                             </div>
