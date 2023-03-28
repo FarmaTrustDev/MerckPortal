@@ -2555,11 +2555,18 @@ Form-control
 .form-control {
     color: #67757c;
     min-height: 38px;
-    /* display: initial; */
+    display: initial;
     background-color: #f3f6f9;
     border-radius: 18px;
-    padding: 6px 20px;
+    /* padding: 6px 20px; */
     height: 55px;
+    /* padding-right: 75%; */
+    /* padding-left: 100px; */
+    /* margin-right: 16%; */
+    /* margin-left: -2%; */
+    width: 390px;
+    font-size: inherit;
+    font-family: monospace;
 }
 
 .form-control-sm {
@@ -2580,7 +2587,7 @@ form label {
   font-weight: 400; }
 
 .form-group {
-  margin-bottom: 25px; }
+  margin-bottom: 1px; }
 
 .form-horizontal label {
   margin-bottom: 0px; }
