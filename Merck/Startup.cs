@@ -72,12 +72,12 @@ namespace Merck
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Audience"],
+                    ValidIssuer = Configuration["AppConfiguration:Issuer"],
+                    ValidAudience = Configuration["AppConfiguration:Audience"],
                     IssuerSigningKey = new
                     SymmetricSecurityKey
                     (Encoding.UTF8.GetBytes
-                    (Configuration["Jwt:Key"]))
+                    (Configuration["AppConfiguration:Key"]))
                 };
 				
 			});
