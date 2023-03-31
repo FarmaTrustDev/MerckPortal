@@ -63,7 +63,7 @@ namespace Merck.Controllers
             if (validUser != null)
             {
                 ViewBag.Users = _userRepository.GetRolesByUserId(validUser.UserName);
-                generatedToken = _tokenService.BuildToken(_config["Jwt:Key"].ToString(), _config["Jwt:Issuer"].ToString(), _config["Jwt:Audience"].ToString(), validUser);
+                generatedToken = _tokenService.BuildToken(_config["AppConfiguration:Key"].ToString(), _config["AppConfiguration:Issuer"].ToString(), _config["AppConfiguration:Audience"].ToString(), validUser);
                 if (generatedToken != null)
                 {
                     HttpContext.Session.SetString("Token", generatedToken);
