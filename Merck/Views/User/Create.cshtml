@@ -5,37 +5,39 @@
 @using (Html.BeginForm("CreateUserWithRole", "User", FormMethod.Post))
 {
 	<div class="container m-t-80">
+		<h2 class="kt-portlet__head-title m-l-20">Create User</h2>
 		<div class="grey-card container p-sm-3">
 			<div class="white-card row m-2 pills-container">
 				<div class="kt-container   kt-container--fluid  kt-grid__item kt-grid__item--fluid p-0">
 					<div class="row user-form-padding">
 						<div class="col-lg-12">
 							<div class="kt-portlet">
-								<h2 class="kt-portlet__head-title">Create User</h2>
-
 								<form class="kt-form kt-form--fit kt-form--label-right m-t-30">
 									<div class="kt-portlet__body">
 										<div class="form-group row">
-											<label asp-for="UserName" class="control-label"></label>
+											<div class="form-group col-12 col-md-6 p-10">
+											<label class="title">Username:</label>
 											<input asp-for="UserName" class="form-control" />
 											<span asp-validation-for="UserName" class="text-danger"></span>
+											</div>
+											<div class="form-group col-12 col-md-6 p-10">
+												<label class="title">Email:</label>
+												<input asp-for="Email" class="form-control" />
+												<span asp-validation-for="Email" class="text-danger"></span>
+											</div>
 										</div>
-					<div class="form-group row">
-						<label asp-for="FirstName" class="control-label"></label>
-						<input asp-for="FirstName" class="form-control" />
-						<span asp-validation-for="FirstName" class="text-danger"></span>
-					</div>
-					<div class="form-group row">
-						<label asp-for="LastName" class="control-label"></label>
-						<input asp-for="LastName" class="form-control" />
-						<span asp-validation-for="LastName" class="text-danger"></span>
-					</div>
-					<div class="form-group row">
-						<label asp-for="Email" class="control-label"></label>
-						<input asp-for="Email" class="form-control" />
-						<span asp-validation-for="Email" class="text-danger"></span>
-					</div>
-
+										<div class="form-group row">
+											<div class=" form-group col-12 col-md-6 p-10">
+											<label class="title">First Name:</label>
+											<input asp-for="FirstName" class="form-control" />
+											<span asp-validation-for="FirstName" class="text-danger"></span>
+											</div>
+											<div class="form-group col-12 col-md-6 p-10">
+												<label class="title">Last Name:</label>
+												<input asp-for="LastName" class="form-control" />
+												<span asp-validation-for="LastName" class="text-danger"></span>
+											</div>
+										</div>
 					<div class="form-group">
 						<label for="Roles">Select Role(s) for User:</label>
 						@foreach (var role in ViewBag.Roles)
