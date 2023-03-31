@@ -11,27 +11,27 @@ namespace Merck.Controllers
     [ApiController]
     public class ReadFileController : ControllerBase
     {
+
+        public readonly BlobStorageService _blobStorageService;
+        public ReadFileController(BlobStorageService blobStorageService)
+        {
+            _blobStorageService = blobStorageService;
+        }
         // GET: api/<ReadFileController>
         [HttpGet]
         public string Get()
         {
-            //BlobStorageService blobStorageService = new BlobStorageService("your_connection_string_here", "your_container_name_here");
-
-            //foreach (string fileName in blobStorageService.ListFilesInFolder("your_folder_name_here"))
-            //{
-            //    Console.WriteLine(fileName);
-            //}
-            BlobStorageService blobStorageService = new BlobStorageService("DefaultEndpointsProtocol=https;AccountName=chdgwdatadev;BlobEndpoint=https://chdgwdatadev.blob.core.windows.net/;QueueEndpoint=https://chdgwdatadev.queue.core.windows.net/;FileEndpoint=https://chdgwdatadev.file.core.windows.net/;TableEndpoint=https://chdgwdatadev.table.core.windows.net/;SharedAccessSignature=sv=2020-08-04&si=farmatrustaccesspolicy&sr=c&sig=G9iM1991Pvbh%2FAgnz7cKHROqf2iRYKrftcpVT%2BSdAiU%3D", "blockchainpoc");
-
-
-            foreach (string fileName in blobStorageService.ListFilesInFolder("non_hashed"))
+            try
             {
-                blobStorageService.ReadBlobFileAsync(fileName);
-                Console.WriteLine(fileName);
-                break;
+                _blobStorageService.GenerateHash("non_hashed");
+                return "";
             }
-            BackgroundJob.Enqueue(() => new JobServices().Execute());
-            return "";
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         // GET api/<ReadFileController>/5
