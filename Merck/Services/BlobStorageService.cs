@@ -26,5 +26,18 @@ namespace Merck.Services
                 yield return blobItem.Name;
             }
         }
+
+
+       // sub ko queu kardena haii file name k sath 
+       // file agai  
+       // json lia
+       // json hash kia 
+       // hash file uthai
+       // compare kia
+       //db mai dum kardia 
+
+        // file_name | is_tempared |
+
+
     }
 }
