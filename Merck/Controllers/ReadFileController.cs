@@ -1,4 +1,5 @@
-﻿using Merck.Services;
+﻿using Hangfire;
+using Merck.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -20,12 +21,13 @@ namespace Merck.Controllers
             //{
             //    Console.WriteLine(fileName);
             //}
-            BlobStorageService blobStorageService = new BlobStorageService("https://chdgwdatadev.blob.core.windows.net/blockchainpoc?sv=2020-08-04&si=farmatrustaccesspolicy&sr=c&sig=G9iM1991Pvbh%2FAgnz7cKHROqf2iRYKrftcpVT%2BSdAiU%3D", "blockchainpoc");
+            BlobStorageService blobStorageService = new BlobStorageService("DefaultEndpointsProtocol=https;AccountName=chdgwdatadev;BlobEndpoint=https://chdgwdatadev.blob.core.windows.net/;QueueEndpoint=https://chdgwdatadev.queue.core.windows.net/;FileEndpoint=https://chdgwdatadev.file.core.windows.net/;TableEndpoint=https://chdgwdatadev.table.core.windows.net/;SharedAccessSignature=sv=2020-08-04&si=farmatrustaccesspolicy&sr=c&sig=G9iM1991Pvbh%2FAgnz7cKHROqf2iRYKrftcpVT%2BSdAiU%3D", "blockchainpoc");
 
             foreach (string fileName in blobStorageService.ListFilesInFolder("non_hashed"))
             {
                 Console.WriteLine(fileName);
             }
+            BackgroundJob.Enqueue(() => new JobServices().Execute());
             return "";
         }
 
