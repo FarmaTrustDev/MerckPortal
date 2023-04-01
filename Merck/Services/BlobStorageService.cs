@@ -33,7 +33,7 @@ namespace Merck.Services
             {
                 yield return blobItem.Name;
 
-                //break;
+                break;
             }
         }
 
@@ -57,7 +57,7 @@ namespace Merck.Services
 
                 // Convert the memory stream to a string
                 string contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-                await InsertIntoDB(contents, blobName);
+
 
 
                 // Return the contents of the file
@@ -70,15 +70,10 @@ namespace Merck.Services
             }
         }
 
-        private async Task<string> InsertIntoDB(string content, string FileName)
+        private async Task<string> InsertIntoDB(FileLog FileDto)
         {
             try
             {
-                FileLog FileDto = new FileLog();
-                FileDto.Name = FileName;
-                FileDto.Hash = Utility.GetMd5Hash(content);
-                FileDto.Value = content;
-                FileDto.Name = FileName;
 
                 await _fileLogRepository.Create(FileDto);
                 return "";
@@ -91,11 +86,43 @@ namespace Merck.Services
 
         }
 
+        public async Task<string> ReadFileOprationo(string blobName)
+        {
+
+            try
+            {
+                string contents = await ReadBlobFileAsync(blobName);
+
+                FileLog FileDto = new FileLog();
+                FileDto.Name = blobName;
+                FileDto.Hash = Utility.GetMd5Hash(contents);
+                FileDto.Value = contents;
+                FileDto.Name = blobName;
+
+                string HashedFileName = Utility.GetHashFileName(blobName); ;
+                string content2 = await ReadBlobFileAsync(HashedFileName);
+
+                FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
+                FileDto.MerckHash = content2;
+
+                FileDto.Tempered = FileDto.Hash == FileDto.MerckHash;
+
+                await InsertIntoDB(FileDto);
+                return blobName;
+            }
+            catch (Exception exx)
+            {
+
+                throw exx;
+            }
+        }
         public void GenerateHash(string blobName)
         {
             foreach (string fileName in ListFilesInFolder("non_hashed"))
             {
-                BackgroundJob.Enqueue(() => ReadBlobFileAsync(fileName));
+
+                BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
+                break;
                 //ReadBlobFileAsync(fileName);
                 //Console.WriteLine(fileName);
 

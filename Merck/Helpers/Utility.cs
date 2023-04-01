@@ -1,5 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using System.IO;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Merck.Helpers
 {
@@ -19,6 +21,22 @@ namespace Merck.Helpers
                     sb.Append(hashBytes[i].ToString("x2"));
                 }
                 return sb.ToString();
+            }
+        }
+
+        public static string GetHashFileName(string sourceFileName)
+        {
+            try
+            {
+                string fileName = Path.GetFileName(sourceFileName);
+                string newName = Regex.Replace(fileName, @"(\d+)\.json$", "h_$1.json");
+                // newName = Path.Combine("hashed", newName);
+                return $"hashed/{newName}";
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

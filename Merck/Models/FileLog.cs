@@ -7,6 +7,11 @@ namespace Merck.Models
     {
         public string Name { get; set; }
 
+
+        public string HashFileName { get; set; }
+
+        public string MerckHash { get; set; }
+
         public string Hash { get; set; }
 
         [Column(TypeName = "nvarchar(max)")]
