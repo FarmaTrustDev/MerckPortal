@@ -103,9 +103,9 @@ namespace Merck.Services
                 string content2 = await ReadBlobFileAsync(HashedFileName);
 
                 FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
-                FileDto.MerckHash = content2;
+                FileDto.MerckHash = content2.ToLower();
 
-                FileDto.Tempered = FileDto.Hash == FileDto.MerckHash;
+                FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
 
                 await InsertIntoDB(FileDto);
                 return blobName;
