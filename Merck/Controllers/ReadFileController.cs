@@ -1,4 +1,5 @@
-﻿using Merck.Services;
+﻿using Hangfire;
+using Merck.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -10,23 +11,27 @@ namespace Merck.Controllers
     [ApiController]
     public class ReadFileController : ControllerBase
     {
+
+        public readonly BlobStorageService _blobStorageService;
+        public ReadFileController(BlobStorageService blobStorageService)
+        {
+            _blobStorageService = blobStorageService;
+        }
         // GET: api/<ReadFileController>
         [HttpGet]
         public string Get()
         {
-            //BlobStorageService blobStorageService = new BlobStorageService("your_connection_string_here", "your_container_name_here");
-
-            //foreach (string fileName in blobStorageService.ListFilesInFolder("your_folder_name_here"))
-            //{
-            //    Console.WriteLine(fileName);
-            //}
-            BlobStorageService blobStorageService = new BlobStorageService("https://chdgwdatadev.blob.core.windows.net/blockchainpoc?sv=2020-08-04&si=farmatrustaccesspolicy&sr=c&sig=G9iM1991Pvbh%2FAgnz7cKHROqf2iRYKrftcpVT%2BSdAiU%3D", "blockchainpoc");
-
-            foreach (string fileName in blobStorageService.ListFilesInFolder("non_hashed"))
+            try
             {
-                Console.WriteLine(fileName);
+                _blobStorageService.GenerateHash("non_hashed");
+                return "";
             }
-            return "";
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         // GET api/<ReadFileController>/5

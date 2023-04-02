@@ -21,20 +21,23 @@ namespace Merck.Infrastructure
             //Repositories
             services.AddScoped<ITreatmentEventRepository, TreatmentEventRepository>();
             services.AddScoped<IUserRepositories, UserRepositories>();
-			services.AddScoped<IRoleRepository, RoleRepository>();
-			services.AddScoped<IPermissionsRepository, PermissionRepository>();
-			services.AddScoped<IPermissionRolesRepository, PermissionRolesRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IPermissionsRepository, PermissionRepository>();
+            services.AddScoped<IPermissionRolesRepository, PermissionRolesRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<ITokenRepository, TokenService>();
             services.AddScoped<IAuthorizationFilter, AuthFilter>();
+            services.AddScoped<IFileLogRepository, FileLogRepository>();
+
             //Services
             services.AddScoped<TreatmentEventServices>();
             services.AddScoped<UserServices>();
             services.AddScoped<RoleServices>();
-			services.AddScoped<PermissionServices>();
-			services.AddScoped<PermissionRoleServices>();
+            services.AddScoped<PermissionServices>();
+            services.AddScoped<PermissionRoleServices>();
             services.AddScoped<UserRoleServices>();
             services.AddScoped<AuthFilter>();
+            services.AddScoped<BlobStorageService>();
 
         }
     }
