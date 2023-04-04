@@ -4,123 +4,85 @@
 @{
     ViewData["Title"] = "TreatmentEventList";
 }
-<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0 m-t-30">
-
-    <!-- begin:: Content -->
-    <div class="kt-container container  kt-container--fluid  kt-grid__item kt-grid__item--fluid manf_responsive_heading p-0">
-        <div class="row">
-            <div class="col-xl-24">
-                <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile table-container ">
-
-                    <div class="table-search-header row">
-                        <div class="col-md-6 col-12">
-                            <h3 class="heading">Treatment Events Data @ViewBag.Result</h3>
-                        </div>
-                    </div>
-                    <div class="kt-portlet__body kt-portlet__body--fit">
-
-                        <!--begin: Datatable -->
-                        <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
-
-                                    
-
-                                    
-                            <div class="row user-form-padding">
-                                <div class="col-lg-10">
-                                    <div class="kt-portlet">
-
-                                        <div class="form-group row">
-                                        <div class="col-md-6 col-24">
-                                            <label for="myDropdown">Select Event with Timestamp:</label>
-                                            @Html.DropDownListFor(
-                                            expression: model => model.SelectedItemId,
-                                            selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
-                                            {
-                                            Value = i.LongTimestamp.ToString(),
-                                                Text = i.Event + " => " + i.LongTimestamp
-                                            }), "Value", "Text"),
-                                            optionLabel: "Please select a value",
-                                            htmlAttributes: new { @class = "form-control",@onchange = "onDropdownChange(this)" })
-                                        </div>
-                                        </div>
-                                        <script>
-                                            function onDropdownChange(dropdown) {
-                                                var longTimestamp = dropdown.value;
-                                                var selectedText = dropdown.options[dropdown.selectedIndex].text;
-                                                var timestamp = selectedText.split("=>")[1];
-                                                var event = selectedText.split("=>")[0];
-                                                console.log("Selected value: " + event);
-                                                console.log("Selected text: " + longTimestamp);
-                                                $.ajax({
-                                                    type: "GET",
-                                                    url: "/TreatmentEvent/GetTreatmentEvent?event=" + event + "&timestamp=" + longTimestamp,
-                                                    success: function (data) {
-                                                        console.log(data);
-                                                        var container = document.getElementById("formData");
-                                                        while (container.firstChild) {
-                                                            container.removeChild(container.firstChild);
-                                                        }
-
-                                                        var jsonObject = JSON.parse(data);
-                                                        var entries = Object.entries(jsonObject);
-                                                        // Loop through the properties of the JSON object
-                                                        for (const [key, value] of entries) {
-                                                                // Create a new form group div
-                                                                var formGroup = document.createElement("div");
-                                                                formGroup.classList.add("form-group", "row");
-                                                                
-                                                                // Create a new label element
-                                                                var label = document.createElement("label");
-                                                                label.classList.add("col-12", "col-md-6", "p-10");
-
-                                                                // Set the label element's text content
-                                                                label.textContent = key;
-
-                                                                // Add the label element to the form group
-                                                                formGroup.appendChild(label);
-
-                                                                // Create a new input element
-                                                                var input = document.createElement("input");
-                                                                input.classList.add("col-12", "col-md-6", "p-10");
-
-                                                                // Set the input element's attributes
-                                                                input.type = "text";
-                                                                input.name = key;
-                                                                input.value = value;
-
-                                                                // Add the input element to the form group
-                                                                formGroup.appendChild(input);
-
-                                                                // Add the form group to the container
-                                                                container.appendChild(formGroup);
-                                                         
-                                                        }
-                                                        
-                                                       
-                                                    },
-                                                    error: function (xhr, status, error) {
-                                                        // Handle the error
-                                                    }
-                                                });
-                                            }
-                                        </script>
-                            
-                                       <form class="kt-form kt-form--fit kt-form--label-right m-t-30">
-									        <div class="kt-portlet__body" id="formData">
-										        
-                                            </div>
-                                       </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                            <!--end: Datatable -->
-                </div>
-            </div>
-
+        <div class="table-search-header" style="margin-left:10%">
+            <h3 class="heading">Treatment Events Detail for Device Serial No : @ViewBag.SerialNo </h3>
         </div>
+        <form class="m-t-30" style="margin-left:10%">
+            <div class="form-group row">
+                <label for="myDropdown" class="col-3 p-10">Select Event with Timestamp</label>
+                @Html.DropDownListFor(
+                expression: model => model.SelectedItemId,
+                selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
+                {
+                    Value = i.LongTimestamp.ToString(),
+                    Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
+                }), "Value", "Text"),
+                optionLabel: "Please select a value",
+                htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+            </div>
+        </form>
+        <script>
+            function onDropdownChange(dropdown) {
+                var longTimestamp = dropdown.value;
+                var selectedText = dropdown.options[dropdown.selectedIndex].text;
+                var timestamp = selectedText.split("=>")[1];
+                var event = selectedText.split("=>")[0];
+                console.log("Selected value: " + event);
+                console.log("Selected text: " + longTimestamp);
+                $.ajax({
+                    type: "GET",
+                    url: "/TreatmentEvent/GetTreatmentEvent?event=" + event + "&timestamp=" + longTimestamp,
+                    success: function (data) {
+                        console.log(data);
+                        var container = document.getElementById("formData");
+                        while (container.firstChild) {
+                            container.removeChild(container.firstChild);
+                        }
+                        var jsonObject = JSON.parse(data);
+                        var entries = Object.entries(jsonObject);
+                        // Loop through the properties of the JSON object
+                       for (const [key, value] of entries) {
+                            // Create a new form group div
+                            var formGroup = document.createElement("div");
+                                                            
+                            formGroup.classList.add("form-group", "row");
+                                                            
+                            // Create a new label element
+                            var label = document.createElement("label");
+                            label.classList.add("col-3", "p-10", "m-t-10");
+                            const modifiedKey = key.replace(/_/g, ' ')
+                            .replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+                            // Set the label element's text content
+                            label.textContent = modifiedKey;
 
-    </div>
-</div>
+                            // Add the label element to the form group
+                            formGroup.appendChild(label);
+
+                            // Create a new input element
+                            var input = document.createElement("input");
+                            input.classList.add("col-3", "p-10", "m-t-10");
+                            input.style.borderRadius = "10px";
+                            input.readOnly = true;
+                            // Set the input element's attributes
+                            input.type = "text";
+                            input.name = key;
+                            input.value = value;
+
+                            // Add the input element to the form group
+                            formGroup.appendChild(input);
+
+                            // Add the form group to the container
+                            container.appendChild(formGroup);
+                        }                       
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle the error
+                    }
+                });
+            }
+        </script>
+        <form class="m-t-30" style="margin-left:10%">
+			<div id="formData">
+										        
+            </div>
+        </form>  

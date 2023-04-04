@@ -31,7 +31,7 @@ namespace Merck.Services
         {
             return _treatmentEventRepo.GetAllDeviceSerialNumber();
         }
-        public List<TreatmentEvent> GetDeviceSerialNumberList() // this has been defined to get from the logfile
+        public List<DeviceResponseDTO> GetDeviceSerialNumberList() // this has been defined to get from the logfile
         {
             return _treatmentEventRepo.GetDeviceSerialNumberList();
         }

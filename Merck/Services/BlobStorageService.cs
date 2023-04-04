@@ -59,7 +59,7 @@ namespace Merck.Services
                 
                 BlobProperties blobProperties = blobClient.GetProperties();
                 
-                long? maxTime=_fileLogRepository.GetMaxTimestamp();
+                long? maxTime=await _fileLogRepository.GetMaxTimestamp();
                 if (maxTime==null || blobProperties.CreatedOn.Ticks > maxTime)
                 {
                     // Download the blob's contents to a memory stream
@@ -104,7 +104,7 @@ namespace Merck.Services
             try
             {
                 FileResponseDTO contents = await ReadBlobFileAsync(blobName);
-                if (contents != null)
+                if (contents.Contents != null)
                 {
                     var httpContext = new HttpClient();
                     FileLog FileDto = new FileLog();
@@ -113,22 +113,41 @@ namespace Merck.Services
                     FileDto.Value = contents.Contents;
                     FileDto.Name = blobName;
                     FileDto.CreatedOn = contents.CreatedOn;
-                    string HashedFileName = Utility.GetHashFileName(blobName); ;
+                    string HashedFileName = Utility.GetHashFileName(blobName);
                     FileResponseDTO content2 = await ReadBlobFileAsync(HashedFileName);
-
+                    string deviceName = GetDeviceName(HashedFileName);
+                    FileDto.DeviceName = deviceName;
                     FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
                     FileDto.MerckHash = content2.Contents.ToLower();
 
                     FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
 
                     await InsertIntoDB(FileDto);
-                    //var content = new StringContent($"{{\"productInfo\":\"{FileDto.MerckHash}\"}}", Encoding.UTF8, "application/json");
-                    JObject obj = new JObject();
-                    obj.Add("productInfo", FileDto.MerckHash);
-                    var content = new StringContent(obj.ToString(), Encoding.UTF8, "application/json");
-                    string contentString = await content.ReadAsStringAsync();
-                    var response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
-                    
+                    var content = new StringContent($"{{\"productInfo\":\"{FileDto.MerckHash}\"}}", Encoding.UTF8, "application/json");
+
+                    string url = AppConstants.GetURLByDeviceName(deviceName);
+                    var response = await httpContext.PostAsync(url, content);
+
+                    /*HttpResponseMessage response = null;
+                    if (deviceName == AppConstants.Device1)
+                    {
+                        response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
+                    }
+                    if (deviceName == AppConstants.Device2)
+                    {
+                        response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
+                    }*/
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Request was successful
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var jsonResponse = JObject.Parse(responseContent);
+                        var transactionId = jsonResponse["transactionHash"].ToString();
+                        FileLog fileLog = _fileLogRepository.GetByFileName(FileDto.Name);
+                        fileLog.BlockChainTransactionId = transactionId;
+                        await _fileLogRepository.Update(fileLog);
+                    }
                     return blobName;
                 }
                 return null;
@@ -153,7 +172,12 @@ namespace Merck.Services
             }
 
         }
-
+        public string GetDeviceName(string blobName)
+        {
+            var pathArray = blobName.Split("/");
+            var deviceName = pathArray[1].Split("_")[0];
+            return deviceName;
+        }
         // sub ko queu kardena haii file name k sath 
         // file agai  
         // json lia
