@@ -1,5 +1,7 @@
 ﻿using Merck.Interfaces.Repositories;
 using Merck.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,73 @@ namespace Merck.Repositories
         public TreatmentEventRepository(MyDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
+        }
+        public void AddTreatmentEvents(List<TreatmentEvent> TreatmentEvents)
+        {
+            _dbContext.AddRange(TreatmentEvents);
+            _dbContext.SaveChanges();
+        }
+        public List<TreatmentEvent> GetAllDeviceSerialNumber()
+        {
+            return _dbContext.TreatmentEvent.AsEnumerable()
+                .GroupBy(t => t.DeviceSerialNumber)
+                .Select(g => new TreatmentEvent
+                {
+                    DeviceSerialNumber = g.Key,
+                    Timestamp = g.Max(t => t.Timestamp)
+                })
+                .OrderByDescending(t => t.Timestamp)
+                .ToList();
+        }
+        public List<TreatmentEvent> GetDeviceSerialNumberList()
+        {
+            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            List<TreatmentEvent> result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray))
+            .GroupBy(d => (string)d["device_serial_no"])
+            .Select(g=> new TreatmentEvent
+            {
+                DeviceSerialNumber = (string)g.Key,
+                LongTimestamp = g.Max(t =>(long)t["timestamp"])
+            })
+            .OrderByDescending(t => t.LongTimestamp)
+            .ToList();
+            return result;
+        }
+        public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo)
+        {
+            // Earlier created to fetch data from the treatmentevent table
+            /*return _dbContext.TreatmentEvent.Where(x=>x.DeviceSerialNumber== serialNo).AsEnumerable()
+                .GroupBy(t => new { t.Event, t.Timestamp, t.LongTimestamp })
+                .Select(g => new TreatmentEvent
+                {
+                    Event = g.Key.Event,
+                    Timestamp = g.Key.Timestamp,
+                    LongTimestamp=g.Key.LongTimestamp,
+                })
+                .ToList();*/
+            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            List<TreatmentEvent> result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo).AsEnumerable()
+            .GroupBy(d => new {Event=(string)d["event"], DeviceSerialNumber=(string)d["device_serial_no"], LongTimestamp=(long)d["timestamp"]  })
+            .Select(g => new TreatmentEvent
+            {
+                Event=g.Key.Event,
+                DeviceSerialNumber = g.Key.DeviceSerialNumber,
+                LongTimestamp = g.Key.LongTimestamp
+            })
+            .ToList();
+            return result;
+        }
+        public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp)
+        {
+            // return _dbContext.TreatmentEvent.Where(t=>t.Event==Events && t.LongTimestamp==Timestamp).FirstOrDefault();
+            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            var result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray))
+            .Where(t => (string)t["event"] == events.Trim(' ') && (long)t["timestamp"] == timestamp)
+            .FirstOrDefault();
+            return result.ToString();
         }
     }
 }

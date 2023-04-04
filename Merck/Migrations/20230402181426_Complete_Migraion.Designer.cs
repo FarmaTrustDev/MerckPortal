@@ -4,14 +4,16 @@ using Merck.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Merck.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230402181426_Complete_Migraion")]
+    partial class Complete_Migraion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,17 +73,11 @@ namespace Merck.Migrations
                     b.Property<bool?>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("BlockChainTransactionId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("CreatedBy")
                         .HasColumnType("int");
-
-                    b.Property<long>("CreatedOn")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("datetime2");
@@ -165,7 +161,7 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("ceada6c3-d567-405c-a483-3cbbf6807ef3"),
+                            GlobalId = new Guid("bfa8ae70-c69f-4ab8-b3ff-a8ecca801405"),
                             PermissionId = 1,
                             RoleId = 1
                         },
@@ -173,7 +169,7 @@ namespace Merck.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("6e3631e0-20f1-48a9-a5d4-5112c99ff068"),
+                            GlobalId = new Guid("489418c9-45df-4f53-8416-22397f14f582"),
                             PermissionId = 2,
                             RoleId = 1
                         },
@@ -181,7 +177,7 @@ namespace Merck.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("c32c3d53-ce99-49a3-9841-a45e94aac41a"),
+                            GlobalId = new Guid("20e83165-4a6a-4fb3-88f2-5978b93d2fee"),
                             PermissionId = 3,
                             RoleId = 1
                         },
@@ -189,7 +185,7 @@ namespace Merck.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            GlobalId = new Guid("7ff16e39-d015-4dee-8a8e-4342480b7e11"),
+                            GlobalId = new Guid("cf46d1db-5d18-4c02-8b90-1108c0d23c7f"),
                             PermissionId = 1,
                             RoleId = 2
                         });
@@ -235,21 +231,21 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("1b237ddb-a651-43f9-84c2-d37b57e95c66"),
+                            GlobalId = new Guid("74a05498-2ac3-4b70-b198-f3765f955e60"),
                             Name = "View"
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("0086a073-aa51-46cc-a776-5abf1858a5a3"),
+                            GlobalId = new Guid("18d20407-49ee-4359-b44f-362d6441acbd"),
                             Name = "Edit"
                         },
                         new
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("0f3adbdf-5a60-4cea-bb50-729d568b855c"),
+                            GlobalId = new Guid("946e0451-915b-472a-b068-9ed508830e19"),
                             Name = "Delete"
                         });
                 });
@@ -294,14 +290,14 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("f9012523-58fd-402b-9989-ebd41a7db320"),
+                            GlobalId = new Guid("f2e708b6-3e3d-4c51-9fb3-27757af8ccf3"),
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("3ea00894-9c11-4afb-9b2f-31720992d69c"),
+                            GlobalId = new Guid("c769e31e-1cb3-463c-bcc6-1b7f3c882ec3"),
                             Name = "Patient"
                         });
                 });
@@ -466,7 +462,7 @@ namespace Merck.Migrations
                             Email = "ahmed@gmail.com",
                             FirstName = "Ahmed",
                             Gender = (byte)0,
-                            GlobalId = new Guid("28e89211-50aa-4a94-8917-ac4cfd33b40f"),
+                            GlobalId = new Guid("7aa7fabf-9a1d-40bd-b038-83f09ae3aaa2"),
                             LastName = "Hassan",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "AhmedHassan"
@@ -478,7 +474,7 @@ namespace Merck.Migrations
                             Email = "paige@loop.com",
                             FirstName = "Paige",
                             Gender = (byte)0,
-                            GlobalId = new Guid("94b46501-ab7d-4e62-a008-1b3c572fcf4a"),
+                            GlobalId = new Guid("e6a4c439-f71e-42d3-a0e3-be35a7819e93"),
                             LastName = "Turner",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "PaigeTurner"
@@ -490,7 +486,7 @@ namespace Merck.Migrations
                             Email = "raja@loop.com",
                             FirstName = "Raja",
                             Gender = (byte)0,
-                            GlobalId = new Guid("afabf00e-0bb0-4232-8b8f-8340af83913f"),
+                            GlobalId = new Guid("b3ee342c-4e9f-44fa-942a-dc28e33ba236"),
                             LastName = "Sharif",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "RajaSharif"
@@ -544,7 +540,7 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("dacdedec-4fde-47b3-8ce1-d399012ab39d"),
+                            GlobalId = new Guid("de0f94e3-fa3d-40f4-9af6-8bfc90154c7e"),
                             RoleId = 2,
                             UserId = 1
                         },
@@ -552,7 +548,7 @@ namespace Merck.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("65cc86ca-830c-443b-968e-83545f542564"),
+                            GlobalId = new Guid("45cebccb-5621-4f47-be02-3765c25b8dfc"),
                             RoleId = 2,
                             UserId = 2
                         },
@@ -560,7 +556,7 @@ namespace Merck.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("d90021cc-e1a9-4d93-a7b9-093db9c1ac4b"),
+                            GlobalId = new Guid("f2506e38-fab3-4330-abfa-457e4c27338d"),
                             RoleId = 1,
                             UserId = 3
                         });

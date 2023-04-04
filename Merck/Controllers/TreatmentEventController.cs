@@ -1,10 +1,17 @@
-﻿using Merck.Repositories;
+﻿using Merck.DTOS;
+using Merck.Models;
+using Merck.Repositories;
 using Merck.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Merck.Controllers
@@ -14,7 +21,7 @@ namespace Merck.Controllers
     {
         private readonly TreatmentEventServices _treatmentEventservices;
         public TreatmentEventController(TreatmentEventServices treatmentEventservices)
-        {
+        {   
             _treatmentEventservices = treatmentEventservices;
         }
         // GET: TreatmentEventController
@@ -23,7 +30,36 @@ namespace Merck.Controllers
             var model = _treatmentEventservices.GetAllTreatmentEvent();
             return View(model);
         }
+        public ActionResult TreatmentListByDeviceSerialNumber()
+        {
+            var model = _treatmentEventservices.GetDeviceSerialNumberList();
+            return View(model);
+        }
 
+        public ActionResult ShowTreatmentData()
+        {
+            var serialNo = Request.Query["serialNo"];
+            var model = _treatmentEventservices.GetListofEventsWithTimeStampBySerialNumber(serialNo);
+            EventResponseDTO eventResponseDTO = new EventResponseDTO();
+            eventResponseDTO.TreatmentEvents = model;
+            eventResponseDTO.SelectedItemId = 0;
+            return View(eventResponseDTO);
+        }
+        public IActionResult GetTreatmentEvent()
+        {
+            var events = Request.Query["event"];
+            var timestamp=long.Parse(Request.Query["timestamp"]);
+            // Retrieve the data based on the selected value
+            var data = _treatmentEventservices.GetTreatmentEventByEventAndTimeStamp(events, timestamp);
+            return Json(data);
+        }
+        [HttpPost]
+        public IActionResult ProcessFile()
+        {
+            var fileName = Request.Form["fileName"];
+            //_treatmentEventservices.ProcessFile(fileName);
+            return View();
+        }
         // GET: TreatmentEventController/Details/5
         public ActionResult Details(int id)
         {

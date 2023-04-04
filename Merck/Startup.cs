@@ -1,3 +1,4 @@
+using Hangfire;
 using Merck.Core;
 using Merck.Infrastructure;
 using Merck.Interfaces.Repositories;
@@ -18,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text;
@@ -34,39 +36,40 @@ namespace Merck
         }
 
         public IConfiguration Configuration { get; }
-		public static List<ControllerList> GetControllersAndActions()
-		{
-			var result = new List<ControllerList>();
-
-			// Get all the types in the assembly
-			var assembly = typeof(Startup).GetTypeInfo().Assembly;
-			var controllerTypes = assembly.GetTypes().Where(type => typeof(ControllerBase).IsAssignableFrom(type));
-
-			// Loop through each controller type
-			foreach (var controllerType in controllerTypes)
-			{
-				// Get all the public methods in the controller type
-				var methods = controllerType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
-				// Loop through each method
-				foreach (var method in methods)
-				{
-					// Add the controller and action to the list
-					result.Add(new ControllerList { Controller = controllerType.Name, Action = method.Name });
-				}
-			}
-
-			return result;
-		}
-		public void ConfigureServices(IServiceCollection services)
+        public static List<ControllerList> GetControllersAndActions()
         {
-			services.AddTransient<ITokenRepository, TokenService>();
-            services.AddAuthentication(options=> {
-				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-			}).AddJwtBearer(options =>
+            var result = new List<ControllerList>();
+
+            // Get all the types in the assembly
+            var assembly = typeof(Startup).GetTypeInfo().Assembly;
+            var controllerTypes = assembly.GetTypes().Where(type => typeof(ControllerBase).IsAssignableFrom(type));
+
+            // Loop through each controller type
+            foreach (var controllerType in controllerTypes)
             {
-				options.TokenValidationParameters = new TokenValidationParameters
+                // Get all the public methods in the controller type
+                var methods = controllerType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+
+                // Loop through each method
+                foreach (var method in methods)
+                {
+                    // Add the controller and action to the list
+                    result.Add(new ControllerList { Controller = controllerType.Name, Action = method.Name });
+                }
+            }
+
+            return result;
+        }
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddTransient<ITokenRepository, TokenService>();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
@@ -79,8 +82,12 @@ namespace Merck
                     (Encoding.UTF8.GetBytes
                     (Configuration["AppConfiguration:Key"]))
                 };
-				
-			});
+
+            });
+            /*services.AddHttpClient("myapi", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:5001/");
+            });*/
             services.AddSession(options =>
             {
                 // Configure session options
@@ -88,13 +95,20 @@ namespace Merck
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-			
-			services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-			services.AddSingleton(Configuration.GetSection("AppConfiguration").Get<AppConfiguration>());
-			
-			services.AddControllersWithViews();
-			
-			ServiceConfiguration.Register(services);
+
+            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton(Configuration.GetSection("AppConfiguration").Get<AppConfiguration>());
+
+            // Hangfire
+            services.AddHangfire(configuration => configuration
+           .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+           .UseSimpleAssemblyNameTypeSerializer()
+           .UseRecommendedSerializerSettings()
+           .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection")));
+            
+            services.AddControllersWithViews();
+
+            ServiceConfiguration.Register(services);
             ServiceProviderResolver.ServiceProvider = services.BuildServiceProvider();
             services.AddHttpContextAccessor();
         }
@@ -125,8 +139,15 @@ namespace Merck
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
+
+            RecurringJob.AddOrUpdate(() => CallApi(), Cron.Minutely);
 
             app.UseEndpoints(endpoints =>
             {
@@ -134,6 +155,15 @@ namespace Merck
                     name: "default",
                     pattern: "{controller=Auth}/{action=Index}/{id?}");
             });
+        }
+        public async Task<string> CallApi()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var response = await httpClient.GetAsync("https://localhost:5001/api/ReadFile");
+                // Handle the response
+            }
+            return null;
         }
     }
 }

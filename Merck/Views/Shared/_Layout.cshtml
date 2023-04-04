@@ -72,7 +72,7 @@
                     <span>Home</span>
                 </span>
             </a>
-            <a asp-controller="TreatmentEvent" asp-action="TreatmentEventList" class="sidebar-link">
+            <a asp-controller="TreatmentEvent" asp-action="TreatmentListByDeviceSerialNumber" class="sidebar-link">
                 <span class="nav-container">
                     <span> TreatmentEvent List</span>
                 </span>
@@ -92,7 +92,12 @@
                     <span> Permissions</span>
                 </span>
             </a>
-            <a asp-controller="Patient" asp-action="index" class="sidebar-link">
+            @* <a asp-controller="TreatmentEvent" asp-action="index" class="sidebar-link">
+                <span class="nav-container">
+                    <span> Read File</span>
+                </span>
+            </a>
+            <a href="/patients/Label" class="sidebar-link">
                 <span class="nav-container">
                     <span>Patients</span>
                 </span>
