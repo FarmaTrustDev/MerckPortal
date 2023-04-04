@@ -47,5 +47,10 @@ namespace Merck.Controllers
             ViewBag.JsonData = objects;
             return View();
 		}
+
+        public IActionResult ConductSteps()
+        {
+            return View();
+        }
 	}
 }
