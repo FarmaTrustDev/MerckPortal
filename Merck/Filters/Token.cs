@@ -11,7 +11,7 @@ namespace Merck.Filters
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<string> GetAccessTokenAsync()
+        public string GetAccessTokenAsync()
         {
             string accessToken = null;
             var context = _httpContextAccessor.HttpContext;

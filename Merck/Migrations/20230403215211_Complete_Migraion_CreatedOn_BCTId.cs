@@ -3,248 +3,232 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Merck.Migrations
 {
-    public partial class FileLog : Migration
+    public partial class Complete_Migraion_CreatedOn_BCTId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "FileLog",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Hash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tempered = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<int>(type: "int", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<int>(type: "int", nullable: true),
-                    GlobalId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Active = table.Column<bool>(type: "bit", nullable: true),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FileLog", x => x.Id);
-                });
+            migrationBuilder.AddColumn<string>(
+                name: "BlockChainTransactionId",
+                table: "FileLog",
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("3b1bccb6-f37c-4082-8167-d3dbeff038a0"));
+                value: new Guid("ceada6c3-d567-405c-a483-3cbbf6807ef3"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("a6141e8f-ff33-4b3c-82d5-c25061071efe"));
+                value: new Guid("6e3631e0-20f1-48a9-a5d4-5112c99ff068"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("fe387ccf-43ba-40d3-9872-43ed978ab2d5"));
+                value: new Guid("c32c3d53-ce99-49a3-9841-a45e94aac41a"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "GlobalId",
-                value: new Guid("02451474-9536-436f-96dc-4fc08dfe6912"));
+                value: new Guid("7ff16e39-d015-4dee-8a8e-4342480b7e11"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("585652d4-8bb1-424a-be88-211e4eb42a8b"));
+                value: new Guid("1b237ddb-a651-43f9-84c2-d37b57e95c66"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("8a28ad32-2405-47da-a4df-e5f4c825c7a4"));
+                value: new Guid("0086a073-aa51-46cc-a776-5abf1858a5a3"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("7e6c86c4-0ca7-4262-aa17-6a3a82ef76d6"));
+                value: new Guid("0f3adbdf-5a60-4cea-bb50-729d568b855c"));
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("972c04db-fa5f-437d-b40e-e42dada1373a"));
+                value: new Guid("f9012523-58fd-402b-9989-ebd41a7db320"));
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("bee897fe-2a49-4669-955a-06f8f380f210"));
+                value: new Guid("3ea00894-9c11-4afb-9b2f-31720992d69c"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("0e9b78ca-247d-4ca1-83bf-e3477a51659c"));
+                value: new Guid("28e89211-50aa-4a94-8917-ac4cfd33b40f"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("511e358e-82bf-4d5f-b741-7246c32bbbda"));
+                value: new Guid("94b46501-ab7d-4e62-a008-1b3c572fcf4a"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("64741397-a606-485a-b3fd-9620be83d30e"));
+                value: new Guid("afabf00e-0bb0-4232-8b8f-8340af83913f"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("be9709a8-1983-4050-9cf9-1a207fbe4ebd"));
+                value: new Guid("dacdedec-4fde-47b3-8ce1-d399012ab39d"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("268110db-6535-4059-9a5f-6b5b2ee48f21"));
+                value: new Guid("65cc86ca-830c-443b-968e-83545f542564"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("6d4a3deb-87a2-4003-b36f-c0c3c867d4e9"));
+                value: new Guid("d90021cc-e1a9-4d93-a7b9-093db9c1ac4b"));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "FileLog");
+            migrationBuilder.DropColumn(
+                name: "BlockChainTransactionId",
+                table: "FileLog");
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("246bf432-6af5-476f-acb9-13ef27122428"));
+                value: new Guid("757009ee-36c9-4391-85de-f45a2ce87703"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("f2119fc6-19c0-4514-a6f2-8a9c02b602c9"));
+                value: new Guid("0e6c4d76-3ae2-4247-a644-4799b5f3e3b4"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("f7b2770a-4455-40fc-9638-c551dd2ea419"));
+                value: new Guid("bc338801-b672-42a9-92f9-3eac3985779e"));
 
             migrationBuilder.UpdateData(
                 table: "PermissionRoles",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "GlobalId",
-                value: new Guid("f7f765a1-45dd-4ec7-8824-49283df223ec"));
+                value: new Guid("8eaebd0f-1521-4a6d-87e3-295d49c52ac5"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("6216075c-b0cb-44b7-babf-1e844dff2d8f"));
+                value: new Guid("8bd20297-28d9-4892-aed3-dd9e2e101c79"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("46e964b1-a387-425f-9384-d49f8e976f64"));
+                value: new Guid("ab811d1c-c49a-4bdd-a727-b7b19f9d23df"));
 
             migrationBuilder.UpdateData(
                 table: "Permissions",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("bcb62726-a20c-43ed-b5bc-e324b64cced1"));
+                value: new Guid("a28e0f1b-c895-419f-95b5-c5b45695d192"));
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("8fe10ccc-9194-4a91-84c2-804ed9f5fc27"));
+                value: new Guid("41ed8302-cd62-4b24-a2b0-2b29ff3722a7"));
 
             migrationBuilder.UpdateData(
                 table: "Roles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("22c0961e-9842-497d-b128-e56616341e11"));
+                value: new Guid("9be4f432-6229-4eee-9779-83511cdc20b5"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("242171bd-f56e-46ae-8966-7bd72d92b54d"));
+                value: new Guid("be62c816-b7f3-4f3c-a7f1-3ba1a84ada60"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("21cb9f27-5583-411c-b941-de9dc3c51028"));
+                value: new Guid("a83a4ffd-474a-4803-ab57-5baafacc6f9f"));
 
             migrationBuilder.UpdateData(
                 table: "User",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("841a0b25-792d-4bfa-b308-31fbdedf3366"));
+                value: new Guid("24d67c42-d107-4e7a-abd2-d09bd81a5593"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "GlobalId",
-                value: new Guid("c6fda45c-9690-4a43-baeb-ea2eddb9f58c"));
+                value: new Guid("6e6a7c40-e437-40e0-96d5-5d379bc63cd5"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "GlobalId",
-                value: new Guid("67abc9e8-cb61-4fdd-834b-a0a1f919294c"));
+                value: new Guid("449f3a8e-1783-43fa-8f83-11d531280880"));
 
             migrationBuilder.UpdateData(
                 table: "UserRoles",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "GlobalId",
-                value: new Guid("c82597a3-5509-4f62-872c-76e9ef350fe4"));
+                value: new Guid("dcc5f2f2-6891-4ff0-b87f-811ef03e469d"));
         }
     }
 }

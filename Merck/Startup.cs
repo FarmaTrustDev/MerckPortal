@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text;
@@ -83,6 +84,10 @@ namespace Merck
                 };
 
             });
+            /*services.AddHttpClient("myapi", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:5001/");
+            });*/
             services.AddSession(options =>
             {
                 // Configure session options
@@ -96,13 +101,11 @@ namespace Merck
 
             // Hangfire
             services.AddHangfire(configuration => configuration
-       .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
-       .UseSimpleAssemblyNameTypeSerializer()
-       .UseRecommendedSerializerSettings()
-       .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection")));
-
-
-
+           .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+           .UseSimpleAssemblyNameTypeSerializer()
+           .UseRecommendedSerializerSettings()
+           .UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection")));
+            
             services.AddControllersWithViews();
 
             ServiceConfiguration.Register(services);
@@ -136,11 +139,15 @@ namespace Merck
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseHangfireDashboard();
             app.UseHangfireServer();
+
+            RecurringJob.AddOrUpdate(() => CallApi(), Cron.Minutely);
 
             app.UseEndpoints(endpoints =>
             {
@@ -148,6 +155,15 @@ namespace Merck
                     name: "default",
                     pattern: "{controller=Auth}/{action=Index}/{id?}");
             });
+        }
+        public async Task<string> CallApi()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var response = await httpClient.GetAsync("https://localhost:5001/api/ReadFile");
+                // Handle the response
+            }
+            return null;
         }
     }
 }

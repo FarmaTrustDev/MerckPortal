@@ -1,5 +1,4 @@
 ﻿using Merck.DTOS;
-using Merck.Migrations;
 using Merck.Models;
 using Merck.Repositories;
 using Microsoft.AspNetCore.Http;

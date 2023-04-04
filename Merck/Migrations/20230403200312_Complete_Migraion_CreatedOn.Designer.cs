@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Merck.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230316182924_User_Permission")]
-    partial class User_Permission
+    [Migration("20230403200312_Complete_Migraion_CreatedOn")]
+    partial class Complete_Migraion_CreatedOn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,102 @@ namespace Merck.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
+
+            modelBuilder.Entity("Merck.Models.Document", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Contents")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DocumentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("GlobalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Document");
+                });
+
+            modelBuilder.Entity("Merck.Models.FileLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<bool?>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<long>("CreatedOn")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("GlobalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Hash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HashFileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerckHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Tempered")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FileLog");
+                });
 
             modelBuilder.Entity("Merck.Models.PermissionRoles", b =>
                 {
@@ -68,7 +164,7 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("e183cab6-41db-4a13-a7fd-ddd7f61fcbb8"),
+                            GlobalId = new Guid("757009ee-36c9-4391-85de-f45a2ce87703"),
                             PermissionId = 1,
                             RoleId = 1
                         },
@@ -76,7 +172,7 @@ namespace Merck.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("883bce5c-38e7-46c5-a7fe-b8e46ed660b3"),
+                            GlobalId = new Guid("0e6c4d76-3ae2-4247-a644-4799b5f3e3b4"),
                             PermissionId = 2,
                             RoleId = 1
                         },
@@ -84,7 +180,7 @@ namespace Merck.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("5552c350-d419-40b6-82b5-5b4a7d3a9fe8"),
+                            GlobalId = new Guid("bc338801-b672-42a9-92f9-3eac3985779e"),
                             PermissionId = 3,
                             RoleId = 1
                         },
@@ -92,7 +188,7 @@ namespace Merck.Migrations
                         {
                             Id = 4,
                             Active = true,
-                            GlobalId = new Guid("828a2137-2549-4342-bbc8-585bde73c9a7"),
+                            GlobalId = new Guid("8eaebd0f-1521-4a6d-87e3-295d49c52ac5"),
                             PermissionId = 1,
                             RoleId = 2
                         });
@@ -138,21 +234,21 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("92326b85-311a-418b-836e-cd28184d41e9"),
+                            GlobalId = new Guid("8bd20297-28d9-4892-aed3-dd9e2e101c79"),
                             Name = "View"
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("c42212d4-6a4b-46a1-a94d-26575b31e54f"),
+                            GlobalId = new Guid("ab811d1c-c49a-4bdd-a727-b7b19f9d23df"),
                             Name = "Edit"
                         },
                         new
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("cefaf8da-7070-44d7-b8db-f813b0d4f468"),
+                            GlobalId = new Guid("a28e0f1b-c895-419f-95b5-c5b45695d192"),
                             Name = "Delete"
                         });
                 });
@@ -197,15 +293,15 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("d6421b18-05b6-4a75-8ede-a561eb0690d0"),
+                            GlobalId = new Guid("41ed8302-cd62-4b24-a2b0-2b29ff3722a7"),
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("9afae10f-827d-41a8-a093-575b519d4826"),
-                            Name = "Operator"
+                            GlobalId = new Guid("9be4f432-6229-4eee-9779-83511cdc20b5"),
+                            Name = "Patient"
                         });
                 });
 
@@ -218,6 +314,12 @@ namespace Merck.Migrations
 
                     b.Property<bool?>("Active")
                         .HasColumnType("bit");
+
+                    b.Property<string>("BlockChainTransactionId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("CartridgeContent")
+                        .HasColumnType("float");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -240,6 +342,21 @@ namespace Merck.Migrations
                     b.Property<string>("Hash")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double?>("InjectedDose")
+                        .HasColumnType("float");
+
+                    b.Property<long>("LongTimestamp")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("LongTransmissionTime")
+                        .HasColumnType("bigint");
+
+                    b.Property<double?>("PrescribedDose")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("PrescribedDoseFrequency")
+                        .HasColumnType("float");
+
                     b.Property<string>("RecordType")
                         .HasColumnType("nvarchar(max)");
 
@@ -258,10 +375,15 @@ namespace Merck.Migrations
                     b.Property<int?>("UpdatedBy")
                         .HasColumnType("int");
 
-                    b.Property<double>("Value")
+                    b.Property<double?>("Value")
                         .HasColumnType("float");
 
+                    b.Property<int>("documentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("documentId");
 
                     b.ToTable("TreatmentEvent");
                 });
@@ -343,7 +465,7 @@ namespace Merck.Migrations
                             Email = "ahmed@gmail.com",
                             FirstName = "Ahmed",
                             Gender = (byte)0,
-                            GlobalId = new Guid("73389982-6bd1-4c68-8e3d-d51f4775fa2a"),
+                            GlobalId = new Guid("be62c816-b7f3-4f3c-a7f1-3ba1a84ada60"),
                             LastName = "Hassan",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "AhmedHassan"
@@ -355,7 +477,7 @@ namespace Merck.Migrations
                             Email = "paige@loop.com",
                             FirstName = "Paige",
                             Gender = (byte)0,
-                            GlobalId = new Guid("477475ff-3b63-4ca1-9e2b-1fa9281844a4"),
+                            GlobalId = new Guid("a83a4ffd-474a-4803-ab57-5baafacc6f9f"),
                             LastName = "Turner",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "PaigeTurner"
@@ -367,7 +489,7 @@ namespace Merck.Migrations
                             Email = "raja@loop.com",
                             FirstName = "Raja",
                             Gender = (byte)0,
-                            GlobalId = new Guid("0af6dc0b-c3b0-4086-a089-a5dc47f6b2cf"),
+                            GlobalId = new Guid("24d67c42-d107-4e7a-abd2-d09bd81a5593"),
                             LastName = "Sharif",
                             Password = "sf/WPJ/YEvZZrFchRMF92A==",
                             UserName = "RajaSharif"
@@ -421,7 +543,7 @@ namespace Merck.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            GlobalId = new Guid("598eb157-ebfc-4b43-b9b2-b9ed758f292d"),
+                            GlobalId = new Guid("6e6a7c40-e437-40e0-96d5-5d379bc63cd5"),
                             RoleId = 2,
                             UserId = 1
                         },
@@ -429,7 +551,7 @@ namespace Merck.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            GlobalId = new Guid("50cf642e-abc4-4c08-a56b-3c8be683603f"),
+                            GlobalId = new Guid("449f3a8e-1783-43fa-8f83-11d531280880"),
                             RoleId = 2,
                             UserId = 2
                         },
@@ -437,16 +559,8 @@ namespace Merck.Migrations
                         {
                             Id = 3,
                             Active = true,
-                            GlobalId = new Guid("5d311a41-7adb-455e-93dd-b27deb2b4081"),
+                            GlobalId = new Guid("dcc5f2f2-6891-4ff0-b87f-811ef03e469d"),
                             RoleId = 1,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Active = true,
-                            GlobalId = new Guid("a288f08f-8cb9-4d15-a958-bc274459d20b"),
-                            RoleId = 2,
                             UserId = 3
                         });
                 });
@@ -470,6 +584,17 @@ namespace Merck.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Merck.Models.TreatmentEvent", b =>
+                {
+                    b.HasOne("Merck.Models.Document", "Document")
+                        .WithMany("TreatmentEvents")
+                        .HasForeignKey("documentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+                });
+
             modelBuilder.Entity("Merck.Models.UserRoles", b =>
                 {
                     b.HasOne("Merck.Models.Roles", "Role")
@@ -487,6 +612,11 @@ namespace Merck.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Merck.Models.Document", b =>
+                {
+                    b.Navigation("TreatmentEvents");
                 });
 
             modelBuilder.Entity("Merck.Models.Permissions", b =>

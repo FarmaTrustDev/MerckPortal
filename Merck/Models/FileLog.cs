@@ -19,5 +19,8 @@ namespace Merck.Models
 
         public bool Tempered { get; set; }
 
+        public long CreatedOn { get; set; }
+        public string BlockChainTransactionId { get; set; }
+
     }
 }

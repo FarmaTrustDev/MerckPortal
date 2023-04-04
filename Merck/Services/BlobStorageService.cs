@@ -6,9 +6,14 @@ using Merck.Helpers;
 using Merck.Interfaces.Repositories;
 using Merck.Models;
 using Merck.Repositories;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Merck.Services
@@ -38,10 +43,11 @@ namespace Merck.Services
         }
 
 
-        public async Task<string> ReadBlobFileAsync(string blobName)
+        public async Task<FileResponseDTO> ReadBlobFileAsync(string blobName)
         {
             try
             {
+                FileResponseDTO fileResponseDTO = new FileResponseDTO();
                 // Create a BlobServiceClient object using the connection string
                 BlobServiceClient blobServiceClient = new BlobServiceClient(_connectionString);
 
@@ -50,18 +56,24 @@ namespace Merck.Services
 
                 // Get a reference to the blob
                 BlobClient blobClient = containerClient.GetBlobClient(blobName);
+                
+                BlobProperties blobProperties = blobClient.GetProperties();
+                
+                long? maxTime=_fileLogRepository.GetMaxTimestamp();
+                if (maxTime==null || blobProperties.CreatedOn.Ticks > maxTime)
+                {
+                    // Download the blob's contents to a memory stream
+                    MemoryStream memoryStream = new MemoryStream();
+                    await blobClient.DownloadToAsync(memoryStream);
 
-                // Download the blob's contents to a memory stream
-                MemoryStream memoryStream = new MemoryStream();
-                await blobClient.DownloadToAsync(memoryStream);
+                    // Convert the memory stream to a string
+                    string contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 
-                // Convert the memory stream to a string
-                string contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-
-
-
+                    fileResponseDTO.Contents = contents;
+                    fileResponseDTO.CreatedOn = blobProperties.CreatedOn.Ticks;
+                }
                 // Return the contents of the file
-                return contents;
+                return fileResponseDTO;
             }
             catch (Exception ex)
             {
@@ -91,24 +103,35 @@ namespace Merck.Services
 
             try
             {
-                string contents = await ReadBlobFileAsync(blobName);
+                FileResponseDTO contents = await ReadBlobFileAsync(blobName);
+                if (contents != null)
+                {
+                    var httpContext = new HttpClient();
+                    FileLog FileDto = new FileLog();
+                    FileDto.Name = blobName;
+                    FileDto.Hash = Utility.GetMd5Hash(contents.Contents);
+                    FileDto.Value = contents.Contents;
+                    FileDto.Name = blobName;
+                    FileDto.CreatedOn = contents.CreatedOn;
+                    string HashedFileName = Utility.GetHashFileName(blobName); ;
+                    FileResponseDTO content2 = await ReadBlobFileAsync(HashedFileName);
 
-                FileLog FileDto = new FileLog();
-                FileDto.Name = blobName;
-                FileDto.Hash = Utility.GetMd5Hash(contents);
-                FileDto.Value = contents;
-                FileDto.Name = blobName;
+                    FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
+                    FileDto.MerckHash = content2.Contents.ToLower();
 
-                string HashedFileName = Utility.GetHashFileName(blobName); ;
-                string content2 = await ReadBlobFileAsync(HashedFileName);
+                    FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
 
-                FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
-                FileDto.MerckHash = content2.ToLower();
-
-                FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
-
-                await InsertIntoDB(FileDto);
-                return blobName;
+                    await InsertIntoDB(FileDto);
+                    //var content = new StringContent($"{{\"productInfo\":\"{FileDto.MerckHash}\"}}", Encoding.UTF8, "application/json");
+                    JObject obj = new JObject();
+                    obj.Add("productInfo", FileDto.MerckHash);
+                    var content = new StringContent(obj.ToString(), Encoding.UTF8, "application/json");
+                    string contentString = await content.ReadAsStringAsync();
+                    var response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
+                    
+                    return blobName;
+                }
+                return null;
             }
             catch (Exception exx)
             {
