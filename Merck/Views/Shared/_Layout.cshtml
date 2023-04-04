@@ -19,6 +19,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_buttons.scss" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_forms.scss" />*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_reboot.scss" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_reboot.scss" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="~/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +32,7 @@
     <link href="~/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/style2.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet">
+    @*<link href="/css/style.css" rel="stylesheet">*@
     <!-- Dashboard 1 Page CSS -->
     <link href="~/css/pages/dashboard1.css" rel="stylesheet" />
     <!--css color-->
@@ -88,12 +92,12 @@
                     <span> Permissions</span>
                 </span>
             </a>
-            @*<a href="/patients/Label" class="sidebar-link">
+            <a asp-controller="Patient" asp-action="index" class="sidebar-link">
                 <span class="nav-container">
-                    <span>Labelling</span>
+                    <span>Patients</span>
                 </span>
             </a>
-            <a href="/chat" class="sidebar-link">
+            @* <a href="/chat" class="sidebar-link">
                 <span class="nav-container">
                     <span>Chat</span>
                 </span>

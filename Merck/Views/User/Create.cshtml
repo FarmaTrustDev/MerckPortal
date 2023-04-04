@@ -4,10 +4,10 @@
 }
 @using (Html.BeginForm("CreateUserWithRole", "User", FormMethod.Post))
 {
-	<div class="container m-t-80">
-		<h2 class="kt-portlet__head-title m-l-20">Create User</h2>
+	<div class="container mt-63">
+		<h2 class="kt-portlet__head-title ml-5">Create User</h2>
 		<div class="grey-card container p-sm-3">
-			<div class="white-card row m-2 pills-container">
+			<div class="white-card">
 				<div class="kt-container   kt-container--fluid  kt-grid__item kt-grid__item--fluid p-0">
 					<div class="row user-form-padding">
 						<div class="col-lg-12">
@@ -44,7 +44,7 @@
 						{
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" id="roles_@role.Id" name="UserRoles" value="@role.Id">
-								<label class="form-check-label" for="roles_@role.Id">
+													<label class="form-check-label pl-2" for="roles_@role.Id">
 									@role.Name
 								</label>
 							</div>
