@@ -475,7 +475,8 @@ body {
 }
 
 select.form-control:not([size]):not([multiple]) {
-    height: auto
+    height: auto;
+    margin-right:1px;
 }
 
 .select2-container--default .select2-selection--single {
@@ -1859,35 +1860,35 @@ header {
 }
 
 .c-table thead tr th:first-child {
-    border-top-left-radius: 44px
+    border-top-left-radius: 20px
 }
 
 .c-table thead tr th:last-child {
-    border-top-right-radius: 44px
+    border-top-right-radius: 20px
 }
 
 .c-table thead tr th:first-child {
-    border-bottom-left-radius: 44px
+    border-bottom-left-radius: 20px
 }
 
 .c-table thead tr th:last-child {
-    border-bottom-right-radius: 44px
+    border-bottom-right-radius: 20px
 }
 
 .c-table tbody tr td:first-child {
-    border-top-left-radius: 44px
+    border-top-left-radius: 20px
 }
 
 .c-table tbody tr td:last-child {
-    border-top-right-radius: 44px
+    border-top-right-radius: 20px
 }
 
 .c-table tbody tr td:first-child {
-    border-bottom-left-radius: 44px
+    border-bottom-left-radius: 20px
 }
 
 .c-table tbody tr td:last-child {
-    border-bottom-right-radius: 44px
+    border-bottom-right-radius: 20px
 }
 
 .c-table tbody tr td {
@@ -3101,8 +3102,22 @@ table {
 .fc-body table tr {
     box-shadow: none
 }
-
-#kt_calendar .fc-day-header {
+.kt-notes .kt-notes__items .kt-notes__item .kt-notes__media .kt-notes__icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    background-color: #ebedf2;
+    border: 2px solid #ebedf2;
+    border-radius: 50%;
+    #kt_calendar .fc-day-header {
     border: 0;
     font-size: 12px
 }
@@ -3200,3 +3215,25 @@ body {
    .pl-2{
        padding-left: 2rem !important;
    }
+   .pb-2{
+       padding-bottom: 1.8% !important;
+   }
+   .mt-2{
+       margin-top:1.9% !important;
+   }
+   .w-98{
+       width: 98% !important;
+   }
+   .pr-9{
+       padding-left: 9rem !important;
+   }
+select.form-control {
+    margin-right: 1px !important;
+}
+    select.form-control:not([size]):not([multiple]) {
+        
+        margin-right: 1px !important;
+    }
+    .p-r-28{
+        padding-right: 28%;
+    }

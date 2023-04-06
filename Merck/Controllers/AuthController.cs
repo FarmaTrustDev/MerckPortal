@@ -52,15 +52,13 @@ namespace Merck.Controllers
         [HttpPost]
         public IActionResult Authenticate(AuthRequest request)
         {
-            //AuthResponse response = AuthenticateUser(request);
             if (string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
             {
-                return (RedirectToAction("Error"));
+                ViewBag.Error = "Incorrect Username or Password";
+                return View("Index");
             }
             IActionResult response = Unauthorized();
             User validUser = GetUser(request);
-            
-
             if (validUser != null)
             {
                 var UserInfo= _userRepository.GetRolesByUserId(validUser.UserName);
@@ -72,16 +70,18 @@ namespace Merck.Controllers
                     var roles = UserInfo.Roles.Select(rol => rol.Name).ToList();
                     string rolesJson = JsonConvert.SerializeObject(roles);
                     HttpContext.Session.SetString("roles", rolesJson);
-                    return View();
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    return (RedirectToAction("Error"));
+                    ViewBag.Error = "Incorrect Username or Password";
+                    return View("Index");
                 }
             }
             else
             {
-                return (RedirectToAction("Error"));
+                ViewBag.Error = "Incorrect Username or Password";
+                return View("Index");
             }
         }
         private User GetUser(AuthRequest userModel)

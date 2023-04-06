@@ -63,11 +63,11 @@
 </header>*@
 <section class="main-container">
     <aside class="main-sidebar side-bar">
-        <a class=" navbar-brand logo-responsive">
+        <a class=" navbar-brand logo-responsive ml-5">
             <img src="https://cgt.hataali.net/images/v2/logo.svg?v =HYx8loh6-rTC92sPxpkpHvu45ylx5I1m1BwFugLs7v8" />
         </a>
         <div class="vertical-menu" id="aside_menu">
-            <a asp-controller="Auth" asp-action="Home" class="sidebar-link active">
+            <a asp-controller="Home" asp-action="Index" class="sidebar-link active">
                 <span class="nav-container">
                     <span>Home</span>
                 </span>
@@ -95,11 +95,6 @@
             <a asp-controller="Patient" asp-action="index" class="sidebar-link">
                 <span class="nav-container">
                     <span> Patients</span>
-                </span>
-            </a>
-            <a asp-controller="Patient" asp-action="ConductSteps" class="sidebar-link">
-                <span class="nav-container">
-                    <span>Conduct Steps</span>
                 </span>
             </a>
             @* <a asp-controller="TreatmentEvent" asp-action="index" class="sidebar-link">

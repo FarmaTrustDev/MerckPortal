@@ -1,36 +1,183 @@
-﻿@*@model Merck.Models.User
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@model Merck.DTOS.Auth.AuthResponse
+@inject IHttpContextAccessor HttpContextAccessor
 @{
-    ViewData["Title"] = "Home Page";
-}*@
-@*<div class="text-center">
-    <h1 class="display-4">welcome</h1>
-    <p>learn about <a href="https://docs.microsoft.com/aspnet/core">building web apps with asp.net core</a>.</p>
-</div>*@
+    ViewData["Title"] = "View";
+    string rolesJson = HttpContextAccessor.HttpContext.Session.GetString("roles");
+    List<string> roles = null;
+    string concatenated = "";
+    if (rolesJson != null)
+    {
+        roles = JsonConvert.DeserializeObject<List<string>>(rolesJson);
+        concatenated = string.Join(",", roles);
+    }
+}
 
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login" id="sign_in_form">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" id="userName" name="userName" placeholder="User name / Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" id="password" name="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit" id="submit" name="submit">
-					<span class="button__text" >Log In</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>
-			</form>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>
-	</div>
+<div class="container homePage">
+    <article class="article">
+        <h1 class="heading"><strong>Welcome To @concatenated  Portal</strong></h1>
+    </article>
+    <div class="row grey-card p-4 ">
+        <div class=" col-12 col-md-5">
+
+            <script>
+                var statistics = {
+                    _TotalPatient: 'Total Patient',
+
+                }
+            </script>
+            <script src="https://cdnjs.com/libraries/Chart.js" type="text/javascript" crossorigin="anonymous"></script>
+            <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="  height: 120px; ">
+                <div class="white-card col-md-12 row  mt-2 statistics-text">
+                    <select class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r" data-required="true" id="TreatmentDropdown" name="TreatmentDropdown" data-select2-id="TreatmentDropdown" tabindex="-1" aria-hidden="true">
+                        <option value="600187945de1761b90327cec" data-select2-id="4">Yescarta</option>
+                        <option value="600187395de1761b90327cea">Zolgenzma</option>
+                        <option value="5ffffe89948b4b42149199cc">Kymriah</option>
+                    </select>
+                    <div class="col-md-4">
+                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                        <canvas id="myChart" style="display: block; height: 78px; width: 78px;" width="62" height="62" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    <div class="col-md-8 pt-5 statistics-text">
+                        <span class="line"></span>
+                        <span id="totalTreatment">38</span>
+                        <br>
+                        <span id="TreatmentHeading" class="pr-9">Total Patient</span>
+
+                    </div>
+                    <hr>
+                    <br>
+                    <div class="white-card col-md-6 p-2 statistics-text  ">
+                        <span class="Completed"></span>
+                        <span class="pl-5" id="totalCompleted">11</span>
+                        <br>
+                        <br>
+                        <span>Total Completed</span>
+                    </div>
+                    <div class="white-card col-md-6 p-2 statistics-text statistics-text-alignment">
+                        <span class="inProcess"></span>
+                        <span class="pl-5" id="inProcessTreatment">19</span>
+                        <br>
+                        <br>
+                        In Production
+                    </div>
+                    <div class="white-card col-md-6 p-2 statistics-text  ">
+                        <span class="booked"></span>
+                        <span class="pl-5" id="bookedTreatment">38</span>
+                        <br>
+                        <br>
+                        Overall Booked
+                    </div>
+                    <div class="white-card col-md-6 p-2 statistics-text statistics-text-alignment">
+                        <span class="spoilage"></span>
+                        <span class="pl-5" id="spoilageTreatment">8</span>
+                        <br>
+                        <br>
+                        Spoilage
+                    </div>
+                </div>
+            </div>
+
+            <script type="module" src="/js/statistics/statistics.js?v=_kAYCs0w8x11_GjGfkXCpWk2Q40v5PnOXY-El1UeMMw"></script>
+
+        </div>
+        <div class="col-12 col-md-6 order1">
+            <div class="white-card col-md-12 row statistics-text ">
+                <div class="white-card col-md-12 row Hospital   statistics-text" style=" width: 92%;">
+                    <span>Treatments Count :</span>
+                    <select class="CuntryDropDown select2-hidden-accessible form-control" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                        <option value="Hospital" data-select2-id="5">Hospital</option>
+                        <option value="Country">Country</option>
+                    </select>
+
+                </div>
+                <div class="col-md-12">
+                    <ul style="        list-style: none;padding: 0;" id="treatmentList">
+                        <li class="liStyle">
+                            <div class="float-left treatmentCount pt-2">4</div>
+                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <span style="margin-top: 5px;">Dresden Hospital </span>
+                            </span>
+                        </li>
+                        <li class="liStyle">
+                            <div class="float-left treatmentCount pt-2">0</div>
+                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <span style="margin-top: 5px;">Queens Medical Centre Nottingham</span>
+                            </span>
+                        </li>
+                        <li class="liStyle">
+                            <div class="float-left treatmentCount pt-2">6</div>
+                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <span style="margin-top: 5px;">University Hospital Birmingham</span>
+                            </span>
+                        </li>
+                        <li class="liStyle">
+                            <div class="float-left treatmentCount pt-2">70</div>
+                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <span style="margin-top: 5px;">Baystate Clinic</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>
-<script src="~/js/User/UserLogin.js" asp-append-version="true"></script>
+
+<script>
+    var KTAppOptions = {
+        "colors": {
+            "state": {
+                "brand": "#2c77f4",
+                "light": "#ffffff",
+                "dark": "#282a3c",
+                "primary": "#5867dd",
+                "success": "#34bfa3",
+                "info": "#36a3f7",
+                "warning": "#ffb822",
+                "danger": "#fd3995"
+            },
+            "base": {
+                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+            }
+        }
+    };
+
+    const Messagess_text = {
+        yes: 'Yes',
+        no: 'No',
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    var yValues = [11, 9, 38, 8];
+    var barColors = [
+        "#28ced9",
+        "#2255c2",
+        "#f4b71a",
+        "#fa6363",
+    ];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: false,
+                    showTooltips: false
+                }
+            },
+            hover: { mode: null },
+        }
+    });
+</script>

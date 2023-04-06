@@ -2,16 +2,16 @@
 @{
     ViewData["Title"] = "Patients";
 }
-<h2 class="kt-portlet__head-title ml-5  mt-63">Patient Detail</h2>
+
 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0 mt-63 mt-top-responsive-patient-list">
-    
+    <h2 class="kt-portlet__head-title ml-5  mt-63">Patient Detail</h2>
     <div class="kt-container   kt-container--fluid  kt-grid__item kt-grid__item--fluid p-0">
         <div class="row">
             <div class="col-xl-12">
                 <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
                     
                         <div class="c-table">
-                            <div class="patient-list table-responsive">
+                            <div class="patient-list table table-responsive">
                                 <div class="kt-datatable table kt-datatable--default kt-datatable--brand kt-datatable--loaded">
                                     <table class="kt-datatable__table" style="display: block;">
   <thead class="kt-datatable__head">
@@ -71,12 +71,12 @@
                                                     <strong>@patient.LastTransmissionDate</strong>
                                                 </span>
                                             </td>
-                                            <td class="kt-datatable__cell">
+                                                    <td class="kt-datatable__cell pb-5">
                                                 <span style="overflow: visible; position: relative; width: 409px;">
                                                     <div>
                                                         <div style="min-width: 817px;" class="patient-timeline">
                                                             <span style="font-size: 14px;"
-                                                                  class="float-left">
+                                                                      class="float-left mt-3">
                                                                 @patient.Node
                                                             </span>
                                                                     @foreach (var step in patient.Steps)
@@ -124,7 +124,7 @@
                                                                 After care
                                                             </a>-->
                                                             <span class="ml-0 line"></span>
-                                                            <a class="link ml-2  p-15 viewBtn-alternate  btn-secondry flash">
+                                                                    <a asp-controller="Patient" asp-action="ViewConductSteps" class="link ml-2  p-15 viewBtn-alternate  btn-secondry flash">
                                                                 View
                                                             </a>
                                                         </div>
@@ -183,3 +183,66 @@
         </div>
     </div>
 </div>
+
+@if(ViewBag.ShowDiv != null && ViewBag.ShowDiv)
+{
+
+    <div class=" ml-4 mr-4 w-98">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+            <div class=" grey-card row p-4">
+                <div class="col-12 mt-3">
+                    <div class="white-card">
+                        <div class=" time-line-tabs">
+                            <div class="tav-content">
+                                <div class="tab-pane fade active show" id="container-2" data-tabid="2" role="tab-2" aria-labelledby="tab-2">
+                                    <div class="card-body">
+                                        <div class="kt-notes ps ps--active-y" style="padding-left: 15px;padding-top: 20px;">
+                                            <div class="kt-notes__items time-line-step row">
+                                                @{
+                                                    @foreach (var steps in ViewBag.ConductSteps)
+                                                    {
+                                                        <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
+                                                            <div class="kt-notes__media">
+                                                                <span class="kt-notes__icon">
+                                                                    <i class=" fa fa-check kt-font-primary "></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="kt-notes__content ">
+                                                                <div class="kt-notes__section row">
+
+                                                                    <div class="col-md">
+                                                                        <h5 class="kt-notes__items">
+                                                                            @steps.StepName
+
+                                                                        </h5>
+                                                                        <span class="kt-notes__desc">
+                                                                            @steps.StepCompletedDate
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-md text-right">
+                                                                        <span class="display-inline">
+                                                                            <h5 class="kt-notes ">
+                                                                                by: @steps.CompletedBy
+                                                                            </h5>
+                                                                            <h5 class="color-cerulean kt-notes ">
+                                                                                @steps.ManfName
+                                                                            </h5>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
