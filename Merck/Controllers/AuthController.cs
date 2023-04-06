@@ -19,6 +19,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Merck.Interfaces.Repositories;
 using Merck.Services;
+using Newtonsoft.Json;
 
 namespace Merck.Controllers
 {
@@ -62,11 +63,15 @@ namespace Merck.Controllers
 
             if (validUser != null)
             {
-                ViewBag.Users = _userRepository.GetRolesByUserId(validUser.UserName);
+                var UserInfo= _userRepository.GetRolesByUserId(validUser.UserName);
+                ViewBag.Users = UserInfo;
                 generatedToken = _tokenService.BuildToken(_config["AppConfiguration:Key"].ToString(), _config["AppConfiguration:Issuer"].ToString(), _config["AppConfiguration:Audience"].ToString(), validUser);
                 if (generatedToken != null)
                 {
                     HttpContext.Session.SetString("Token", generatedToken);
+                    var roles = UserInfo.Roles.Select(rol => rol.Name).ToList();
+                    string rolesJson = JsonConvert.SerializeObject(roles);
+                    HttpContext.Session.SetString("roles", rolesJson);
                     return View();
                 }
                 else

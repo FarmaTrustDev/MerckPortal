@@ -1,25 +1,15 @@
-﻿@model Merck.DTOS.Auth.AuthResponse
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@model Merck.DTOS.Auth.AuthResponse
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "View";
+    string rolesJson = HttpContextAccessor.HttpContext.Session.GetString("roles");
+    List<string> roles = JsonConvert.DeserializeObject<List<string>>(rolesJson);
+    string concatenated = string.Join(",", roles);
 }
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <article class="article">
-        @{
-            string roles = "";
-            if (ViewBag.Users != null)
-            {
-                foreach (var item in ViewBag.Users.Roles)
-                {
-                    roles += item.Name;
-                }
-            }
-        }
-        <h1 class="heading m-t-80 text-center"><strong>Welcome To @roles Portal</strong></h1>
-    </article>
-</body>
-</html>
-
+    <div class="container mt-63">
+    <h1 class="heading m-t-80 text-center"><strong>Welcome To @concatenated  Portal </strong></h1>
+    </div>
 
 
