@@ -38,8 +38,14 @@
 
 
                         <h2 class="header-class">Login To Merck</h2>
-
-
+                        @if(ViewBag.Error != null)
+                        {
+                            <div class="kt-alert kt-alert--outline alert alert-danger alert-dismissible animated fadeIn" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                                <span>@ViewBag.Error</span>
+                            </div>
+                        }
+                        
                         <!-- Email input -->
                         <div class="form-outline mb-2 m-t-15">
                             <label>Username</label>

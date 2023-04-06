@@ -14,62 +14,42 @@
                                 <div class="card-body">
                                     <div class="kt-notes ps ps--active-y" style="padding-left: 15px;padding-top: 20px;">
                                         <div class="kt-notes__items time-line-step row">
-                                            <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
-                                                <div class="kt-notes__media">
-                                                </div>
+                                            @{
+                                                @foreach (var steps in ViewBag.ConductSteps)
+                                                {
+                                                    <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
+                                                        <div class="kt-notes__media">
+                                                            <span class="kt-notes__icon">
+                                                                <i class=" fa fa-check kt-font-primary "></i>
+                                                            </span>
+                                                        </div>
                                                 <div class="kt-notes__content ">
                                                     <div class="kt-notes__section row">
 
                                                         <div class="col-md">
                                                             <h5 class="kt-notes__items">
-                                                                Samples Dispatched
+                                                                        @steps.StepName
 
                                                             </h5>
                                                             <span class="kt-notes__desc">
-                                                                Sunday, January 23, 2022 6:37 PM
+                                                                        @steps.StepCompletedDate
                                                             </span>
                                                         </div>
                                                         <div class="col-md text-right">
                                                             <span class="display-inline">
                                                                 <h5 class="kt-notes ">
-                                                                    by: Jahanzaib Ali
+                                                                            by: @steps.CompletedBy
                                                                 </h5>
                                                                 <h5 class="color-cerulean kt-notes ">
-                                                                    FastLink
+                                                                            @steps.ManfName
                                                                 </h5>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
-                                                <div class="kt-notes__media">
-                                                </div>
-                                                <div class="kt-notes__content ">
-                                                    <div class="kt-notes__section row">
-
-                                                        <div class="col-md">
-                                                            <h5 class="kt-notes__items">
-                                                                Samples Delivered
-
-                                                            </h5>
-                                                            <span class="kt-notes__desc">
-                                                                Sunday, January 23, 2022 6:38 PM
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md text-right">
-                                                            <span class="display-inline">
-                                                                <h5 class="kt-notes ">
-                                                                    by: Jahanzaib Ali
-                                                                </h5>
-                                                                <h5 class="color-cerulean kt-notes ">
-                                                                    FastLink
-                                                                </h5>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                }
+                                            }
                                         </div>
                                     </div>
                                 </div>

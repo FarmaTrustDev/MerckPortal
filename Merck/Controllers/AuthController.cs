@@ -58,7 +58,11 @@ namespace Merck.Controllers
             }
             IActionResult response = Unauthorized();
             User validUser = GetUser(request);
-            
+            if(validUser == null)
+            {
+                ViewBag.Error = "Incorrect Username or Password";
+                return View("Index");
+            }
 
             if (validUser != null)
             {
