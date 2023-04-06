@@ -1860,35 +1860,35 @@ header {
 }
 
 .c-table thead tr th:first-child {
-    border-top-left-radius: 44px
+    border-top-left-radius: 20px
 }
 
 .c-table thead tr th:last-child {
-    border-top-right-radius: 44px
+    border-top-right-radius: 20px
 }
 
 .c-table thead tr th:first-child {
-    border-bottom-left-radius: 44px
+    border-bottom-left-radius: 20px
 }
 
 .c-table thead tr th:last-child {
-    border-bottom-right-radius: 44px
+    border-bottom-right-radius: 20px
 }
 
 .c-table tbody tr td:first-child {
-    border-top-left-radius: 44px
+    border-top-left-radius: 20px
 }
 
 .c-table tbody tr td:last-child {
-    border-top-right-radius: 44px
+    border-top-right-radius: 20px
 }
 
 .c-table tbody tr td:first-child {
-    border-bottom-left-radius: 44px
+    border-bottom-left-radius: 20px
 }
 
 .c-table tbody tr td:last-child {
-    border-bottom-right-radius: 44px
+    border-bottom-right-radius: 20px
 }
 
 .c-table tbody tr td {
