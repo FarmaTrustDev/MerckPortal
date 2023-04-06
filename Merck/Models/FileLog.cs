@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Merck.Models
 {
@@ -20,7 +19,9 @@ namespace Merck.Models
         public bool Tempered { get; set; }
 
         public long CreatedOn { get; set; }
+
         public string BlockChainTransactionId { get; set; }
 
+        public string DeviceName { get; set; }
     }
 }

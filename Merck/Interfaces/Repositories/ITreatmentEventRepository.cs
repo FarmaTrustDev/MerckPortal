@@ -1,4 +1,5 @@
-﻿using Merck.Models;
+﻿using Merck.DTOS;
+using Merck.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Merck.Interfaces.Repositories
     {
         public void AddTreatmentEvents(List<TreatmentEvent> TreatmentEvents);
         public List<TreatmentEvent> GetAllDeviceSerialNumber();
-        public List<TreatmentEvent> GetDeviceSerialNumberList(); 
+        public List<DeviceResponseDTO> GetDeviceSerialNumberList();
         public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string SerialNo);
         public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp);
     }

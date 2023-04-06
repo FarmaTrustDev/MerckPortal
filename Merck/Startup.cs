@@ -147,7 +147,7 @@ namespace Merck
             app.UseHangfireDashboard();
             app.UseHangfireServer();
 
-            RecurringJob.AddOrUpdate(() => CallApi(), Cron.Minutely);
+            RecurringJob.AddOrUpdate(() => CallApi(), "*/2 * * * *");
 
             app.UseEndpoints(endpoints =>
             {

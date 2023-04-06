@@ -32,8 +32,8 @@ namespace Merck.Controllers
         }
         public ActionResult TreatmentListByDeviceSerialNumber()
         {
-            var model = _treatmentEventservices.GetDeviceSerialNumberList();
-            return View(model);
+            ViewBag.DeviceData = _treatmentEventservices.GetDeviceSerialNumberList();
+            return View();
         }
 
         public ActionResult ShowTreatmentData()
@@ -43,6 +43,7 @@ namespace Merck.Controllers
             EventResponseDTO eventResponseDTO = new EventResponseDTO();
             eventResponseDTO.TreatmentEvents = model;
             eventResponseDTO.SelectedItemId = 0;
+            ViewBag.SerialNo = serialNo;
             return View(eventResponseDTO);
         }
         public IActionResult GetTreatmentEvent()

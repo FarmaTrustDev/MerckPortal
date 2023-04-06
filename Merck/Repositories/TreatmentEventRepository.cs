@@ -1,4 +1,5 @@
-﻿using Merck.Interfaces.Repositories;
+﻿using Merck.DTOS;
+using Merck.Interfaces.Repositories;
 using Merck.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -33,19 +34,33 @@ namespace Merck.Repositories
                 .OrderByDescending(t => t.Timestamp)
                 .ToList();
         }
-        public List<TreatmentEvent> GetDeviceSerialNumberList()
+        public List<DeviceResponseDTO> GetDeviceSerialNumberList()
         {
-            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            /*var treatmentEvent = _dbContext.FileLog.Select(val => new { val.Value, val.DeviceName }).ToList();
             List<TreatmentEvent> result = treatmentEvent
-            .SelectMany(jsonArray => JArray.Parse(jsonArray))
+            .SelectMany(jsonArray => JArray.Parse(jsonArray.Value))
             .GroupBy(d => (string)d["device_serial_no"])
             .Select(g=> new TreatmentEvent
             {
                 DeviceSerialNumber = (string)g.Key,
+                Hash= g.First().DeviceName,
                 LongTimestamp = g.Max(t =>(long)t["timestamp"])
             })
             .OrderByDescending(t => t.LongTimestamp)
             .ToList();
+            return result;*/
+            var result = _dbContext.FileLog
+            .Select(val => new { Value = val.Value, DeviceName = val.DeviceName }) // Include DeviceName in the anonymous type
+            .ToList()
+            .Select(dv => new DeviceResponseDTO
+            {
+                DeviceName = dv.DeviceName,
+                TreatmentEvent = JArray.Parse(dv.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
+                {
+                    DeviceSerialNumber = (string)g.Key,
+                    LongTimestamp = g.Max(t => (long)t["timestamp"])
+                }).OrderByDescending(t => t.LongTimestamp).FirstOrDefault()
+            }).ToList();
             return result;
         }
         public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo)

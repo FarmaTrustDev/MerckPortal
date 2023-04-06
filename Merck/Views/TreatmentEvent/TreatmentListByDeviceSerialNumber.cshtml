@@ -30,12 +30,17 @@
                                             <tr class="kt-datatable__row" style="left: 0px;">
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
                                                     <span style="width: 161px;">
-                                                        @Html.DisplayNameFor(model => model.DeviceSerialNumber)
+                                                        Device Name
+                                                    </span>
+                                                </th>
+                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
+                                                    <span style="width: 161px;">
+                                                        Device Serial Number
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
                                                     <span>
-                                                        @Html.DisplayNameFor(model => model.Timestamp)
+                                                        Timestamp
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
@@ -52,17 +57,22 @@
                                             </tr>
                                         </thead>
                                         <tbody class="kt-datatable__body">
-                                            @foreach (var item in Model)
+                                            @foreach (var item in ViewBag.DeviceData)
                                             {
                                                 <tr class="kt-datatable__row" style="left: 0px;">
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @Html.DisplayFor(modelItem => item.DeviceSerialNumber)
+                                                            @item.DeviceName
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @Html.DisplayFor(modelItem => item.LongTimestamp)
+                                                            @item.TreatmentEvent.DeviceSerialNumber
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @DateTimeOffset.FromUnixTimeMilliseconds(item.TreatmentEvent.LongTimestamp).UtcDateTime
                                                             
                                                         </span>
                                                     </td>
@@ -73,7 +83,7 @@
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            <a href="ShowTreatmentData?serialNo=@item.DeviceSerialNumber">View Detail</a>
+                                                            <a href="ShowTreatmentData?serialNo=@item.TreatmentEvent.DeviceSerialNumber">View Detail</a>
                                                         </span>
                                                     </td>
                                                 </tr>
