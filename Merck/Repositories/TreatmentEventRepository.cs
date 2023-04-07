@@ -49,20 +49,28 @@ namespace Merck.Repositories
             .OrderByDescending(t => t.LongTimestamp)
             .ToList();
             return result;*/
-            var result = _dbContext.FileLog
-            .Select(val => new { Value = val.Value, DeviceName = val.DeviceName }) // Include DeviceName in the anonymous type
-            .ToList()
-            .Select(dv => new DeviceResponseDTO
+            try
             {
-                DeviceName = dv.DeviceName,
-                TreatmentEvent = JArray.Parse(dv.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
+                var result = _dbContext.FileLog.Where(val=>val.Value!=null)
+                .Select(val => new { Value = val.Value, DeviceName = val.DeviceName }) // Include DeviceName in the anonymous type
+                .ToList()
+                .Select(dv => new DeviceResponseDTO
                 {
-                    DeviceSerialNumber = (string)g.Key,
-                    LongTimestamp = g.Max(t => (long)t["timestamp"])
-                }).OrderByDescending(t => t.LongTimestamp).FirstOrDefault()
-            }).ToList();
-            return result;
+                    DeviceName = dv.DeviceName,
+                    TreatmentEvent = JArray.Parse(dv.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
+                    {
+                        DeviceSerialNumber = (string)g.Key,
+                        LongTimestamp = g.Max(t => (long)t["timestamp"])
+                    }).OrderByDescending(t => t.LongTimestamp).FirstOrDefault()
+                }).ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+        
         public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo)
         {
             // Earlier created to fetch data from the treatmentevent table
@@ -75,7 +83,8 @@ namespace Merck.Repositories
                     LongTimestamp=g.Key.LongTimestamp,
                 })
                 .ToList();*/
-            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            var treatmentEvent = _dbContext.FileLog.Where(val=>val.Value!=null).Select(val => val.Value).ToList();
+            
             List<TreatmentEvent> result = treatmentEvent
             .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo).AsEnumerable()
             .GroupBy(d => new {Event=(string)d["event"], DeviceSerialNumber=(string)d["device_serial_no"], LongTimestamp=(long)d["timestamp"]  })
@@ -91,12 +100,37 @@ namespace Merck.Repositories
         public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp)
         {
             // return _dbContext.TreatmentEvent.Where(t=>t.Event==Events && t.LongTimestamp==Timestamp).FirstOrDefault();
-            var treatmentEvent = _dbContext.FileLog.Select(val => val.Value).ToList();
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null).Select(val => val.Value).ToList();
             var result = treatmentEvent
             .SelectMany(jsonArray => JArray.Parse(jsonArray))
             .Where(t => (string)t["event"] == events.Trim(' ') && (long)t["timestamp"] == timestamp)
             .FirstOrDefault();
             return result.ToString();
+        }
+        public bool IsValidJson(string input)
+        {
+            input = input.Trim();
+            if ((input.StartsWith("{") && input.EndsWith("}")) || //For object
+                (input.StartsWith("[") && input.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JToken.Parse(input);
+                    return true;
+                }
+                catch (JsonReaderException)
+                {
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

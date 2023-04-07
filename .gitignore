@@ -71,3 +71,4 @@ dkms.conf
 /Merck/appsettings.json
 /Merck/appsettings.Development.json
 /Merck/wwwroot/jsonfiles
+/Merck/wwwroot/images/v2

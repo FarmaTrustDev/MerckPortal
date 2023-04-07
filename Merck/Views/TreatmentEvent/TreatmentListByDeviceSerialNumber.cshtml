@@ -67,23 +67,30 @@
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @item.TreatmentEvent.DeviceSerialNumber
+                                                            @if (item.TreatmentEvent != null)
+                                                            {
+                                                                @item.TreatmentEvent.DeviceSerialNumber;
+                                                            }
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @DateTimeOffset.FromUnixTimeMilliseconds(item.TreatmentEvent.LongTimestamp).UtcDateTime
+                                                            @if(item.TreatmentEvent != null){
+                                                                @DateTimeOffset.FromUnixTimeMilliseconds(item.TreatmentEvent.LongTimestamp).UtcDateTime;
+                                                            }
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
                                                             
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            
-                                                        </span>
-                                                    </td>
-                                                    <td class="kt-datatable__cell">
-                                                        <span style="width: 161px;">
-                                                            <a href="ShowTreatmentData?serialNo=@item.TreatmentEvent.DeviceSerialNumber">View Detail</a>
+                                                            @if (item.TreatmentEvent != null)
+                                                            {
+                                                                <a href="ShowTreatmentData?serialNo=@item.TreatmentEvent.DeviceSerialNumber">View Detail</a>
+                                                            }
                                                         </span>
                                                     </td>
                                                 </tr>

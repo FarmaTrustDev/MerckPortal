@@ -8,6 +8,7 @@ using Merck.Models;
 using Merck.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace Merck.Services
             {
                 yield return blobItem.Name;
 
-                break;
+                //break;
             }
         }
 
@@ -110,15 +111,22 @@ namespace Merck.Services
                     FileLog FileDto = new FileLog();
                     FileDto.Name = blobName;
                     FileDto.Hash = Utility.GetMd5Hash(contents.Contents);
-                    FileDto.Value = contents.Contents;
+                    if (IsValidJson(contents.Contents))
+                    {
+                        FileDto.Value = contents.Contents;
+                    }
+                    
                     FileDto.Name = blobName;
                     FileDto.CreatedOn = contents.CreatedOn;
                     string HashedFileName = Utility.GetHashFileName(blobName);
                     FileResponseDTO content2 = await ReadBlobFileAsync(HashedFileName);
                     string deviceName = GetDeviceName(HashedFileName);
                     FileDto.DeviceName = deviceName;
-                    FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
-                    FileDto.MerckHash = content2.Contents.ToLower();
+                    FileDto.HashFileName = Utility.GetHashFileName(HashedFileName);
+                    if (content2.Contents != null)
+                    {
+                        FileDto.MerckHash = content2.Contents.ToLower();
+                    }
 
                     FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
 
@@ -162,9 +170,15 @@ namespace Merck.Services
         {
             foreach (string fileName in ListFilesInFolder("non_hashed"))
             {
-
-                BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
-                break;
+                try
+                {
+                    BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
+                }
+                catch (Exception exx)
+                {
+                    throw exx;
+                }
+                //break;
                 //ReadBlobFileAsync(fileName);
                 //Console.WriteLine(fileName);
 
@@ -175,8 +189,38 @@ namespace Merck.Services
         public string GetDeviceName(string blobName)
         {
             var pathArray = blobName.Split("/");
-            var deviceName = pathArray[1].Split("_")[0];
+            var deviceNameArray = pathArray[1].Split("_");
+            var deviceName = deviceNameArray[0];
+            if(int.TryParse(deviceNameArray[1], out int result))
+            {
+                deviceName += result.ToString();
+            }
             return deviceName;
+        }
+        public bool IsValidJson(string input)
+        {
+            input = input.Trim();
+            if ((input.StartsWith("{") && input.EndsWith("}")) || //For object
+                (input.StartsWith("[") && input.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JToken.Parse(input);
+                    return true;
+                }
+                catch (JsonReaderException)
+                {
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
         // sub ko queu kardena haii file name k sath 
         // file agai  
