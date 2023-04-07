@@ -20,61 +20,51 @@
     </article>
     <div class="row grey-card p-4 ">
         <div class=" col-12 col-md-5">
-
-            <script>
-                var statistics = {
-                    _TotalPatient: 'Total Patient',
-
-                }
-            </script>
             <script src="https://cdnjs.com/libraries/Chart.js" type="text/javascript" crossorigin="anonymous"></script>
-            <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="  height: 120px; ">
+            <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
-                    <select class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r" data-required="true" id="TreatmentDropdown" name="TreatmentDropdown" data-select2-id="TreatmentDropdown" tabindex="-1" aria-hidden="true">
-                        <option value="600187945de1761b90327cec" data-select2-id="4">Yescarta</option>
-                        <option value="600187395de1761b90327cea">Zolgenzma</option>
-                        <option value="5ffffe89948b4b42149199cc">Kymriah</option>
-                    </select>
+                    
+                    @Html.DropDownList("DeviceId",new SelectList(ViewBag.Devices,"Id","Name"),new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(Id)"})
+                    
                     <div class="col-md-4">
                         <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
                         <canvas id="myChart" style="display: block; height: 78px; width: 78px;" width="62" height="62" class="chartjs-render-monitor"></canvas>
                     </div>
                     <div class="col-md-8 pt-5 statistics-text">
                         <span class="line"></span>
-                        <span id="totalTreatment">38</span>
+                        <input id="totalTransmission" value="totalTransmission" style="border: none;background: initial;" />
                         <br>
-                        <span id="TreatmentHeading" class="pr-9">Total Patient</span>
-
+                        <span id="TreatmentHeading" class="pr-9" >No Of Transmission</span>
                     </div>
                     <hr>
                     <br>
-                    <div class="white-card col-md-6 p-2 statistics-text  ">
+                    <div class="white-card col-md-6 p-4 statistics-text">
                         <span class="Completed"></span>
-                        <span class="pl-5" id="totalCompleted">11</span>
+                        <input class="pl-5" id="deviceTypes" value="deviceTypes" style="border: none;background: initial;" />
                         <br>
                         <br>
-                        <span>Total Completed</span>
+                        <span>Device Types</span>
                     </div>
-                    <div class="white-card col-md-6 p-2 statistics-text statistics-text-alignment">
+                    <div class="white-card col-md-6 p-4 statistics-text statistics-text-alignment">
                         <span class="inProcess"></span>
-                        <span class="pl-5" id="inProcessTreatment">19</span>
+                        <input class="pl-5" id="distributionPerCountry" name="distributionPerCountry" style="border: none;background: initial;" />
                         <br>
                         <br>
-                        In Production
+                        Distribution Per Country
                     </div>
-                    <div class="white-card col-md-6 p-2 statistics-text  ">
+                    <div class="white-card col-md-6 p-4 statistics-text">
                         <span class="booked"></span>
-                        <span class="pl-5" id="bookedTreatment">38</span>
+                        <input type="text" class="pl-5" id="attacksBlocks" value="attacksBlocks" style="border: none;background: initial;" />
                         <br>
                         <br>
-                        Overall Booked
+                        Overall No. Of Attacks Blocks
                     </div>
-                    <div class="white-card col-md-6 p-2 statistics-text statistics-text-alignment">
+                    <div class="white-card col-md-6 p-4 statistics-text statistics-text-alignment">
                         <span class="spoilage"></span>
-                        <span class="pl-5" id="spoilageTreatment">8</span>
+                        <input class="pl-5" id="transmissionError" value="transmissionError" style="border: none;background: initial;" />
                         <br>
                         <br>
-                        Spoilage
+                        Transmission Error
                     </div>
                 </div>
             </div>
@@ -87,46 +77,98 @@
                 <div class="white-card col-md-12 row Hospital   statistics-text" style=" width: 92%;">
                     <span>Treatments Count :</span>
                     <select class="CuntryDropDown select2-hidden-accessible form-control" data-select2-id="3" tabindex="-1" aria-hidden="true">
-                        <option value="Hospital" data-select2-id="5">Hospital</option>
-                        <option value="Country">Country</option>
+                        <option value="Country" data-select2-id="5">Country</option>
                     </select>
 
                 </div>
                 <div class="col-md-12">
-                    <ul style="        list-style: none;padding: 0;" id="treatmentList">
+                    <ul style="list-style: none;padding: 0;" id="treatmentList">
                         <li class="liStyle">
-                            <div class="float-left treatmentCount pt-2">4</div>
-                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <span style="margin-top: 5px;">Dresden Hospital </span>
+                            <div class="float-left pr-5 treatmentCount">7</div>
+                            <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <img src="../images/v2/us.png" class="pr-2">United States
                             </span>
                         </li>
                         <li class="liStyle">
-                            <div class="float-left treatmentCount pt-2">0</div>
-                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <span style="margin-top: 5px;">Queens Medical Centre Nottingham</span>
+                                    <div class="float-left pr-5 treatmentCount">8</div>
+                                    <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <img src="../images/v2/uk.png" class="pr-2">United Kingdom
                             </span>
                         </li>
                         <li class="liStyle">
-                            <div class="float-left treatmentCount pt-2">6</div>
-                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <span style="margin-top: 5px;">University Hospital Birmingham</span>
+                            <div class="float-left pr-5 treatmentCount">6</div>
+                                            <span class="mt-3" style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                                <img src="../images/v2/de.png" class="pr-2">Germany
                             </span>
                         </li>
-                        <li class="liStyle">
-                            <div class="float-left treatmentCount pt-2">70</div>
-                            <span class=" " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <span style="margin-top: 5px;">Baystate Clinic</span>
-                            </span>
-                        </li>
-                    </ul>
+                        </ul>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    $('select').on('change', function () {
+        // Do work
+        onChangeDropDown($(this).val())
+    });
+        var noOfDevices = null;
+        var distribution = null;
+        var attacks = null;
+        var tranmission = null;
+     function onChangeDropDown(deviceId)
+    {
+        $.ajax({
+            type:"GET",
+            async: true,
+            url: "/Home/GetStats",
+            data:{deviceId : deviceId},
+                    success: function (data) {
+                    noOfDevices = data.deviceTypes;
+                    distribution = data.distribution;
+                    attacks = data.overallAttacks;
+                    tranmission = data.noOfTransmission;
+                    console.log(data,"statsData");
+                $("#totalTransmission").val(data.noOfTransmission);
+                $("#transmissionError").val(data.transmissionError);
+                $("#attacksBlocks").val(data.overallAttacks);
+                $("#distributionPerCountry").val(data.distribution);
+                $("#deviceTypes").val(data.deviceTypes);
+                var yValues = [noOfDevices, distribution, tranmission, attacks];
+                var barColors = [
+                    "#28ced9",
+                    "#2255c2",
+                    "#f4b71a",
+                    "#fa6363",
+                ];
 
+                new Chart("myChart", {
+                    type: "doughnut",
+                    data: {
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: false,
+                                showTooltips: false
+                            }
+                        },
+                        hover: { mode: null },
+                    }
+                });
+                    }
+        });
+    }
+    var deviceSelect = document.getElementById("deviceDropDown");
+    deviceSelect.options[1].selected = true;
+    //console.log(deviceSelect.options[1].value,"dropdown default selected value");
+    onChangeDropDown(deviceSelect.options[1].value);
+</script>
 <script>
     var KTAppOptions = {
         "colors": {
@@ -152,32 +194,37 @@
         no: 'No',
     }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script>
-    var yValues = [11, 9, 38, 8];
-    var barColors = [
-        "#28ced9",
-        "#2255c2",
-        "#f4b71a",
-        "#fa6363",
-    ];
+<style>
+    .homePage .white-card img {
+        padding: 0px;
+        border-radius: 1px;
+    }
 
-    new Chart("myChart", {
-        type: "doughnut",
-        data: {
-            datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-            }]
-        },
-        options: {
-            plugins: {
-                title: {
-                    display: false,
-                    showTooltips: false
-                }
-            },
-            hover: { mode: null },
-        }
-    });
-</script>
+    .statistics .liStyle {
+        width: 100%;
+    }
+    .homePage .white-card li {
+        width: 100%;
+        height: 86px;
+        border: 0.6px solid #e2e2e2;
+        box-sizing: border-box;
+        border-radius: 28px;
+        padding: 22px;
+        margin: 10px;
+    }
+
+    .homePage .treatmentCount {
+        padding: 12px;
+        margin-top: -8px;
+        background: #e9f3ff;
+        border-radius: 18px;
+        text-align: end;
+        width: 78px;
+        height: 54px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+    }
+</style>

@@ -19,35 +19,56 @@ namespace Merck.Controllers
             _logger = logger;
         }
 
-        public JsonResult DeviceJson()
+        public List<DeviceDTO> GetAllDevices()
         {
             List<DeviceDTO> devices = new List<DeviceDTO>()
             {
                 new DeviceDTO
                 {
                     Id= 1,
-                    Name= "Bot 1",
-                    Stats = new StatsDTO
-                    {
-                        NoOfTransmission = 12, DeviceTypes = 36, Distribution = 19, OverallAttacks = 9, TransmissionError = 3
-                    },
+                    Name= "EasyPod 1",
                 },
                 new DeviceDTO
                 {
                     Id= 2,
-                    Name= "Bot 2",
-                    Stats = new StatsDTO
-                    {
-                        NoOfTransmission = 20, DeviceTypes = 26, Distribution = 30, OverallAttacks = 12, TransmissionError = 8
-                    },
+                    Name= "EasyPod 2",
                 }
             };
-            return Json(devices);
+            
+            return devices;
+        }
+        public StatsDTO GetStats(int deviceId)
+        {
+            var selectedDeviceId = deviceId;
+            List<StatsDTO> stats = new List<StatsDTO>()
+            {
+                 new StatsDTO
+                {
+                    NoOfTransmission = 20,
+                    DeviceTypes = 26,
+                    Distribution = 30,
+                    OverallAttacks = 12,
+                    TransmissionError = 8,
+                    DeviceId = 1
+                },
+                new StatsDTO
+                {
+                    NoOfTransmission = 12,
+                    DeviceTypes = 36,
+                    Distribution = 19,
+                    OverallAttacks = 9,
+                    TransmissionError = 3,
+                    DeviceId = 2
+                },
+            };
+
+            var getDeviceStat = stats.Where(x => x.DeviceId == selectedDeviceId).FirstOrDefault();
+            return getDeviceStat;
         }
         public IActionResult Index()
         {
-            var data = DeviceJson();
-            ViewBag.DeviceData = data;
+            var data = GetAllDevices();
+            ViewBag.Devices = data;
             return View();
         }
 
