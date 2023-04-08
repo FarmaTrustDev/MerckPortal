@@ -9,4 +9,9 @@ namespace Merck.DTOS
         public int SelectedItemId { get; set; }
         public List<TreatmentEvent> TreatmentEvents { get; set; }
     }
+    public class DeviceListResponseDTO
+    {
+        public int SelectedItemId { get; set; }
+        public SelectList Devices { get; set; }
+    }
 }

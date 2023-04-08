@@ -10,12 +10,34 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile table-container ">
-
                     <div class="table-search-header row">
                         <div class="col-md-6 col-12">
                             <h3 class="heading">Treatment Devices List</h3>
                         </div>
                     </div>
+                    <div class="table-search-header row">
+                        <label for="myDropdown" class="col-md-3 col-12"><h3 style="margin-top:15px; font-weight:bold">Select Device Type</h3></label>
+                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
+                                
+                    </div>
+                    <script>
+                        function onDropdownChange(dropdown) {
+                            var selectedText = dropdown.options[dropdown.selectedIndex].text;
+                            console.log("Selected text: " + selectedText);
+                            window.location.href = "/TreatmentEvent/TreatmentListByDeviceSerialNumber?device=" + selectedText;
+                            
+                            /*$.ajax({
+                                type: "GET",
+                                url: "/TreatmentEvent/TreatmentListByDeviceSerialNumber?device=" + selectedText,
+                                success: function (data) {
+                                    console.log(data);
+                                },
+                                error: function (xhr, status, error) {
+                                    // Handle the error
+                                }
+                            });*/
+                        }
+                    </script>
                     <div class="kt-portlet__body kt-portlet__body--fit">
 
                         <!--begin: Datatable -->
@@ -82,7 +104,7 @@
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            
+                                                            @item.Location
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">

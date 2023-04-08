@@ -1,6 +1,9 @@
 ﻿using Merck.DTOS;
+using Merck.Helpers;
 using Merck.Models;
+using Merck.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,13 +16,14 @@ namespace Merck.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly TreatmentEventServices _treatmentEventservices;
+        public HomeController(ILogger<HomeController> logger, TreatmentEventServices treatmentEventservices)
         {
             _logger = logger;
+            _treatmentEventservices = treatmentEventservices;
         }
 
-        public List<DeviceDTO> GetAllDevices()
+        /*public List<DeviceDTO> GetAllDevices()
         {
             List<DeviceDTO> devices = new List<DeviceDTO>()
             {
@@ -36,11 +40,11 @@ namespace Merck.Controllers
             };
             
             return devices;
-        }
-        public StatsDTO GetStats(int deviceId)
+        }*/
+        public StatsDTO GetStats(string deviceId)
         {
             var selectedDeviceId = deviceId;
-            List<StatsDTO> stats = new List<StatsDTO>()
+            /*List<StatsDTO> stats = new List<StatsDTO>()
             {
                  new StatsDTO
                 {
@@ -60,15 +64,18 @@ namespace Merck.Controllers
                     TransmissionError = 3,
                     DeviceId = 2
                 },
-            };
+            };*/
 
-            var getDeviceStat = stats.Where(x => x.DeviceId == selectedDeviceId).FirstOrDefault();
+            //var getDeviceStat = stats.Where(x => x.DeviceId == selectedDeviceId).FirstOrDefault();
+            var getDeviceStat = _treatmentEventservices.GetStats(deviceId);
             return getDeviceStat;
         }
         public IActionResult Index()
         {
-            var data = GetAllDevices();
+            var data = new SelectList(AppConstants.GetAllDevicesExcludingAll());
+            var countryData = _treatmentEventservices.GetCountryStats();
             ViewBag.Devices = data;
+            ViewBag.Country = countryData;
             return View();
         }
 

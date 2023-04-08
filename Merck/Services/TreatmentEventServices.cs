@@ -35,14 +35,32 @@ namespace Merck.Services
         {
             return _treatmentEventRepo.GetDeviceSerialNumberList();
         }
-        public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo)
+        public List<DeviceResponseDTO> GetDeviceSerialNumberListByDevice(string device) // this has been defined to get from the logfile
         {
-            return _treatmentEventRepo.GetListofEventsWithTimeStampBySerialNumber(serialNo);
+            return _treatmentEventRepo.GetDeviceSerialNumberListByDevice(device);
+        }
+        
+        public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo, string events)
+        {
+            return _treatmentEventRepo.GetListofEventsWithTimeStampBySerialNumber(serialNo, events);
+        }
+        public List<TreatmentEvent> GetListofEventsBySerialNumber(string serialNo)
+        {
+            return _treatmentEventRepo.GetListofEventsBySerialNumber(serialNo);
         }
         public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp)
         {
             return _treatmentEventRepo.GetTreatmentEventByEventAndTimeStamp(events, timestamp);
         }
+        public StatsDTO GetStats(string deviceName)
+        {
+            return _treatmentEventRepo.GetStats(deviceName);
+        }
+        public List<StatsDTO> GetCountryStats()
+        {
+            return _treatmentEventRepo.GetCountryStats();
+        }
+        
         public List<TreatmentEvent> ProcessFile(string fileName)
         {  
             var filePath = Path.Combine(_directoryPath, fileName);

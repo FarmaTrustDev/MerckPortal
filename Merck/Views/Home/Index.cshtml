@@ -24,7 +24,7 @@
             <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
                     
-                    @Html.DropDownList("DeviceId",new SelectList(ViewBag.Devices,"Id","Name"),new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(Id)"})
+                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(Id)"})
                     
                     <div class="col-md-4">
                         <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
@@ -38,13 +38,7 @@
                     </div>
                     <hr>
                     <br>
-                    <div class="white-card col-md-6 p-4 statistics-text">
-                        <span class="Completed"></span>
-                        <input class="pl-5" id="deviceTypes" value="deviceTypes" style="border: none;background: initial;" />
-                        <br>
-                        <br>
-                        <span>Device Types</span>
-                    </div>
+                    
                     <div class="white-card col-md-6 p-4 statistics-text statistics-text-alignment">
                         <span class="inProcess"></span>
                         <input class="pl-5" id="distributionPerCountry" name="distributionPerCountry" style="border: none;background: initial;" />
@@ -75,32 +69,19 @@
         <div class="col-12 col-md-6 order1">
             <div class="white-card col-md-12 row statistics-text ">
                 <div class="white-card col-md-12 row Hospital   statistics-text" style=" width: 92%;">
-                    <span>Treatments Count :</span>
-                    <select class="CuntryDropDown select2-hidden-accessible form-control" data-select2-id="3" tabindex="-1" aria-hidden="true">
-                        <option value="Country" data-select2-id="5">Country</option>
-                    </select>
-
+                    <span>Country-wise Transmissions</span>
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style: none;padding: 0;" id="treatmentList">
-                        <li class="liStyle">
-                            <div class="float-left pr-5 treatmentCount">7</div>
+                        @foreach (var item in ViewBag.Country){
+                            var imgName = @item.DeviceType + ".png";
+                            <li class="liStyle">
+                            <div class="float-left pr-5 treatmentCount">@item.NoOfTransmission</div>
                             <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <img src="../images/v2/us.png" class="pr-2">United States
+                                <img src="../images/v2/@imgName" style="width:25px; height:25px; padding-right:5px"> @item.DeviceType
                             </span>
                         </li>
-                        <li class="liStyle">
-                                    <div class="float-left pr-5 treatmentCount">8</div>
-                                    <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <img src="../images/v2/uk.png" class="pr-2">United Kingdom
-                            </span>
-                        </li>
-                        <li class="liStyle">
-                            <div class="float-left pr-5 treatmentCount">6</div>
-                                            <span class="mt-3" style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <img src="../images/v2/de.png" class="pr-2">Germany
-                            </span>
-                        </li>
+                        }
                         </ul>
                 </div>
             </div>
@@ -113,7 +94,6 @@
         // Do work
         onChangeDropDown($(this).val())
     });
-        var noOfDevices = null;
         var distribution = null;
         var attacks = null;
         var tranmission = null;
@@ -125,7 +105,6 @@
             url: "/Home/GetStats",
             data:{deviceId : deviceId},
                     success: function (data) {
-                    noOfDevices = data.deviceTypes;
                     distribution = data.distribution;
                     attacks = data.overallAttacks;
                     tranmission = data.noOfTransmission;
@@ -134,10 +113,8 @@
                 $("#transmissionError").val(data.transmissionError);
                 $("#attacksBlocks").val(data.overallAttacks);
                 $("#distributionPerCountry").val(data.distribution);
-                $("#deviceTypes").val(data.deviceTypes);
-                var yValues = [noOfDevices, distribution, tranmission, attacks];
+                var yValues = [distribution, tranmission, attacks];
                 var barColors = [
-                    "#28ced9",
                     "#2255c2",
                     "#f4b71a",
                     "#fa6363",
@@ -183,8 +160,8 @@
                 "danger": "#fd3995"
             },
             "base": {
-                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                "label": ["#a1a8c3", "#3d4465", "#3e4466"],
+                "shape": ["#d9dffa", "#afb4d4", "#646c9a"]
             }
         }
     };

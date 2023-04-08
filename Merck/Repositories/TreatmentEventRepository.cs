@@ -1,6 +1,8 @@
 ﻿using Merck.DTOS;
+using Merck.Helpers;
 using Merck.Interfaces.Repositories;
 using Merck.Models;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -57,6 +59,7 @@ namespace Merck.Repositories
                 .Select(dv => new DeviceResponseDTO
                 {
                     DeviceName = dv.DeviceName,
+                    Location=AppConstants.GetCountryByDeviceName(dv.DeviceName),
                     TreatmentEvent = JArray.Parse(dv.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
                     {
                         DeviceSerialNumber = (string)g.Key,
@@ -70,8 +73,31 @@ namespace Merck.Repositories
                 throw ex;
             }
         }
-        
-        public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo)
+        public List<DeviceResponseDTO> GetDeviceSerialNumberListByDevice(string device)
+        {
+            try
+            {
+                var result = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName==device)
+                .Select(val => new { Value = val.Value, DeviceName = val.DeviceName }) // Include DeviceName in the anonymous type
+                .ToList()
+                .Select(dv => new DeviceResponseDTO
+                {
+                    DeviceName = dv.DeviceName,
+                    Location = AppConstants.GetCountryByDeviceName(dv.DeviceName),
+                    TreatmentEvent = JArray.Parse(dv.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
+                    {
+                        DeviceSerialNumber = (string)g.Key,
+                        LongTimestamp = g.Max(t => (long)t["timestamp"])
+                    }).OrderByDescending(t => t.LongTimestamp).FirstOrDefault()
+                }).ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo, string events)
         {
             // Earlier created to fetch data from the treatmentevent table
             /*return _dbContext.TreatmentEvent.Where(x=>x.DeviceSerialNumber== serialNo).AsEnumerable()
@@ -86,13 +112,28 @@ namespace Merck.Repositories
             var treatmentEvent = _dbContext.FileLog.Where(val=>val.Value!=null).Select(val => val.Value).ToList();
             
             List<TreatmentEvent> result = treatmentEvent
-            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo).AsEnumerable()
+            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo && (string)t["event"] == events).AsEnumerable()
             .GroupBy(d => new {Event=(string)d["event"], DeviceSerialNumber=(string)d["device_serial_no"], LongTimestamp=(long)d["timestamp"]  })
             .Select(g => new TreatmentEvent
             {
                 Event=g.Key.Event,
                 DeviceSerialNumber = g.Key.DeviceSerialNumber,
                 LongTimestamp = g.Key.LongTimestamp
+            })
+            .ToList();
+            return result;
+        }
+        public List<TreatmentEvent> GetListofEventsBySerialNumber(string serialNo)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null).Select(val => val.Value).ToList();
+
+            List<TreatmentEvent> result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"] == serialNo).AsEnumerable()
+            .GroupBy(d => new { Event = (string)d["event"], DeviceSerialNumber = (string)d["device_serial_no"]})
+            .Select(g => new TreatmentEvent
+            {
+                Event = g.Key.Event,
+                DeviceSerialNumber = g.Key.DeviceSerialNumber
             })
             .ToList();
             return result;
@@ -106,6 +147,52 @@ namespace Merck.Repositories
             .Where(t => (string)t["event"] == events.Trim(' ') && (long)t["timestamp"] == timestamp)
             .FirstOrDefault();
             return result.ToString();
+        }
+        public List<StatsDTO> GetCountryStats()
+        {
+            List<StatsDTO> statsDTOs = new List<StatsDTO>();
+            var data = AppConstants.GetAllDevicesExcludingAll();
+            foreach(var item in data)
+            {
+                StatsDTO statsDTO = new StatsDTO();
+                statsDTO.DeviceType = item;
+                statsDTO.NoOfTransmission = GetTotalNoOfTransmissions(item);
+                statsDTOs.Add(statsDTO);
+            }
+            return statsDTOs;
+        }
+        public StatsDTO GetStats(string deviceName)
+        {
+            StatsDTO statsDTO = new StatsDTO();
+            statsDTO.NoOfTransmission = GetTotalNoOfTransmissions(deviceName);
+            statsDTO.OverallAttacks = GetTotalAttacks(deviceName);
+            statsDTO.TransmissionError = GetTotalTransmissionErrors(deviceName);
+            statsDTO.Distribution = GetTotalDevicesPerCountry(deviceName);
+            return statsDTO;
+        }
+
+        public int GetTotalNoOfTransmissions(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName).Select(val => val.Value).ToList();
+            var result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray))
+            .Count();
+            return result;
+        }
+        public int GetTotalAttacks(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.MerckHash != val.Hash && val.DeviceName == deviceName).Count();
+            return treatmentEvent;
+        }
+        public int GetTotalTransmissionErrors(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value == null && val.DeviceName == deviceName).Count();
+            return treatmentEvent;
+        }
+        public int GetTotalDevicesPerCountry(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.DeviceName == deviceName).Count();
+            return treatmentEvent;
         }
         public bool IsValidJson(string input)
         {

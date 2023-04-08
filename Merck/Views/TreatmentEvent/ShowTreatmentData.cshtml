@@ -9,19 +9,39 @@
         </div>
         <form class="m-t-30" style="margin-left:10%">
             <div class="form-group row">
-                <label for="myDropdown" class="col-3 p-10">Select Event with Timestamp</label>
-                @Html.DropDownListFor(
+                <label for="myDropdown" class="col-3 p-10">Select Event</label>
+                @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
+               @* @Html.DropDownListFor(
                 expression: model => model.SelectedItemId,
                 selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
                 {
-                    Value = i.LongTimestamp.ToString(),
-                    Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
+                    Value = i.Event,
+                    Text = i.Event
                 }), "Value", "Text"),
                 optionLabel: "Please select a value",
-                htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+                htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px" })*@
             </div>
+            @if (Model.TreatmentEvents != null)
+            {
+                <div class="form-group row">
+                    <label for="myDropdown" class="col-3 p-10">Select Event with Timestamp</label>
+                    @Html.DropDownListFor(
+                    expression: model => model.SelectedItemId,
+                    selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
+                    {
+                    Value = i.LongTimestamp.ToString(),
+                    Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
+                    }), "Value", "Text"),
+                    optionLabel: "Please select a value",
+                    htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+                </div>
+            }
         </form>
         <script>
+            function onDropdownEventChange(dropdown) {
+                var selectedText = dropdown.value;
+                window.location.href = "/TreatmentEvent/ShowTreatmentData?events=" + selectedText +"&serialNo="+@ViewBag.SerialNo;
+            }
             function onDropdownChange(dropdown) {
                 var longTimestamp = dropdown.value;
                 var selectedText = dropdown.options[dropdown.selectedIndex].text;
