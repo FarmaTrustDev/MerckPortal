@@ -15,14 +15,17 @@
                             <h3 class="heading">Treatment Devices List</h3>
                         </div>
                     </div>
-                    <div class="table-search-header row">
-                        <div style="width:50%">
-                        <label for="myDropdown" class="col-md-6 col-12"><h3 style="margin-top:15px; font-weight:bold">Select Device Type</h3></label>
-                        </div>
-                        <div style="width:50%">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <label for="myDropdown"><h3>Select Device Type</h3></label>
+                            </td>
+                        
+                        <td>
                         @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
-                        </div>
-                    </div>
+                    </td>    
+                    </tr>
+                    </table>
                     <script>
                         function onDropdownChange(dropdown) {
                             var selectedText = dropdown.options[dropdown.selectedIndex].text;

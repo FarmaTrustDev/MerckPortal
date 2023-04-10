@@ -8,13 +8,13 @@
             <h3 class="heading">Treatment Events Detail for Device Serial No : @ViewBag.SerialNo </h3>
         </div>
         <form class="m-t-30" style="margin-left:10%">
-            <div class="form-group row">
-        <div style="width:30%">
-                    <label for="myDropdown" class="col-12 p-10">Select Event</label>
-                </div>
-        <div style="width:50%">
-                    @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
-                </div>
+            <table style="text-align:left">
+                <tr>
+                    <td style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event</label</td>
+                    <td style="width:50%">
+                        @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
+                    </td>
+                </tr>
                 @* @Html.DropDownListFor(
                 expression: model => model.SelectedItemId,
                 selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
@@ -24,12 +24,12 @@
                 }), "Value", "Text"),
                 optionLabel: "Please select a value",
                 htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px" })*@
-            </div>
+            
             @if (Model.TreatmentEvents != null)
             {
-                <div class="form-group row">
-                    <div style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event with Timestamp</label></div>
-                    <div style="width:50%">
+                <tr>
+                    <td style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event with Timestamp</label></td>
+                    <td style="width:50%">
                         @Html.DropDownListFor(
                         expression: model => model.SelectedItemId,
                         selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
@@ -39,9 +39,10 @@
                         }), "Value", "Text"),
                         optionLabel: "Please select a value",
                         htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
-                    </div>
-                </div>
+                    </td>
+                </tr>
             }
+            </table>
         </form>
         <script>
             function onDropdownEventChange(dropdown) {
@@ -67,12 +68,14 @@
                         var jsonObject = JSON.parse(data);
                         var entries = Object.entries(jsonObject);
                         // Loop through the properties of the JSON object
+                        var table=document.createElement("table");
+                        table.style.textAlign="left";
                        for (const [key, value] of entries) {
                             // Create a new form group div
-                            var formGroup = document.createElement("div");
+                            var formGroup = document.createElement("tr");
                                                             
-                            formGroup.classList.add("form-group", "row");
-                            var labelDiv = document.createElement("div");
+                            //formGroup.classList.add("form-group", "row");
+                            var labelDiv = document.createElement("td");
                             labelDiv.style.width="30%";
                             // Create a new label element
                             var label = document.createElement("label");
@@ -84,7 +87,7 @@
                             labelDiv.appendChild(label);
                             // Add the label element to the form group
                             formGroup.appendChild(labelDiv);
-                            var inputDiv = document.createElement("div");
+                            var inputDiv = document.createElement("td");
                             inputDiv.style.width = "50%";
                             // Create a new input element
                             var input = document.createElement("input");
@@ -98,9 +101,9 @@
                             inputDiv.appendChild(input);
                             // Add the input element to the form group
                             formGroup.appendChild(inputDiv);
-
+                            table.appendChild(formGroup)
                             // Add the form group to the container
-                            container.appendChild(formGroup);
+                            container.appendChild(table);
                         }                       
                     },
                     error: function (xhr, status, error) {
