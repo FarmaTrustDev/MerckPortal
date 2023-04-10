@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor mt-top-responsive">
+        <div class=" grey-card row p-4">
+            <div class="col-12 mt-3">
+                <div class="white-card">
+                    <div class=" time-line-tabs">
+                        <div class="tav-content">
+                            <div class="tab-pane fade active show" id="container-2" data-tabid="2" role="tab-2" aria-labelledby="tab-2">
+                                <div class="card-body">
+                                    <div class="kt-notes ps ps--active-y" style="padding-left: 15px;padding-top: 20px;">
+                                        <div class="kt-notes__items time-line-step row">
+                                            @{
+                                                @foreach (var steps in ViewBag.ConductSteps)
+                                                {
+                                                    <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
+                                                        <div class="kt-notes__media">
+                                                            <span class="kt-notes__icon">
+                                                                <i class=" fa fa-check kt-font-primary "></i>
+                                                            </span>
+                                                        </div>
+                                                <div class="kt-notes__content ">
+                                                    <div class="kt-notes__section row">
+
+                                                        <div class="col-md">
+                                                            <h5 class="kt-notes__items">
+                                                                        @steps.StepName
+
+                                                            </h5>
+                                                            <span class="kt-notes__desc">
+                                                                        @steps.StepCompletedDate
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md text-right">
+                                                            <span class="display-inline">
+                                                                <h5 class="kt-notes ">
+                                                                            by: @steps.CompletedBy
+                                                                </h5>
+                                                                <h5 class="color-cerulean kt-notes ">
+                                                                            @steps.ManfName
+                                                                </h5>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

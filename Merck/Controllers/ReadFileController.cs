@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Merck.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -7,6 +8,7 @@ using System;
 
 namespace Merck.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReadFileController : ControllerBase

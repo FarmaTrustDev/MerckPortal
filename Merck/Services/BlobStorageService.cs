@@ -6,9 +6,15 @@ using Merck.Helpers;
 using Merck.Interfaces.Repositories;
 using Merck.Models;
 using Merck.Repositories;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Merck.Services
@@ -32,14 +38,17 @@ namespace Merck.Services
             foreach (BlobItem blobItem in containerClient.GetBlobs(prefix: folderName))
             {
                 yield return blobItem.Name;
+
+                //break;
             }
         }
 
 
-        public async Task<string> ReadBlobFileAsync(string blobName)
+        public async Task<FileResponseDTO> ReadBlobFileAsync(string blobName)
         {
             try
             {
+                FileResponseDTO fileResponseDTO = new FileResponseDTO();
                 // Create a BlobServiceClient object using the connection string
                 BlobServiceClient blobServiceClient = new BlobServiceClient(_connectionString);
 
@@ -48,18 +57,24 @@ namespace Merck.Services
 
                 // Get a reference to the blob
                 BlobClient blobClient = containerClient.GetBlobClient(blobName);
+                
+                BlobProperties blobProperties = blobClient.GetProperties();
+                
+                long? maxTime=await _fileLogRepository.GetMaxTimestamp();
+                if (maxTime==null || blobProperties.CreatedOn.Ticks > maxTime)
+                {
+                    // Download the blob's contents to a memory stream
+                    MemoryStream memoryStream = new MemoryStream();
+                    await blobClient.DownloadToAsync(memoryStream);
 
-                // Download the blob's contents to a memory stream
-                MemoryStream memoryStream = new MemoryStream();
-                await blobClient.DownloadToAsync(memoryStream);
+                    // Convert the memory stream to a string
+                    string contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 
-                // Convert the memory stream to a string
-                string contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-
-
-
+                    fileResponseDTO.Contents = contents;
+                    fileResponseDTO.CreatedOn = blobProperties.CreatedOn.Ticks;
+                }
                 // Return the contents of the file
-                return contents;
+                return fileResponseDTO;
             }
             catch (Exception ex)
             {
@@ -89,24 +104,61 @@ namespace Merck.Services
 
             try
             {
-                string contents = await ReadBlobFileAsync(blobName);
+                FileResponseDTO contents = await ReadBlobFileAsync(blobName);
+                if (contents.Contents != null)
+                {
+                    var httpContext = new HttpClient();
+                    FileLog FileDto = new FileLog();
+                    FileDto.Name = blobName;
+                    FileDto.Hash = Utility.GetMd5Hash(contents.Contents);
+                    if (IsValidJson(contents.Contents))
+                    {
+                        FileDto.Value = contents.Contents;
+                    }
+                    
+                    FileDto.Name = blobName;
+                    FileDto.CreatedOn = contents.CreatedOn;
+                    string HashedFileName = Utility.GetHashFileName(blobName);
+                    FileResponseDTO content2 = await ReadBlobFileAsync(HashedFileName);
+                    string deviceName = GetDeviceName(HashedFileName);
+                    FileDto.DeviceName = deviceName;
+                    FileDto.HashFileName = Utility.GetHashFileName(HashedFileName);
+                    if (content2.Contents != null)
+                    {
+                        FileDto.MerckHash = content2.Contents.ToLower();
+                    }
 
-                FileLog FileDto = new FileLog();
-                FileDto.Name = blobName;
-                FileDto.Hash = Utility.GetMd5Hash(contents);
-                FileDto.Value = contents;
-                FileDto.Name = blobName;
+                    FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
 
-                string HashedFileName = Utility.GetHashFileName(blobName); ;
-                string content2 = await ReadBlobFileAsync(HashedFileName);
+                    await InsertIntoDB(FileDto);
+                    var content = new StringContent($"{{\"productInfo\":\"{FileDto.MerckHash}\"}}", Encoding.UTF8, "application/json");
 
-                FileDto.HashFileName = Utility.GetHashFileName(HashedFileName); ;
-                FileDto.MerckHash = content2.ToLower();
+                    string url = AppConstants.GetURLByDeviceName(deviceName);
+                    var response = await httpContext.PostAsync(url, content);
 
-                FileDto.Tempered = FileDto.Hash != FileDto.MerckHash;
+                    /*HttpResponseMessage response = null;
+                    if (deviceName == AppConstants.Device1)
+                    {
+                        response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
+                    }
+                    if (deviceName == AppConstants.Device2)
+                    {
+                        response = await httpContext.PostAsync("https://secret-hollows-96938.herokuapp.com/setProductInfoSetter", content);
+                    }*/
 
-                await InsertIntoDB(FileDto);
-                return blobName;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Request was successful
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var jsonResponse = JObject.Parse(responseContent);
+                        var transactionId = jsonResponse["transactionHash"].ToString();
+                        FileLog fileLog = _fileLogRepository.GetByFileName(FileDto.Name);
+                        fileLog.BlockChainTransactionId = transactionId;
+                        await _fileLogRepository.Update(fileLog);
+                    }
+                    return blobName;
+                }
+                return null;
             }
             catch (Exception exx)
             {
@@ -118,9 +170,15 @@ namespace Merck.Services
         {
             foreach (string fileName in ListFilesInFolder("non_hashed"))
             {
-
-                BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
-
+                try
+                {
+                    BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
+                }
+                catch (Exception exx)
+                {
+                    throw exx;
+                }
+                //break;
                 //ReadBlobFileAsync(fileName);
                 //Console.WriteLine(fileName);
 
@@ -128,7 +186,42 @@ namespace Merck.Services
             }
 
         }
-
+        public string GetDeviceName(string blobName)
+        {
+            var pathArray = blobName.Split("/");
+            var deviceNameArray = pathArray[1].Split("_");
+            var deviceName = deviceNameArray[0];
+            if(int.TryParse(deviceNameArray[1], out int result))
+            {
+                deviceName += result.ToString();
+            }
+            return deviceName;
+        }
+        public bool IsValidJson(string input)
+        {
+            input = input.Trim();
+            if ((input.StartsWith("{") && input.EndsWith("}")) || //For object
+                (input.StartsWith("[") && input.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JToken.Parse(input);
+                    return true;
+                }
+                catch (JsonReaderException)
+                {
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         // sub ko queu kardena haii file name k sath 
         // file agai  
         // json lia

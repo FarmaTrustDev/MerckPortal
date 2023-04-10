@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Filters;
-
+using Merck.Core;
 
 namespace Merck.Infrastructure
 {
@@ -29,6 +29,7 @@ namespace Merck.Infrastructure
             services.AddScoped<IAuthorizationFilter, AuthFilter>();
             services.AddScoped<IFileLogRepository, FileLogRepository>();
 
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
             //Services
             services.AddScoped<TreatmentEventServices>();
             services.AddScoped<UserServices>();

@@ -1,0 +1,108 @@
+﻿@using Merck.DTOS;
+@model EventResponseDTO
+
+@{
+    ViewData["Title"] = "TreatmentEventList";
+}
+        <div class="table-search-header" style="margin-left:10%">
+            <h3 class="heading">Treatment Events Detail for Device Serial No : @ViewBag.SerialNo </h3>
+        </div>
+        <form class="m-t-30" style="margin-left:10%">
+            <div class="form-group row">
+                <label for="myDropdown" class="col-3 p-10">Select Event</label>
+                @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
+               @* @Html.DropDownListFor(
+                expression: model => model.SelectedItemId,
+                selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
+                {
+                    Value = i.Event,
+                    Text = i.Event
+                }), "Value", "Text"),
+                optionLabel: "Please select a value",
+                htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px" })*@
+            </div>
+            @if (Model.TreatmentEvents != null)
+            {
+                <div class="form-group row">
+                    <label for="myDropdown" class="col-3 p-10">Select Event with Timestamp</label>
+                    @Html.DropDownListFor(
+                    expression: model => model.SelectedItemId,
+                    selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
+                    {
+                    Value = i.LongTimestamp.ToString(),
+                    Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
+                    }), "Value", "Text"),
+                    optionLabel: "Please select a value",
+                    htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+                </div>
+            }
+        </form>
+        <script>
+            function onDropdownEventChange(dropdown) {
+                var selectedText = dropdown.value;
+                window.location.href = "/TreatmentEvent/ShowTreatmentData?events=" + selectedText + "&serialNo=" + @ViewBag.SerialNo;
+            }
+            function onDropdownChange(dropdown) {
+                var longTimestamp = dropdown.value;
+                var selectedText = dropdown.options[dropdown.selectedIndex].text;
+                var timestamp = selectedText.split("=>")[1];
+                var event = selectedText.split("=>")[0];
+                console.log("Selected value: " + event);
+                console.log("Selected text: " + longTimestamp);
+                $.ajax({
+                    type: "GET",
+                    url: "/TreatmentEvent/GetTreatmentEvent?event=" + event + "&timestamp=" + longTimestamp,
+                    success: function (data) {
+                        console.log(data);
+                        var container = document.getElementById("formData");
+                        while (container.firstChild) {
+                            container.removeChild(container.firstChild);
+                        }
+                        var jsonObject = JSON.parse(data);
+                        var entries = Object.entries(jsonObject);
+                        // Loop through the properties of the JSON object
+                       for (const [key, value] of entries) {
+                            // Create a new form group div
+                            var formGroup = document.createElement("div");
+                                                            
+                            formGroup.classList.add("form-group", "row");
+                                                            
+                            // Create a new label element
+                            var label = document.createElement("label");
+                            label.classList.add("col-3", "p-10", "m-t-10");
+                            const modifiedKey = key.replace(/_/g, ' ')
+                            .replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+                            // Set the label element's text content
+                            label.textContent = modifiedKey;
+
+                            // Add the label element to the form group
+                            formGroup.appendChild(label);
+
+                            // Create a new input element
+                            var input = document.createElement("input");
+                            input.classList.add("col-3", "p-10", "m-t-10");
+                            input.style.borderRadius = "10px";
+                            input.readOnly = true;
+                            // Set the input element's attributes
+                            input.type = "text";
+                            input.name = key;
+                            input.value = value;
+
+                            // Add the input element to the form group
+                            formGroup.appendChild(input);
+
+                            // Add the form group to the container
+                            container.appendChild(formGroup);
+                        }                       
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle the error
+                    }
+                });
+            }
+        </script>
+        <form class="m-t-30" style="margin-left:10%">
+			<div id="formData">
+										        
+            </div>
+        </form>  

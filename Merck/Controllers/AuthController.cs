@@ -19,6 +19,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Merck.Interfaces.Repositories;
 using Merck.Services;
+using Newtonsoft.Json;
 
 namespace Merck.Controllers
 {
@@ -51,32 +52,36 @@ namespace Merck.Controllers
         [HttpPost]
         public IActionResult Authenticate(AuthRequest request)
         {
-            //AuthResponse response = AuthenticateUser(request);
             if (string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
             {
-                return (RedirectToAction("Error"));
+                ViewBag.Error = "Incorrect Username or Password";
+                return View("Index");
             }
             IActionResult response = Unauthorized();
             User validUser = GetUser(request);
-            
-
             if (validUser != null)
             {
-                ViewBag.Users = _userRepository.GetRolesByUserId(validUser.UserName);
+                var UserInfo= _userRepository.GetRolesByUserId(validUser.UserName);
+                ViewBag.Users = UserInfo;
                 generatedToken = _tokenService.BuildToken(_config["AppConfiguration:Key"].ToString(), _config["AppConfiguration:Issuer"].ToString(), _config["AppConfiguration:Audience"].ToString(), validUser);
                 if (generatedToken != null)
                 {
                     HttpContext.Session.SetString("Token", generatedToken);
-                    return View();
+                    var roles = UserInfo.Roles.Select(rol => rol.Name).ToList();
+                    string rolesJson = JsonConvert.SerializeObject(roles);
+                    HttpContext.Session.SetString("roles", rolesJson);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    return (RedirectToAction("Error"));
+                    ViewBag.Error = "Incorrect Username or Password";
+                    return View("Index");
                 }
             }
             else
             {
-                return (RedirectToAction("Error"));
+                ViewBag.Error = "Incorrect Username or Password";
+                return View("Index");
             }
         }
         private User GetUser(AuthRequest userModel)

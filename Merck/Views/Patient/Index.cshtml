@@ -1,0 +1,248 @@
+﻿
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0 mt-63 mt-top-responsive-patient-list">
+    <h2 class="kt-portlet__head-title ml-5  mt-63">Patient Detail</h2>
+    <div class="kt-container   kt-container--fluid  kt-grid__item kt-grid__item--fluid p-0">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
+                    
+                        <div class="c-table">
+                            <div class="patient-list table table-responsive">
+                                <div class="kt-datatable table kt-datatable--default kt-datatable--brand kt-datatable--loaded">
+                                    <table class="kt-datatable__table" style="display: block;">
+  <thead class="kt-datatable__head">
+    <tr class="kt-datatable__row" style="left: 0px;">
+      <th
+        data-field="patient_unique_id"
+        data-autohide-disabled="false"
+        class="kt-datatable__cell kt-datatable__cell--sort"
+      >
+        <span style="width: 145px;">Device ID</span>
+      </th>
+      <th
+        data-field="first_name"
+        data-autohide-disabled="false"
+        class="kt-datatable__cell kt-datatable__cell--sort"
+      >
+        <span style="width: 30px;">Last Transmission Date</span>
+      </th>
+      <th
+        data-field="Actions"
+        data-autohide-disabled="false"
+        class="kt-datatable__cell kt-datatable__cell--sort"
+      >
+        <span style="width: 100px;">
+          <strong
+            class="float-left pr-4"
+            style="padding-left: 0px;"
+          >
+            Data Storage Node
+          </strong>
+          
+        </span>
+      </th>
+      <th
+        data-field="action"
+        class="kt-datatable__cell kt-datatable__cell--sort"
+      >
+        <span style="width: 100px;">
+           <strong  
+            class="float-left pr-4"
+            style="padding-left: 0px;margin-left: -450px;">Data Journey</strong>
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="kt-datatable__body" style="">
+      @{
+                                        @foreach(var patient in ViewBag.JsonData)
+    {
+                                        
+                                        <tr data-row="0" class="kt-datatable__row" style="left: 0px;">
+                                            <td class="kt-datatable__cell">
+                                                        <span style="width: 145px;"> @patient.DeviceId</span>
+                                            </td>
+                                            <td class="kt-datatable__cell">
+                                                <span style="width: 30px;">
+                                                    <strong>@patient.LastTransmissionDate</strong>
+                                                </span>
+                                            </td>
+                                                    <td class="kt-datatable__cell pb-5">
+                                                <span style="overflow: visible; position: relative; width: 409px;">
+                                                    <div>
+                                                        <div style="min-width: 817px;" class="patient-timeline">
+                                                            <span style="font-size: 14px;"
+                                                                      class="float-left mt-3">
+                                                                @patient.Node
+                                                            </span>
+                                                                    @foreach (var step in patient.Steps)
+                                                                    {
+                                                                        if(@step.Status == "Completed")
+                                                                        {
+                                                                            <a class="btn btn-brand btn-icon-sm ">
+                                                                                @step.Name
+                                                                            </a>
+                                                                            <span class="sep-line"></span>
+                                                                        }
+                                                                        else if(step.Status == "In Progress")
+                                                                        {
+                                                                            <a class="btn btn btn-outline-brand   btn-icon-sm">
+                                                                                @step.Name
+                                                                            </a>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <span class="sep-line-disabled"></span>
+                                                                            <a class="btn btn-outline-secondary disabled">
+                                                                                @step.Name
+                                                                            </a>
+                                                                        }
+                                                                    }
+                                                                    
+                                                            
+                                                            <!--<a class="btn btn-brand btn-icon-sm">
+                                                                Scheduling
+                                                            </a>
+                                                            <span class="sep-line-disabled"></span>
+                                                            <a class="btn btn-brand btn-icon-sm">
+                                                                Collection
+                                                            </a>
+                                                            <span class="sep-line"></span>
+                                                            <a class="btn btn btn-outline-brand   btn-icon-sm">
+                                                                Shipment
+                                                            </a>
+                                                            <span class="sep-line-disabled"></span>
+                                                            <a class="btn btn-outline-secondary disabled">
+                                                                Treatment
+                                                            </a>
+                                                            <span class="sep-line-disabled"></span>
+                                                            <a class="btn btn-outline-secondary disabled">
+                                                                After care
+                                                            </a>-->
+                                                            <span class="ml-0 line"></span>
+                                                                    <a asp-controller="Patient" asp-action="ViewConductSteps" class="link ml-2  p-15 viewBtn-alternate  btn-secondry flash">
+                                                                View
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </td>
+                                            <td data-field="action" class="kt-datatable__cell">
+                                                <span style="width: 409px;">
+                                                    <div class="dropdown">
+
+                                                        <button aria-expanded="false"
+                                                                aria-haspopup="true"
+                                                                data-toggle="dropdown"
+                                                                id="patient-actions"
+                                                                type="button"
+                                                                class="btn viewBtn sm-btn-timeling   dropdown-toggle">
+
+                                                            Admin
+                                                        </button>
+                                                        <div aria-labelledby="patient-actions" class="dropdown-menu">
+                                                            <a href="#"
+                                                               data-id="61ed2b95f8fdea0e388d14e8"
+                                                               data-name="Chris Smith"
+                                                               class="dropdown-item --hover-brand showModalTicket m-1">
+                                                                <i class="fas fa-ticket-alt"></i>
+                                                                <span>Open Ticket</span>
+                                                            </a>
+                                                            <a href="/Enrollment/Create?id=61ed2b95f8fdea0e388d14e8&amp;v=cnst"
+                                                               class="dropdown-item  --hover-brand  m-1">
+                                                                 <span>Add New Treatment </span>
+                                                            </a>
+                                                            <a href="#"
+                                                               data-id="61ed2b95f8fdea0e388d14e8"
+                                                               class="dropdown-item --hover-brand btn_delete_patient m-1">
+                                                                
+                                                                <span>Hide Patient</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </td>
+                                        </tr>
+    }
+        }
+      
+    
+   
+  </tbody>
+</table>;
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if(ViewBag.ShowDiv != null && ViewBag.ShowDiv)
+{
+
+    <div class=" ml-4 mr-4 w-98">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+            <div class=" grey-card row p-4">
+                <div class="col-12 mt-3">
+                    <div class="white-card">
+                        <div class=" time-line-tabs">
+                            <div class="tav-content">
+                                <div class="tab-pane fade active show" id="container-2" data-tabid="2" role="tab-2" aria-labelledby="tab-2">
+                                    <div class="card-body">
+                                        <div class="kt-notes ps ps--active-y" style="padding-left: 15px;padding-top: 20px;">
+                                            <div class="kt-notes__items time-line-step row">
+                                                @{
+                                                    @foreach (var steps in ViewBag.ConductSteps)
+                                                    {
+                                                        <div class="col-xl-12 col-lg-12 order-lg-12 pl-0 kt-notes__item completedTab disabled --completed" data-islastcompleted="False">
+                                                            <div class="kt-notes__media">
+                                                                <span class="kt-notes__icon">
+                                                                    <i class=" fa fa-check kt-font-primary "></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="kt-notes__content ">
+                                                                <div class="kt-notes__section row">
+
+                                                                    <div class="col-md">
+                                                                        <h5 class="kt-notes__items">
+                                                                            @steps.StepName
+
+                                                                        </h5>
+                                                                        <span class="kt-notes__desc">
+                                                                            @steps.StepCompletedDate
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-md text-right">
+                                                                        <span class="display-inline">
+                                                                            <h5 class="kt-notes ">
+                                                                                by: @steps.CompletedBy
+                                                                            </h5>
+                                                                            <h5 class="color-cerulean kt-notes ">
+                                                                                @steps.ManfName
+                                                                            </h5>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

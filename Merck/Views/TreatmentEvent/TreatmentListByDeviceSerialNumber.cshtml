@@ -1,117 +1,133 @@
-﻿@model IEnumerable<Merck.Models.User>
+﻿@model IEnumerable<Merck.Models.TreatmentEvent>
 
 @{
-    ViewData["Title"] = "Users";
+    ViewData["Title"] = "TreatmentEventList";
 }
-<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid m-t-30 kt-grid--hor p-0">
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor p-0 m-t-30">
 
     <!-- begin:: Content -->
-    <div class="kt-container container  kt-container--fluid  kt-grid__item kt-grid__item--fluid mt-63 manf_responsive_heading p-0">
+    <div class="kt-container container  kt-container--fluid  kt-grid__item kt-grid__item--fluid manf_responsive_heading p-0">
         <div class="row">
             <div class="col-xl-12">
                 <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile table-container ">
                     <div class="table-search-header row">
                         <div class="col-md-6 col-12">
-                            <h3 class="heading">Users</h3>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-8">
-                        </div>
-                        <div class="col-lg-1 col-md-3 col-2">
-                            <a href="/User/Create" class="btn p-15 btn-lg btn-primary pb-25 m-t-20 m-l-130">
-                                <i class="la la-plus"></i>
-                                Add User
-                            </a>
+                            <h3 class="heading">Treatment Devices List</h3>
                         </div>
                     </div>
-                    @*<div class="col-md-6 col-12">
-                        <h4 class="heading"><a class="btn btn-primary p-15 btn-lg" href="/User/Create">Create User</a></h4>
-                    </div>*@
+                    <div class="table-search-header row">
+                        <label for="myDropdown" class="col-md-3 col-12"><h3 style="margin-top:15px; font-weight:bold">Select Device Type</h3></label>
+                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
+                                
+                    </div>
+                    <script>
+                        function onDropdownChange(dropdown) {
+                            var selectedText = dropdown.options[dropdown.selectedIndex].text;
+                            console.log("Selected text: " + selectedText);
+                            window.location.href = "/TreatmentEvent/TreatmentListByDeviceSerialNumber?device=" + selectedText;
+                            
+                            /*$.ajax({
+                                type: "GET",
+                                url: "/TreatmentEvent/TreatmentListByDeviceSerialNumber?device=" + selectedText,
+                                success: function (data) {
+                                    console.log(data);
+                                },
+                                error: function (xhr, status, error) {
+                                    // Handle the error
+                                }
+                            });*/
+                        }
+                    </script>
                     <div class="kt-portlet__body kt-portlet__body--fit">
+
                         <!--begin: Datatable -->
                         <div class="table-responsive user">
                             <div class="tab-pane active table c-table ">
                                 <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
+
+
+
                                     <table class="kt-datatable__table" style="display: block;">
                                         <thead class="kt-datatable__head">
                                             <tr class="kt-datatable__row" style="left: 0px;">
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
                                                     <span style="width: 161px;">
-                                                        @Html.DisplayNameFor(model => model.UserName)
-                                                        </span>
-                                                </th>
-                                                <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
-                                                    <span style="width: 161px;">
-                                                     @Html.DisplayNameFor(model => model.FirstName)
+                                                        Device Name
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
                                                     <span style="width: 161px;">
-                                                            @Html.DisplayNameFor(model => model.LastName)
+                                                        Device Serial Number
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
-                                                    <span style="width: 161px;">
-                                                        Roles
+                                                    <span>
+                                                        Timestamp
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
-                                                    <span style="width: 161px;">
-                                                        @Html.DisplayNameFor(model => model.Email)
+                                                    <span>
+                                                        Data Storage Node
                                                     </span>
                                                 </th>
                                                 <th class="kt-datatable__cell kt-datatable__cell--sort text-center">
-                                                    <span style="width: 161px;">
-                                                        Edit
+                                                    <span>
+                                                        
                                                     </span>
                                                 </th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody class="kt-datatable__body">
-                                        @foreach (var item in ViewBag.Users) {
+                                            @foreach (var item in ViewBag.DeviceData)
+                                            {
                                                 <tr class="kt-datatable__row" style="left: 0px;">
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @item.UserName
-                                                            </span>
-                                                    </td>
-                                                    <td class="kt-datatable__cell">
-                                                        <span style="width: 161px;">
-                                                            @item.FirstName
+                                                            @item.DeviceName
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            @item.LastName
-                                                        </span>
-                                                    </td>
-                                                    <td class="kt-datatable__cell">
-                                                        @foreach (var role in item.Roles)
-                                                        {
-                                                            <span>
-                                                                @role.Name
-                                                            </span>
-                                                        }
-                                                    </td>
-                                                    <td class="kt-datatable__cell">
-                                                        <span style="width: 161px;">
-                                                            @item.Email
+                                                            @if (item.TreatmentEvent != null)
+                                                            {
+                                                                @item.TreatmentEvent.DeviceSerialNumber;
+                                                            }
                                                         </span>
                                                     </td>
                                                     <td class="kt-datatable__cell">
                                                         <span style="width: 161px;">
-                                                            <a href="/User/Edit?id=@item.GlobalId" class="btn p-15 btn-lg btn-primary pb-25 m-t-20">Edit</a>
+                                                            @if(item.TreatmentEvent != null){
+                                                                @DateTimeOffset.FromUnixTimeMilliseconds(item.TreatmentEvent.LongTimestamp).UtcDateTime;
+                                                            }
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @item.Location
+                                                        </span>
+                                                    </td>
+                                                    <td class="kt-datatable__cell">
+                                                        <span style="width: 161px;">
+                                                            @if (item.TreatmentEvent != null)
+                                                            {
+                                                                <a href="ShowTreatmentData?serialNo=@item.TreatmentEvent.DeviceSerialNumber">View Detail</a>
+                                                            }
                                                         </span>
                                                     </td>
                                                 </tr>
-}
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
+
                             </div>
                             <!--end: Datatable -->
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
