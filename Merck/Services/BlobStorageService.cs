@@ -32,8 +32,6 @@ namespace Merck.Services
             foreach (BlobItem blobItem in containerClient.GetBlobs(prefix: folderName))
             {
                 yield return blobItem.Name;
-
-                break;
             }
         }
 
@@ -122,7 +120,7 @@ namespace Merck.Services
             {
 
                 BackgroundJob.Enqueue(() => ReadFileOprationo(fileName));
-                break;
+
                 //ReadBlobFileAsync(fileName);
                 //Console.WriteLine(fileName);
 
