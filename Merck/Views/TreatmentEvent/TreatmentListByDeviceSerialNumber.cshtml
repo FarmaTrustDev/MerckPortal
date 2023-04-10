@@ -17,14 +17,14 @@
                     </div>
                     <table style="width:100%">
                         <tr>
-                            <td>
-                                <label for="myDropdown">Select Device Type</label>
+                            <td style="width:40%">
+                                Select Device Type
                             </td>
-                        
-                        <td>
-                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
-                    </td>    
-                    </tr>
+
+                            <td style="width:60%">
+                                @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
+                            </td>    
+                        </tr>
                     </table>
                     <script>
                         function onDropdownChange(dropdown) {
