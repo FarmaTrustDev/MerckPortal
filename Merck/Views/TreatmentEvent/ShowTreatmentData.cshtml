@@ -40,7 +40,7 @@
         <script>
             function onDropdownEventChange(dropdown) {
                 var selectedText = dropdown.value;
-                window.location.href = "/TreatmentEvent/ShowTreatmentData?events=" + selectedText +"&serialNo="+@ViewBag.SerialNo;
+                window.location.href = "/TreatmentEvent/ShowTreatmentData?events=" + selectedText + "&serialNo=" + @ViewBag.SerialNo;
             }
             function onDropdownChange(dropdown) {
                 var longTimestamp = dropdown.value;

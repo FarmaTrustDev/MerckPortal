@@ -41,6 +41,11 @@ namespace Merck.Controllers
             
             return devices;
         }*/
+        public List<StatsDTO> GetAllDevicesStats()
+        {
+            var countryData = _treatmentEventservices.GetBarChartStats();
+            return countryData;
+        }
         public StatsDTO GetStats(string deviceId)
         {
             var selectedDeviceId = deviceId;
@@ -74,6 +79,7 @@ namespace Merck.Controllers
         {
             var data = new SelectList(AppConstants.GetAllDevicesExcludingAll());
             var countryData = _treatmentEventservices.GetCountryStats();
+
             ViewBag.Devices = data;
             ViewBag.Country = countryData;
             return View();

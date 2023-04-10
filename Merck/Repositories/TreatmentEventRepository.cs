@@ -112,7 +112,7 @@ namespace Merck.Repositories
             var treatmentEvent = _dbContext.FileLog.Where(val=>val.Value!=null).Select(val => val.Value).ToList();
             
             List<TreatmentEvent> result = treatmentEvent
-            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo && (string)t["event"] == events).AsEnumerable()
+            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"]== serialNo.Trim(' ') && (string)t["event"] == events.Trim(' ')).AsEnumerable()
             .GroupBy(d => new {Event=(string)d["event"], DeviceSerialNumber=(string)d["device_serial_no"], LongTimestamp=(long)d["timestamp"]  })
             .Select(g => new TreatmentEvent
             {
@@ -126,9 +126,8 @@ namespace Merck.Repositories
         public List<TreatmentEvent> GetListofEventsBySerialNumber(string serialNo)
         {
             var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null).Select(val => val.Value).ToList();
-
             List<TreatmentEvent> result = treatmentEvent
-            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"] == serialNo).AsEnumerable()
+            .SelectMany(jsonArray => JArray.Parse(jsonArray)).Where(t => (string)t["device_serial_no"] == serialNo.Trim(' ')).AsEnumerable()
             .GroupBy(d => new { Event = (string)d["event"], DeviceSerialNumber = (string)d["device_serial_no"]})
             .Select(g => new TreatmentEvent
             {
@@ -157,6 +156,9 @@ namespace Merck.Repositories
                 StatsDTO statsDTO = new StatsDTO();
                 statsDTO.DeviceType = item;
                 statsDTO.NoOfTransmission = GetTotalNoOfTransmissions(item);
+                statsDTO.OverallAttacks = GetTotalAttacks(item);
+                statsDTO.TransmissionError = GetTotalTransmissionErrors(item);
+                statsDTO.Distribution = GetTotalDevicesPerCountry(item);
                 statsDTOs.Add(statsDTO);
             }
             return statsDTOs;

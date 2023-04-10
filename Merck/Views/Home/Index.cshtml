@@ -78,7 +78,7 @@
                             <li class="liStyle">
                             <div class="float-left pr-5 treatmentCount">@item.NoOfTransmission</div>
                             <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
-                                <img src="../images/v2/@imgName" style="width:25px; height:25px; padding-right:5px"> @item.DeviceType
+                                <img src="../images/v2/@imgName" style="padding-right:5px"> @item.DeviceType
                             </span>
                         </li>
                         }
@@ -86,14 +86,30 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-12 col-md-12 order1">
+            <div class="white-card col-md-12 row statistics-text ">
+                    <div class="col-md-12">
+                    <div id="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $('select').on('change', function () {
         // Do work
         onChangeDropDown($(this).val())
     });
+    
+
+
+
         var distribution = null;
         var attacks = null;
         var tranmission = null;
@@ -108,12 +124,13 @@
                     distribution = data.distribution;
                     attacks = data.overallAttacks;
                     tranmission = data.noOfTransmission;
-                    console.log(data,"statsData");
+                    transmissionError = data.transmissionError;
+                    //console.log(data,"statsData");
                 $("#totalTransmission").val(data.noOfTransmission);
                 $("#transmissionError").val(data.transmissionError);
                 $("#attacksBlocks").val(data.overallAttacks);
                 $("#distributionPerCountry").val(data.distribution);
-                var yValues = [distribution, tranmission, attacks];
+                var yValues = [distribution, attacks, transmissionError];
                 var barColors = [
                     "#2255c2",
                     "#f4b71a",
@@ -145,6 +162,62 @@
     deviceSelect.options[1].selected = true;
     //console.log(deviceSelect.options[1].value,"dropdown default selected value");
     onChangeDropDown(deviceSelect.options[1].value);
+
+    
+</script>
+<script>
+    function onLoadStats() {
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: "/Home/GetAllDevicesStats",
+            success: function (data) {
+                console.log(data[0])
+                
+                $(function () {
+                    
+                    var entity1Data = [data[0].distribution, data[0].overallAttacks, data[0].transmissionError]; // example data for entity 1
+                    var entity2Data = [data[1].distribution, data[1].overallAttacks, data[1].transmissionError]; // example data for entity 2
+                    var categories = ["Distribution", "Attacks", "Transmission Error"]; // example categories
+                    console.log(entity1Data)
+                    console.log(entity2Data)
+                    console.log(categories)
+                    $('#chart-container').highcharts({
+                        title: {
+                            text: 'EASYPOD2 vs EASYPOD3'
+                        },
+                        xAxis: {
+                            categories: categories
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value',
+                            },
+                            min: 0
+                        },
+                        series: [{
+                            name: data[0].deviceType + "(" + data[0].noOfTransmission + ")",
+                            data: entity1Data,
+                            color: '#7cb5ec' // blue color for entity 1
+                        }, {
+                            name: data[1].deviceType + "(" + data[1].noOfTransmission + ")",
+                            data: entity2Data,
+                            color: '#f15c80' // pink color for entity 2
+                        }]
+                    });
+                });
+            }
+        });
+    }
+    function toogleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        } else {
+            e.dataSeries.visible = true;
+        }
+        e.chart.render();
+    }
+    onLoadStats();
 </script>
 <script>
     var KTAppOptions = {

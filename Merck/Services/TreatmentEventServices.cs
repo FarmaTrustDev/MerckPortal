@@ -60,7 +60,29 @@ namespace Merck.Services
         {
             return _treatmentEventRepo.GetCountryStats();
         }
-        
+        public List<StatsDTO> GetBarChartStats()
+        {
+            List <StatsDTO> statsDTOs= _treatmentEventRepo.GetCountryStats();
+            /*List<BarChartStats> barChartStats = new List<BarChartStats>();
+            foreach(StatsDTO statsDTO in statsDTOs)
+            {
+                BarChartStats chartStats = new BarChartStats();
+                List<ChartCoordinates> chartCoordinates = new List<ChartCoordinates>();
+                chartCoordinates.Add(new ChartCoordinates { X = "No of Transmissions", Y = statsDTO.NoOfTransmission });
+                chartCoordinates.Add(new ChartCoordinates { X = "Distribution", Y = statsDTO.Distribution });
+                chartCoordinates.Add(new ChartCoordinates { X = "Transmission Errors", Y = statsDTO.TransmissionError });
+                chartCoordinates.Add(new ChartCoordinates { X = "Overall Attacks", Y = statsDTO.OverallAttacks });
+                
+                chartStats.MarkerType = "square";
+                chartStats.ShowInLegend = true;
+                chartStats.Type = "Line";
+                chartStats.Name = statsDTO.DeviceType;
+                chartStats.DataPoints = chartCoordinates;
+                barChartStats.Add(chartStats);
+            }*/
+            return statsDTOs;
+        }
+
         public List<TreatmentEvent> ProcessFile(string fileName)
         {  
             var filePath = Path.Combine(_directoryPath, fileName);
