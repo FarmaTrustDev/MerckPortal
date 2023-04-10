@@ -8,7 +8,6 @@ using System;
 
 namespace Merck.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReadFileController : ControllerBase

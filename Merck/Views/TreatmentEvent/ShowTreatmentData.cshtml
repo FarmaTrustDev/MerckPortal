@@ -8,10 +8,10 @@
             <h3 class="heading">Treatment Events Detail for Device Serial No : @ViewBag.SerialNo </h3>
         </div>
         <form class="m-t-30" style="margin-left:10%">
-            <table style="text-align:left">
+            <table style="text-align:left; width:100%">
                 <tr>
                     <td style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event</label</td>
-                    <td style="width:50%">
+                    <td style="width:60%">
                         @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
                     </td>
                 </tr>
@@ -29,7 +29,7 @@
             {
                 <tr>
                     <td style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event with Timestamp</label></td>
-                    <td style="width:50%">
+                    <td style="width:60%">
                         @Html.DropDownListFor(
                         expression: model => model.SelectedItemId,
                         selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
@@ -69,7 +69,8 @@
                         var entries = Object.entries(jsonObject);
                         // Loop through the properties of the JSON object
                         var table=document.createElement("table");
-                        table.style.textAlign="left";
+                        table.style.textAlign = "left";
+                        table.style.width = "100%";
                        for (const [key, value] of entries) {
                             // Create a new form group div
                             var formGroup = document.createElement("tr");
@@ -88,10 +89,10 @@
                             // Add the label element to the form group
                             formGroup.appendChild(labelDiv);
                             var inputDiv = document.createElement("td");
-                            inputDiv.style.width = "50%";
+                            inputDiv.style.width = "70%";
                             // Create a new input element
                             var input = document.createElement("input");
-                            input.classList.add("col-12", "p-10", "m-t-10");
+                            input.classList.add("col-md-12", "p-10", "m-t-10");
                             input.style.borderRadius = "10px";
                             input.readOnly = true;
                             // Set the input element's attributes

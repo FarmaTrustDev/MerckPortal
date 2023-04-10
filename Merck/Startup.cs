@@ -160,7 +160,7 @@ namespace Merck
         {
             using (var httpClient = new HttpClient())
             {
-                var response = await httpClient.GetAsync("https://localhost:5001/api/ReadFile");
+                var response = await httpClient.GetAsync("https://merckdemo.hataali.net/api/ReadFile");
                 // Handle the response
             }
             return null;
