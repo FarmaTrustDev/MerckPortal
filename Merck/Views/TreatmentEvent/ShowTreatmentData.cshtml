@@ -9,9 +9,13 @@
         </div>
         <form class="m-t-30" style="margin-left:10%">
             <div class="form-group row">
-                <label for="myDropdown" class="col-3 p-10">Select Event</label>
-                @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
-               @* @Html.DropDownListFor(
+        <div style="width:30%">
+                    <label for="myDropdown" class="col-12 p-10">Select Event</label>
+                </div>
+        <div style="width:50%">
+                    @Html.DropDownList("EventData", new SelectList(ViewBag.EventData, "Event", "Event"), ViewBag.SelectedEvent, new { @class = "form-control, col-6, p-10",@onchange = "onDropdownEventChange(this)", @style="border-radius:10px;" })
+                </div>
+                @* @Html.DropDownListFor(
                 expression: model => model.SelectedItemId,
                 selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
                 {
@@ -24,16 +28,18 @@
             @if (Model.TreatmentEvents != null)
             {
                 <div class="form-group row">
-                    <label for="myDropdown" class="col-3 p-10">Select Event with Timestamp</label>
-                    @Html.DropDownListFor(
-                    expression: model => model.SelectedItemId,
-                    selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
-                    {
-                    Value = i.LongTimestamp.ToString(),
-                    Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
-                    }), "Value", "Text"),
-                    optionLabel: "Please select a value",
-                    htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+                    <div style="width:30%"><label for="myDropdown" class="col-12 p-10">Select Event with Timestamp</label></div>
+                    <div style="width:50%">
+                        @Html.DropDownListFor(
+                        expression: model => model.SelectedItemId,
+                        selectList: new SelectList(Model.TreatmentEvents.Select(i => new SelectListItem
+                        {
+                        Value = i.LongTimestamp.ToString(),
+                        Text = i.Event + " => " + DateTimeOffset.FromUnixTimeMilliseconds(i.LongTimestamp).UtcDateTime
+                        }), "Value", "Text"),
+                        optionLabel: "Please select a value",
+                        htmlAttributes: new { @class = "form-control, col-3, p-10",@onchange = "onDropdownChange(this)", @style="border-radius:10px" })
+                    </div>
                 </div>
             }
         </form>
@@ -66,30 +72,32 @@
                             var formGroup = document.createElement("div");
                                                             
                             formGroup.classList.add("form-group", "row");
-                                                            
+                            var labelDiv = document.createElement("div");
+                            labelDiv.style.width="30%";
                             // Create a new label element
                             var label = document.createElement("label");
-                            label.classList.add("col-3", "p-10", "m-t-10");
+                            label.classList.add("col-12", "p-10", "m-t-10");
                             const modifiedKey = key.replace(/_/g, ' ')
                             .replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
                             // Set the label element's text content
                             label.textContent = modifiedKey;
-
+                            labelDiv.appendChild(label);
                             // Add the label element to the form group
-                            formGroup.appendChild(label);
-
+                            formGroup.appendChild(labelDiv);
+                            var inputDiv = document.createElement("div");
+                            inputDiv.style.width = "50%";
                             // Create a new input element
                             var input = document.createElement("input");
-                            input.classList.add("col-3", "p-10", "m-t-10");
+                            input.classList.add("col-12", "p-10", "m-t-10");
                             input.style.borderRadius = "10px";
                             input.readOnly = true;
                             // Set the input element's attributes
                             input.type = "text";
                             input.name = key;
                             input.value = value;
-
+                            inputDiv.appendChild(input);
                             // Add the input element to the form group
-                            formGroup.appendChild(input);
+                            formGroup.appendChild(inputDiv);
 
                             // Add the form group to the container
                             container.appendChild(formGroup);

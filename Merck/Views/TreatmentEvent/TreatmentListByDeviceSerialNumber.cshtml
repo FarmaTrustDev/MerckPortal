@@ -16,9 +16,12 @@
                         </div>
                     </div>
                     <div class="table-search-header row">
-                        <label for="myDropdown" class="col-md-3 col-12"><h3 style="margin-top:15px; font-weight:bold">Select Device Type</h3></label>
+                        <div style="width:50%">
+                        <label for="myDropdown" class="col-md-6 col-12"><h3 style="margin-top:15px; font-weight:bold">Select Device Type</h3></label>
+                        </div>
+                        <div style="width:50%">
                         @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
-                                
+                        </div>
                     </div>
                     <script>
                         function onDropdownChange(dropdown) {
