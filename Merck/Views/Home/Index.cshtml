@@ -24,7 +24,7 @@
             <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
                     
-                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(Id)"})
+                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(id)"})
                     
                     <div class="col-md-4">
                         <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
