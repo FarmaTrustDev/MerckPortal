@@ -24,7 +24,7 @@
             <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
                     
-                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(Id)"})
+                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(id)"})
                     
                     <div class="col-md-4">
                         <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
@@ -41,21 +41,21 @@
                     
                     <div class="white-card col-md-6 p-4 statistics-text statistics-text-alignment">
                         <span class="inProcess"></span>
-                        <input class="pl-5" id="distributionPerCountry" name="distributionPerCountry" style="border: none;background: initial;" />
+                        <input id="distributionPerCountry" name="distributionPerCountry" style="border: none;background: initial; padding-left:3rem;" />
                         <br>
                         <br>
                         Distribution Per Country
                     </div>
                     <div class="white-card col-md-6 p-4 statistics-text">
                         <span class="booked"></span>
-                        <input type="text" class="pl-5" id="attacksBlocks" value="attacksBlocks" style="border: none;background: initial;" />
+                        <input type="text" id="attacksBlocks" value="attacksBlocks" style="border: none;background: initial; padding-left:3rem;" />
                         <br>
                         <br>
                         Overall No. Of Attacks Blocks
                     </div>
                     <div class="white-card col-md-6 p-4 statistics-text statistics-text-alignment">
                         <span class="spoilage"></span>
-                        <input class="pl-5" id="transmissionError" value="transmissionError" style="border: none;background: initial;" />
+                        <input id="transmissionError" value="transmissionError" style="border: none;background: initial; padding-left:3rem;" />
                         <br>
                         <br>
                         Transmission Error
@@ -76,8 +76,8 @@
                         @foreach (var item in ViewBag.Country){
                             var imgName = @item.DeviceType + ".png";
                             <li class="liStyle">
-                            <div class="float-left pr-5 treatmentCount">@item.NoOfTransmission</div>
-                            <span class="mt-3 " style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; ">
+                            <div class="float-left treatmentCount" style="padding-right:3rem">@item.NoOfTransmission</div>
+                            <span style="padding: 12px; vertical-align: middle; display: flex; padding-top: 0px; margin-top:1.5rem">
                                 <img src="../images/v2/@imgName" style="padding-right:5px"> @item.DeviceType
                             </span>
                         </li>
