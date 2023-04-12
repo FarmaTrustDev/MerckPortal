@@ -15,17 +15,6 @@
                             <h3 class="heading">Treatment Devices List</h3>
                         </div>
                     </div>
-                    <table style="width:100%; text-align:left">
-                        <tr>
-                            <td style="width:30%">
-                                Select Device Type
-                            </td>
-
-                            <td style="width:60%">
-                                @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
-                            </td>    
-                        </tr>
-                    </table>
                     <script>
                         function onDropdownChange(dropdown) {
                             var selectedText = dropdown.options[dropdown.selectedIndex].text;
@@ -51,7 +40,17 @@
                             <div class="tab-pane active table c-table ">
                                 <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="kt_users" style="">
 
+                                    <table class="kt-datatable__table" style="display: block;">
+                                        <tr class="kt-datatable__row" style="left: 0px;">
+                                            <td class="kt-datatable__cell">
+                                                Select Device Type
+                                            </td>
 
+                                            <td class="kt-datatable__cell">
+                                                @Html.DropDownList("Device", (SelectList)ViewBag.Devices, ViewBag.SelectedItem, new { @onchange = "onDropdownChange(this)", @class = "form-control col-md-6 col-12",@style="border-radius:10px"})
+                                            </td>
+                                        </tr>
+                                    </table>
 
                                     <table class="kt-datatable__table" style="display: block;">
                                         <thead class="kt-datatable__head">
