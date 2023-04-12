@@ -27,34 +27,31 @@
                     @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new{@class="form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id="deviceDropDown", @onchange="onChangeDropDown(id)"})
                     
                     <div class="col-md-4">
-                        <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                        
                         <canvas id="myChart" width="62" height="62" class="chartjs-render-monitor"></canvas>
                     </div>
-                    <div class="col-md-8 pt-5 statistics-text">
+                    <div>
                         <span class="line"></span>
                         <div id="totalTransmission"></div>
-                        <span id="TreatmentHeading" class="pr-9" >No Of Transmission</span>
+                        <span id="TreatmentHeading">No Of Transmission</span>
                     </div>
                     <hr>
                     <br>
                     
-                    <div class="white-card col-md-6 p-4 statistics-text">
+                    <div class="white-card statistics-text" style="width:45%">
                         <span class="inProcess"></span>
-                        <div id="distributionPerCountry" class="pl-5"></div>
-                        <br>
-                        Distribution Per Country
+                        <div id="distributionPerCountry" class="pl-5">Distribution Per Country</div>
+                        <div>Distribution Per Country</div>
                     </div>
-                    <div class="white-card col-md-6 p-4 statistics-text">
+                    <div class="white-card statistics-text" style="width:45%">
                         <span class="booked"></span>
                         <div type="text" class="pl-5" id="attacksBlocks"></div>
-                        <br>
-                        Overall No. Of Attacks Blocks
+                        <div>Overall No. Of Attacks Blocks</div>
                     </div>
-                    <div class="white-card p-r-20">
+                    <div class="white-card ">
                         <span class="spoilage"></span>
                         <div class="pl-5" id="transmissionError"></div>
-                        <br>
-                        Transmission Error
+                        <div>Transmission Error</div>
                     </div>
                 </div>
             </div>
