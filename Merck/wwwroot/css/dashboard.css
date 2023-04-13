@@ -1,0 +1,50 @@
+﻿.homePage .stats_card {
+    width: 47%;
+    margin-left: 0px;
+    margin-top: 0px;
+    float: left
+}
+.distributionPerCountry-count {
+    width: 50px;
+    margin-top: 0px;
+    margin-left: 25px
+}
+.distributionPerCountry-text {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 2px
+}
+.transmissionError-card {
+    width: 55%;
+    margin-left: 22%;
+    margin-top: 1%;
+    float: left
+}
+    .mt-30 {
+        margin-top: 30px !important;
+    }
+    .mt-50{
+        margin-top:50px !important;
+    }
+.ml-25{
+    margin-left:25px;
+}
+.ml-10Percent{
+    margin-left:10%;
+}
+.pr-5 {
+    padding-right: 5px
+}
+.width{
+    width:92%;
+}
+.width-15{
+    width:15%;
+}
+.stats-img {
+    float: left;
+    margin-left: 15%;
+    margin-top: -10%;
+    margin-left: 17%;
+    width: 50%
+}

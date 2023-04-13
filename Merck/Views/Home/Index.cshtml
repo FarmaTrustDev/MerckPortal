@@ -32,23 +32,23 @@
                     </div>
                     <div>
                         <span class="line"></span>
-                        <div id="totalTransmission" style="margin-top:30px"></div>
+                        <div id="totalTransmission" class="mt-30"></div>
                         <span id="TreatmentHeading">No Of Transmission</span>
                     </div>
                     <hr>
-                    <div class="white-card" style="width:47%; margin-left:0px; margin-top:0px; float:left">
+                    <div class="white-card stats_card">
                         <span class="inProcess"></span>
-                        <div id="distributionPerCountry" style="width: 50px; margin-top: 0px; margin-left: 25px"></div>
-                        <div style="width:100%;margin-left: 0px; margin-top:2px">Distribution Per Country</div>
+                        <div id="distributionPerCountry" class="distributionPerCountry-count" ></div>
+                        <div class="distributionPerCountry-text">Distribution Per Country</div>
                     </div>
-                    <div class="white-card" style="width: 47%; margin-left: 5%;margin-top: 0px; float: left">
+                    <div class="white-card stats_card">
                         <span class="booked"></span>
-                        <div id="attacksBlocks" style="margin-left:25px"></div>
+                        <div id="attacksBlocks" class="ml-25"></div>
                         <div>Overall No. Of Attacks Blocks</div>
                     </div>
-                    <div class="white-card" style="width: 55%; margin-left: 22%; margin-top: 1%; float: left">
+                    <div class="white-card transmissionError-card">
                         <span class="spoilage"></span>
-                        <div id="transmissionError" style="margin-left:25px"></div>
+                        <div id="transmissionError" class="ml-25"></div>
                         <div>Transmission Error</div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="col-12 col-md-6 order1">
             <div class="white-card col-md-12 row statistics-text ">
-                <div class="white-card col-md-12 row Hospital   statistics-text" style=" width: 92%;">
+                <div class="white-card col-md-12 row Hospital   statistics-text width-92">
                     <span>Country-wise Transmissions</span>
                 </div>
                 <div class="col-md-12">
@@ -68,10 +68,10 @@
                             var imgName = @item.DeviceType + ".png";
                         <li class="liStyle">
                             <div>
-                                <div class="float-left pr-5 treatmentCount" style="width:15%">@item.NoOfTransmission</div>
+                                <div class="float-left pr-5 treatmentCount width-15">@item.NoOfTransmission</div>
                                 <div>
-                                    <span class="mt-3" style="float: left; margin-left: 15%; margin-top: -10%; margin-left: 17%; width: 50%">
-                                        <img src="../images/v2/@imgName" style="padding-right:5px"> @item.DeviceType
+                                        <span class="mt-3 stats-img">
+                                        <img src="../images/v2/@imgName" class="pr-5"> @item.DeviceType
                                     </span>
                                 </div>
                             </div>
@@ -274,4 +274,6 @@
         font-size: 18px;
         line-height: 27px;
     }
+
+    
 </style>

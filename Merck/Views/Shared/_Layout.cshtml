@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_buttons.scss" />
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_forms.scss" />*@
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_reboot.scss" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/scss/_reboot.scss" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <link href="~/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/style2.css" rel="stylesheet" />
-    @*<link href="/css/style.css" rel="stylesheet">*@
+    <link href="~/css/dashboard.css" rel="stylesheet" />
     <!-- Dashboard 1 Page CSS -->
     <link href="~/css/pages/dashboard1.css" rel="stylesheet" />
     <!--css color-->
@@ -69,32 +69,32 @@
             <img src="https://cgt.hataali.net/images/v2/logo.svg?v =HYx8loh6-rTC92sPxpkpHvu45ylx5I1m1BwFugLs7v8" />
         </a>
         <div class="vertical-menu" id="aside_menu">
-            <a asp-controller="Home" asp-action="Index" class="sidebar-link active">
+            <a asp-controller="Home" asp-action="Index" id="Home" onclick="GetSelectedMenuId('Home')" class="sidebar-link">
                 <span class="nav-container">
                     <span>Home</span>
                 </span>
             </a>
-            <a asp-controller="TreatmentEvent" asp-action="TreatmentListByDeviceSerialNumber" class="sidebar-link">
+            <a asp-controller="TreatmentEvent" id="Events" onclick="GetSelectedMenuId('Events')" asp-action="TreatmentListByDeviceSerialNumber" class="sidebar-link">
                 <span class="nav-container">
                     <span> Treatment Events</span>
                 </span>
             </a>
-            <a asp-controller="User" asp-action="GetAllUser" class="sidebar-link">
+            <a asp-controller="User" asp-action="GetAllUser" id="Users" onclick="GetSelectedMenuId('Users')" class="sidebar-link">
                 <span class="nav-container">
                     <span> Users</span>
                 </span>
             </a>
-            <a asp-controller="Role" asp-action="index" class="sidebar-link">
+            <a asp-controller="Role" asp-action="index" id="Roles" onclick="GetSelectedMenuId('Roles')" class="sidebar-link">
                 <span class="nav-container">
                     <span> Roles</span>
                 </span>
             </a> 
-            <a asp-controller="Permission" asp-action="index" class="sidebar-link">
+            <a asp-controller="Permission" asp-action="index" id="Permissions" onclick="GetSelectedMenuId('Permissions')" class="sidebar-link">
                 <span class="nav-container">
                     <span> Permissions</span>
                 </span>
             </a>
-            <a asp-controller="Patient" asp-action="index" class="sidebar-link">
+            <a asp-controller="Patient" asp-action="index" id="Patients" onclick="GetSelectedMenuId('Patients')" class="sidebar-link">
                 <span class="nav-container">
                     <span> Patient List</span>
                 </span>
@@ -130,22 +130,28 @@
                     <span class="pl-3">Logout</span>
                 </span>
             </a>
-
-
-
         </div>
     </aside>
     <div class="content-wrapper text-black">
-        @*<div class="container homePage">*@
-        @RenderBody()       
-        @*</div>*@
+        @RenderBody()   
             </div>
         </div>
     </div>
 </section>
 </html>
+<script>
+    function GetSelectedMenuId(id) {
+        localStorage.setItem('selectedMenu', id);
+    }
+    window.onload = function () {
+        if(localStorage.getItem("selectedMenu") === null)
+        {
+            localStorage.setItem('selectedMenu', 'Home');
+        }
+        var menVal = localStorage.getItem('selectedMenu');
+        var myDiv = document.getElementById(menVal);
+        myDiv.classList.add("active");
+    }
 
+</script>
 <script src="/js/general.js" asp-append-version="true"></script>
-
-
-
