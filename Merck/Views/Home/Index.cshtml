@@ -32,25 +32,23 @@
                     </div>
                     <div>
                         <span class="line"></span>
-                        <div id="totalTransmission"></div>
+                        <div id="totalTransmission" style="margin-top:30px"></div>
                         <span id="TreatmentHeading">No Of Transmission</span>
                     </div>
                     <hr>
-                    <br>
-                    
-                    <div class="white-card statistics-text" style="width:45%">
+                    <div class="white-card" style="width:47%; margin-left:0px; margin-top:0px; float:left">
                         <span class="inProcess"></span>
-                        <div id="distributionPerCountry" class="pl-5">Distribution Per Country</div>
-                        <div>Distribution Per Country</div>
+                        <div id="distributionPerCountry" style="width: 50px; margin-top: 0px; margin-left: 25px"></div>
+                        <div style="width:100%;margin-left: 0px; margin-top:2px">Distribution Per Country</div>
                     </div>
-                    <div class="white-card statistics-text" style="width:45%">
+                    <div class="white-card" style="width: 47%; margin-left: 5%;margin-top: 0px; float: left">
                         <span class="booked"></span>
-                        <div type="text" class="pl-5" id="attacksBlocks"></div>
+                        <div id="attacksBlocks" style="margin-left:25px"></div>
                         <div>Overall No. Of Attacks Blocks</div>
                     </div>
-                    <div class="white-card ">
+                    <div class="white-card" style="width: 55%; margin-left: 22%; margin-top: 1%; float: left">
                         <span class="spoilage"></span>
-                        <div class="pl-5" id="transmissionError"></div>
+                        <div id="transmissionError" style="margin-left:25px"></div>
                         <div>Transmission Error</div>
                     </div>
                 </div>
@@ -93,12 +91,11 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $('select').on('change', function () {
         // Do work
@@ -180,33 +177,31 @@
                     console.log(entity1Data)
                     console.log(entity2Data)
                     console.log(categories)
-                    $('#chart-container').highcharts({
-                        chart: {
-                            type: 'column'
-                        },
 
-                        title: {
-                            text: 'EASYPOD2 vs EASYPOD3'
+                    new Chart("chart-container", {
+                        type: "bar",
+                        data: {
+                            labels: categories,
+                            datasets: [{
+                                label: data[0].deviceType + "(" + data[0].noOfTransmission + ")",
+                                backgroundColor: "green",
+                                data: entity1Data
+                            }, {
+                                label: data[1].deviceType + "(" + data[1].noOfTransmission + ")",
+                                backgroundColor: "blue",
+                                data: entity2Data
+                            }]
                         },
-                        xAxis: {
-                            categories: categories
-                        },
-                        yAxis: {
+                        options: {
+                            legend: { display: true },
                             title: {
-                                text: 'Value',
-                            },
-                            min: 0
-                        },
-                        series: [{
-                            name: data[0].deviceType + "(" + data[0].noOfTransmission + ")",
-                            data: entity1Data,
-                            color: '#7cb5ec' // blue color for entity 1
-                        }, {
-                            name: data[1].deviceType + "(" + data[1].noOfTransmission + ")",
-                            data: entity2Data,
-                            color: '#f15c80' // pink color for entity 2
-                        }]
+                                display: true,
+                                text: "EASYPOD2 vs EASYPOD3"
+                            }
+                        }
                     });
+
+                    
                 });
             }
         });
