@@ -18,64 +18,70 @@
     <article class="article">
         <h1 class="heading"><strong>Welcome To @concatenated  Portal</strong></h1>
     </article>
-    <div class="row grey-card p-4 ">
-        <div class="col-md-1 row "></div>
-        <div class=" col-12 col-md-5">
+    <div class="row grey-card p-4">
+        
+        <div class=" col-12 col-md-6">
             <script src="https://cdnjs.com/libraries/Chart.js" type="text/javascript" crossorigin="anonymous"></script>
             <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
+                    <div class="col-md-12 row  mt-2 statistics-text">
+                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new { @class = "form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id = "deviceDropDown", @onchange = "onChangeDropDown(id)" })
 
-                    @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new { @class = "form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id = "deviceDropDown", @onchange = "onChangeDropDown(id)" })
+                        <div class="col-md-4">
+                            <canvas id="myChart" width="62" height="62" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <div>
+                            <span class="line"></span>
+                            <div id="totalTransmission" class="mt-30"></div>
+                            <span id="TreatmentHeading">No Of Transmission</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 row statistics-text" style="margin-top:15px">
+                        <div class="white-card stats_card" >
+                            <span class="inProcess"></span>
+                            <div id="distributionPerCountry" class="distributionPerCountry-count"></div>
+                            <div class="distributionPerCountry-text">Distribution Per Country</div>
+                        </div>
+                        <div class="white-card stats_card" >
+                            <span class="booked"></span>
+                            <div id="attacksBlocks" class="ml-25"></div>
+                            <div>Overall No. Of Attacks Blocks</div>
+                        </div>
+                        <div class="white-card stats_card" style="width:96%">
+                            <span class="spoilage"></span>
+                            <div id="transmissionError" class="ml-25"></div>
+                            <div>Transmission Error</div>
+                        </div>
+                        
+                    </div>
 
-                    <div class="col-md-4">
-
-                        <canvas id="myChart" width="62" height="62" class="chartjs-render-monitor"></canvas>
-                    </div>
-                    <div>
-                        <span class="line"></span>
-                        <div id="totalTransmission" class="mt-30"></div>
-                        <span id="TreatmentHeading">No Of Transmission</span>
-                    </div>
-                    <hr>
-                    <div class="white-card stats_card">
-                        <span class="inProcess"></span>
-                        <div id="distributionPerCountry" class="distributionPerCountry-count" ></div>
-                        <div class="distributionPerCountry-text">Distribution Per Country</div>
-                    </div>
-                    <div class="white-card stats_card">
-                        <span class="booked"></span>
-                        <div id="attacksBlocks" class="ml-25"></div>
-                        <div>Overall No. Of Attacks Blocks</div>
-                    </div>
-                    <div class="white-card transmissionError-card">
-                        <span class="spoilage"></span>
-                        <div id="transmissionError" class="ml-25"></div>
-                        <div>Transmission Error</div>
-                    </div>
                 </div>
             </div>
 
             <script type="module" src="/js/statistics/statistics.js?v=_kAYCs0w8x11_GjGfkXCpWk2Q40v5PnOXY-El1UeMMw"></script>
 
         </div>
-        <div class="col-12 col-md-6 order1">
-            <div class="white-card col-md-12 row statistics-text ">
-                <div class="white-card col-md-12 row Hospital   statistics-text width-92">
+        
+        <div class="col-12 col-md-5 order1">
+            <div class="white-card col-md-12 row statistics-text " style="height:480px">
+                <div class="white-card col-md-12 row Hospital statistics-text width-92">
                     <span>Country-wise Transmissions</span>
                 </div>
                 <div class="col-md-12">
                     <ul style="list-style: none;padding: 0;" id="treatmentList">
-                        @foreach (var item in ViewBag.Country){
+                        @foreach (var item in ViewBag.Country)
+                        {
                             var imgName = @item.DeviceType + ".png";
-                        <li class="liStyle">
-                            <div>
-                                <div class="float-left pr-5 treatmentCount width-15">@item.NoOfTransmission</div>
+                            <li class="liStyle">
                                 <div>
+                                    <div class="float-left pr-5 treatmentCount width-15">@item.NoOfTransmission</div>
+                                    <div>
                                         <span class="mt-3 stats-img">
-                                        <img src="../images/v2/@imgName" class="pr-3"> @item.DeviceType
-                                    </span>
+                                            <img src="../images/v2/@imgName" class="pr-3"> @item.DeviceType
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
 
                             </li>
                         }
@@ -93,6 +99,7 @@
             </div>
         </div>
     </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
