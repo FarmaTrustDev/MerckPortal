@@ -59,7 +59,6 @@
                     <span href="javascript:;"></span>
                 </li>
             </ul>
-            
         </div>
     </nav>
 </header>*@
@@ -141,14 +140,13 @@
 </html>
 <script>
     function GetSelectedMenuId(id) {
-        localStorage.setItem('selectedMenu', id);
+        sessionStorage.setItem('selectedMenu', id);
     }
     window.onload = function () {
-        if(localStorage.getItem("selectedMenu") === null)
-        {
-            localStorage.setItem('selectedMenu', 'Home');
+        if (sessionStorage.getItem("selectedMenu") === null) {
+            sessionStorage.setItem('selectedMenu', 'Home');
         }
-        var menVal = localStorage.getItem('selectedMenu');
+        var menVal = sessionStorage.getItem('selectedMenu');
         var myDiv = document.getElementById(menVal);
         myDiv.classList.add("active");
     }
