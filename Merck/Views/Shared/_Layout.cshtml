@@ -73,7 +73,7 @@
                     <span>Home</span>
                 </span>
             </a>
-            <a asp-controller="TreatmentEvent" id="Events" onclick="GetSelectedMenuId('Events')" asp-action="TreatmentListByDeviceSerialNumber" class="sidebar-link">
+            <a asp-controller="Patient" id="Events" onclick="GetSelectedMenuId('Events')" asp-action="Index" class="sidebar-link">
                 <span class="nav-container">
                     <span> Treatment Events</span>
                 </span>
@@ -93,13 +93,13 @@
                     <span> Permissions</span>
                 </span>
             </a>
-            <a asp-controller="Patient" asp-action="index" id="Patients" onclick="GetSelectedMenuId('Patients')" class="sidebar-link">
+            @*<a asp-controller="Patient" asp-action="index" id="Patients" onclick="GetSelectedMenuId('Patients')" class="sidebar-link">
                 <span class="nav-container">
                     <span> Patient List</span>
                 </span>
             </a>
             
-            @* <a asp-controller="TreatmentEvent" asp-action="index" class="sidebar-link">
+             <a asp-controller="TreatmentEvent" asp-action="index" class="sidebar-link">
                 <span class="nav-container">
                     <span> Read File</span>
                 </span>

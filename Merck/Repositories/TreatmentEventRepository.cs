@@ -36,6 +36,18 @@ namespace Merck.Repositories
                 .OrderByDescending(t => t.Timestamp)
                 .ToList();
         }
+        public List<FileLog> GetDeviceList()
+        {
+            try
+            {
+                List<FileLog> result = _dbContext.FileLog.Where(val => val.Value != null).ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<DeviceResponseDTO> GetDeviceSerialNumberList()
         {
             /*var treatmentEvent = _dbContext.FileLog.Select(val => new { val.Value, val.DeviceName }).ToList();

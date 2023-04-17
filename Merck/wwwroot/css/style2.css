@@ -714,7 +714,7 @@ bootstrap-switch input[type=checkbox], .bootstrap-switch input[type=radio] {
 }
 
 .active-bullet-image, .time-line-tabs .nav-tabs .active:before, .pills-container .nav-pills .active:before, .bullet-sm-nav:before, .table-logistic .processing:before, .patient-timeline a.btn-outline-brand:before, .bullet-sm-nav-active:before, .active-timeline-bar:before, .logistic-timeline .btn-outline-brand:before, .base-received .manufacturing:before, .table-time-line .process-received .manufacturing:before, .base-not-received .inbound:before, .table-time-line .process-not-received .inbound:before, .base-manufacture-outbound .outbound:before, .table-time-line .manufacture-outbound .outbound:before {
-    background-image: url("https://cgt.hataali.net//images/v2/icons/circle-active.svg") !important
+    background-image: url("https://cgt.hataali.net//images/v2/icons/danger-cross.svg") !important
 }
 
 .bullet-image, .time-line-step .kt-notes__item .kt-notes__icon, .btn-bullet-active, .bullet-sm-nav-disable:before, .table-logistic .bar:before, .patient-timeline a.btn:before, .bullet-disabled, .bullet-nav:before, .time-line-tabs .nav-tabs .nav-link:before, .pills-container .base-nav-link:before, .pills-container .nav-pills .nav-link:before {
@@ -1393,11 +1393,12 @@ header .grey-card {
 
 .patient-timeline {
     margin-top: 15px;
-    text-align: right
+    text-align: left;
+    padding-left:100px;
 }
 
     .patient-timeline a.btn {
-        padding: 4px 8px;
+        padding: 2px 2px;
         border: 0
     }
 
@@ -1432,7 +1433,7 @@ header .grey-card {
     }
 
     .patient-timeline .viewBtn-alternate {
-        background-color: #fa6363;
+        background-color: #6376fa;
         color: #fff;
         border-radius: 22%;
         padding: 5px 8px;
