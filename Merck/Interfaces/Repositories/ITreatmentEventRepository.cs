@@ -12,6 +12,7 @@ namespace Merck.Interfaces.Repositories
         public void AddTreatmentEvents(List<TreatmentEvent> TreatmentEvents);
         public List<TreatmentEvent> GetAllDeviceSerialNumber();
         public List<DeviceResponseDTO> GetDeviceSerialNumberList();
+        public List<FileLog> GetDeviceList();
         public List<TreatmentEvent> GetListofEventsWithTimeStampBySerialNumber(string serialNo, string events);
         public List<TreatmentEvent> GetListofEventsBySerialNumber(string serialNo); 
         public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp);

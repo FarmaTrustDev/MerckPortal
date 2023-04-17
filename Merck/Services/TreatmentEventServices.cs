@@ -1,13 +1,17 @@
 ﻿using Merck.DTOS;
+using Merck.Helpers;
 using Merck.Interfaces.Repositories;
 using Merck.Models;
 using Merck.Repositories;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using static System.Net.WebRequestMethods;
 
 namespace Merck.Services
 {
@@ -34,6 +38,36 @@ namespace Merck.Services
         public List<DeviceResponseDTO> GetDeviceSerialNumberList() // this has been defined to get from the logfile
         {
             return _treatmentEventRepo.GetDeviceSerialNumberList();
+        }
+        public List<PatientJsonDTO> GetDeviceList() // this has been defined to get from the logfile
+        {
+            List<PatientJsonDTO> patientJsonDTOs= new List<PatientJsonDTO>();
+            List<FileLog> files= _treatmentEventRepo.GetDeviceList();
+            foreach(FileLog file in files)
+            {
+                PatientJsonDTO patientJsonDTO = new PatientJsonDTO();
+                patientJsonDTO.DeviceName = file.DeviceName;
+                patientJsonDTO.Node = AppConstants.GetCountryByDeviceName(file.DeviceName);
+                TreatmentEvent treatmentEvent = file.Value!=null? JArray.Parse(file.Value).GroupBy(d => (string)d["device_serial_no"]).Select(g => new TreatmentEvent
+                {
+                    DeviceSerialNumber = (string)g.Key,
+                    LongTransmissionTime = g.Max(t => (long)t["transmission_time"])
+                }).OrderByDescending(t => t.LongTimestamp).FirstOrDefault() : null;
+                patientJsonDTO.MerckHash = file.MerckHash;
+                patientJsonDTO.LocalHash = file.Hash;
+                patientJsonDTO.DeviceId = treatmentEvent.DeviceSerialNumber;
+                patientJsonDTO.LastTransmissionDate = DateTime.FromBinary(treatmentEvent.LongTransmissionTime);
+                List<StepsDTO> stepsDTOs = new List<StepsDTO>();
+                patientJsonDTO.Steps = new List<StepsDTO>
+                {
+                    new StepsDTO { Id = 1, Name = "Device", Status = "Completed"},
+                    new StepsDTO { Id = 2, Name = "Validated", Status = "Completed"},
+                    new StepsDTO { Id = 3, Name = "Non Temperatured", Status =file.Tempered==false ? "Completed" : "In Progress"},
+                    new StepsDTO { Id = 4, Name = "Stored", Status =file.BlockChainTransactionId!=null ? "Completed" : "Remaining"},
+                };
+                patientJsonDTOs.Add(patientJsonDTO);
+            }
+            return patientJsonDTOs;
         }
         public List<DeviceResponseDTO> GetDeviceSerialNumberListByDevice(string device) // this has been defined to get from the logfile
         {
@@ -72,7 +106,6 @@ namespace Merck.Services
                 chartCoordinates.Add(new ChartCoordinates { X = "Distribution", Y = statsDTO.Distribution });
                 chartCoordinates.Add(new ChartCoordinates { X = "Transmission Errors", Y = statsDTO.TransmissionError });
                 chartCoordinates.Add(new ChartCoordinates { X = "Overall Attacks", Y = statsDTO.OverallAttacks });
-                
                 chartStats.MarkerType = "square";
                 chartStats.ShowInLegend = true;
                 chartStats.Type = "Line";
@@ -86,7 +119,7 @@ namespace Merck.Services
         public List<TreatmentEvent> ProcessFile(string fileName)
         {  
             var filePath = Path.Combine(_directoryPath, fileName);
-            var json = File.ReadAllText(filePath);
+            var json = System.IO.File.ReadAllText(filePath);
             var data = JsonConvert.DeserializeObject<TreatmentEventRequestDTO[]>(json);
             Document document = new Document();
             document.Active = true;
