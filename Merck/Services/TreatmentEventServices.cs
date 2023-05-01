@@ -45,7 +45,9 @@ namespace Merck.Services
         }
         public bool checkData(List<FileLog> files, string deviceName, bool isTampaered, int tampCount)
         {
-            if (isTampaered == true && (int)((tampCount / countData(files, deviceName)) * 100) <= 20)
+            int totCount = countData(files, deviceName);
+            float deviceResultant = ((float)tampCount / (float)totCount * 100);
+            if (isTampaered == true && deviceResultant < 20)
                 return true;
             else
                 return false;
@@ -77,12 +79,12 @@ namespace Merck.Services
                 {
                     if(file.DeviceName=="EASYPOD2")
                     {
-                        if (checkData(files, file.DeviceName, true, tampCountEA2)) { tampCountEA2++; tamp = true; }
+                        if (checkData(files, file.DeviceName, true, tampCountEA2)) { tampCountEA2++; tamp = true; } else { tamp = false; }
                             
                     }
                     if (file.DeviceName == "EASYPOD3")
                     {
-                        if (checkData(files, file.DeviceName, true, tampCountEA3)) { tampCountEA3++; tamp = true; }
+                        if (checkData(files, file.DeviceName, true, tampCountEA3)) { tampCountEA3++; tamp = true; } else { tamp = false; }
                     }
                 }
                 else
