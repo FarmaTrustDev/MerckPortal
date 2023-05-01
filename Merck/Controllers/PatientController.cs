@@ -58,7 +58,7 @@ namespace Merck.Controllers
                         {
                             new StepsDTO { Id = 1, Name = "Device", Status = "Completed"},
                             new StepsDTO { Id = 2, Name = "Validated", Status = "Completed"},
-                            new StepsDTO { Id = 3, Name = "Non Temperatured", Status = "Completed"},
+                            new StepsDTO { Id = 3, Name = "Non Tempered", Status = "Completed"},
                             new StepsDTO { Id = 4, Name = "Stored", Status = "In Progress"},
                             new StepsDTO { Id = 5, Name = "Analyze", Status = "Remaining"},
                             new StepsDTO { Id = 6, Name = "Done", Status = "Remaining"},
@@ -73,7 +73,7 @@ namespace Merck.Controllers
                     {
                         new StepsDTO { Id = 1, Name = "Device", Status = "Completed"},
                         new StepsDTO { Id = 2, Name = "Validated", Status = "Completed"},
-                        new StepsDTO { Id = 3, Name = "Non Temperatured", Status = "In Progress"},
+                        new StepsDTO { Id = 3, Name = "Non Tempered", Status = "In Progress"},
                         new StepsDTO { Id = 4, Name = "Stored", Status = "Remaining"},
                         new StepsDTO { Id = 5, Name = "Analyze", Status = "Remaining"},
                         new StepsDTO { Id = 6, Name = "Done", Status = "Remaining"},

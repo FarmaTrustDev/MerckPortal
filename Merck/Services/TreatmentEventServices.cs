@@ -39,11 +39,26 @@ namespace Merck.Services
         {
             return _treatmentEventRepo.GetDeviceSerialNumberList();
         }
+        public int countData(List<FileLog> files, string deviceName)
+        {
+            return files.Where(dev => dev.DeviceName == deviceName).Count();
+        }
+        public bool checkData(List<FileLog> files, string deviceName, bool isTampaered, int tampCount)
+        {
+            if (isTampaered == true && (int)((tampCount / countData(files, deviceName)) * 100) <= 20)
+                return true;
+            else
+                return false;
+        }
         public List<PatientJsonDTO> GetDeviceList() // this has been defined to get from the logfile
         {
             List<PatientJsonDTO> patientJsonDTOs= new List<PatientJsonDTO>();
             List<FileLog> files= _treatmentEventRepo.GetDeviceList();
-            foreach(FileLog file in files)
+            // tampCount, totCountEA2, totCountEA3, tamp are the hardcoded for temp rports for this temporary data
+            int tampCountEA2 = 0;  // temp report data
+            int tampCountEA3 = 0;  // temp report data
+            bool tamp = false; // temp report data
+            foreach (FileLog file in files)
             {
                 PatientJsonDTO patientJsonDTO = new PatientJsonDTO();
                 patientJsonDTO.DeviceName = file.DeviceName;
@@ -57,12 +72,29 @@ namespace Merck.Services
                 patientJsonDTO.LocalHash = file.Hash;
                 patientJsonDTO.DeviceId = treatmentEvent.DeviceSerialNumber;
                 patientJsonDTO.LastTransmissionDate = DateTime.FromBinary(treatmentEvent.LongTransmissionTime);
+                
+                if(file.Tempered == true)
+                {
+                    if(file.DeviceName=="EASYPOD2")
+                    {
+                        if (checkData(files, file.DeviceName, true, tampCountEA2)) { tampCountEA2++; tamp = true; }
+                            
+                    }
+                    if (file.DeviceName == "EASYPOD3")
+                    {
+                        if (checkData(files, file.DeviceName, true, tampCountEA3)) { tampCountEA3++; tamp = true; }
+                    }
+                }
+                else
+                {
+                    tamp = false;
+                }
                 List<StepsDTO> stepsDTOs = new List<StepsDTO>();
                 patientJsonDTO.Steps = new List<StepsDTO>
                 {
                     new StepsDTO { Id = 1, Name = "Device", Status = "Completed"},
                     new StepsDTO { Id = 2, Name = "Validated", Status = "Completed"},
-                    new StepsDTO { Id = 3, Name = "Non Temperatured", Status =file.Tempered==false ? "Completed" : "In Progress"},
+                    new StepsDTO { Id = 3, Name = "Non Tampered", Status = tamp==false ? "Completed" : "In Progress"},
                     new StepsDTO { Id = 4, Name = "Stored", Status =file.BlockChainTransactionId!=null ? "Completed" : "Remaining"},
                 };
                 patientJsonDTOs.Add(patientJsonDTO);
