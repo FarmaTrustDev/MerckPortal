@@ -18,6 +18,7 @@ namespace Merck.Interfaces.Repositories
         public string GetTreatmentEventByEventAndTimeStamp(string events, long timestamp);
         public List<DeviceResponseDTO> GetDeviceSerialNumberListByDevice(string device);
         public StatsDTO GetStats(string deviceName);
+        public StatsDTO GetStatsByDate(string deviceName, string fromDate, string toDate);
         public List<StatsDTO> GetCountryStats();
         
     }

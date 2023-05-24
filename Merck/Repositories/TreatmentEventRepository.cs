@@ -182,9 +182,93 @@ namespace Merck.Repositories
             statsDTO.OverallAttacks = GetTotalAttacks(deviceName);
             statsDTO.TransmissionError = GetTotalTransmissionErrors(deviceName);
             statsDTO.Distribution = GetTotalDevicesPerCountry(deviceName);
+            statsDTO.FromDate = GetMinDate(deviceName);
+            statsDTO.ToDate = GetMaxDate(deviceName);
             return statsDTO;
         }
-
+        public StatsDTO GetStatsByDate(string deviceName, string fromDate, string toDate)
+        {
+            StatsDTO statsDTO = new StatsDTO();
+            statsDTO.NoOfTransmission = GetTotalNoOfTransmissions(deviceName, fromDate, toDate);
+            statsDTO.OverallAttacks = GetTotalAttacks(deviceName, fromDate, toDate);
+            statsDTO.TransmissionError = GetTotalTransmissionErrors(deviceName, fromDate, toDate);
+            statsDTO.Distribution = GetTotalDevicesPerCountry(deviceName, fromDate, toDate);
+            statsDTO.FromDate = fromDate;
+            statsDTO.ToDate = toDate;
+            return statsDTO;
+        }
+        public string GetMinDate(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName).Select(val => val.Value).ToList();
+            if (treatmentEvent != null && treatmentEvent.Count > 0)
+            {
+                var result = treatmentEvent
+                .SelectMany(jsonArray => JArray.Parse(jsonArray))
+                .Min(t => (long)t["transmission_time"]);
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(result/1000);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+                string formattedDate = dateTime.ToString("yyyy-MM-dd");
+                return formattedDate;
+            }
+            return null;
+        }
+        public string GetMinDate(string deviceName,string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName && (val.CreatedOn / 1000) >= timestampFrom && (val.CreatedOn / 1000) <= timestampTo).Select(val => val.Value).ToList();
+            if (treatmentEvent != null && treatmentEvent.Count > 0)
+            {
+                var result = treatmentEvent
+                .SelectMany(jsonArray => JArray.Parse(jsonArray))
+                //.Where(t => (long)t["transmission_time"] >= timestampFrom && (long)t["transmission_time"] <= timestampTo)
+                .Select(t => (long)t["transmission_time"])
+                .OrderBy(t => t).FirstOrDefault();
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(result/1000);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+                string formattedDate = dateTime.ToString("yyyy-MM-dd");
+                return formattedDate;
+            }
+            return null;
+        }
+        public string GetMaxDate(string deviceName)
+        {
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName).Select(val => val.Value).ToList();
+            if (treatmentEvent != null && treatmentEvent.Count > 0)
+            {
+                var result = treatmentEvent
+                .SelectMany(jsonArray => JArray.Parse(jsonArray))
+                .Max(t => (long)t["transmission_time"]);
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(result/1000);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+                string formattedDate = dateTime.ToString("yyyy-MM-dd");
+                return formattedDate;
+            }
+            return null;
+        }
+        public string GetMaxDate(string deviceName, string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName && (val.CreatedOn / 1000) >= timestampFrom && (val.CreatedOn / 1000) <= timestampTo).Select(val => val.Value).ToList();
+            if (treatmentEvent != null && treatmentEvent.Count > 0)
+            {
+                var result = treatmentEvent
+                .SelectMany(jsonArray => JArray.Parse(jsonArray))
+                //.Where(t => (long)t["transmission_time"] >= timestampFrom && (long)t["transmission_time"] <= timestampTo)
+                .Select(t=> (long)t["transmission_time"])
+                .OrderByDescending(t=>t).FirstOrDefault();
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(result/1000);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+                string formattedDate = dateTime.ToString("yyyy-MM-dd");
+                return formattedDate;
+            }
+            return null;
+        }
         public int GetTotalNoOfTransmissions(string deviceName)
         {
             var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName).Select(val => val.Value).ToList();
@@ -193,9 +277,34 @@ namespace Merck.Repositories
             .Count();
             return result;
         }
+        public int GetTotalNoOfTransmissions(string deviceName, string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.Value != null && val.DeviceName == deviceName && (val.CreatedOn/1000)>= timestampFrom && (val.CreatedOn / 1000) <= timestampTo).Select(val => val.Value).ToList();
+            
+            var result = treatmentEvent
+            .SelectMany(jsonArray => JArray.Parse(jsonArray))
+            //.Where(t => (long)t["transmission_time"] >= timestampFrom && (long)t["transmission_time"] <= timestampTo)
+            .Count();
+            return result;
+        }
         public int GetTotalAttacks(string deviceName)
         {
             var treatmentEvent = _dbContext.FileLog.Where(val => val.MerckHash != val.Hash && val.DeviceName == deviceName).Count();
+            return treatmentEvent;
+        }
+        public int GetTotalAttacks(string deviceName, string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+            var treatmentEvent = _dbContext.FileLog
+                .Where(val => val.MerckHash != val.Hash && val.DeviceName == deviceName && (val.CreatedOn / 1000) >= timestampFrom && (val.CreatedOn / 1000) <= timestampTo)
+                .Count();
             return treatmentEvent;
         }
         public int GetTotalTransmissionErrors(string deviceName)
@@ -203,9 +312,30 @@ namespace Merck.Repositories
             var treatmentEvent = _dbContext.FileLog.Where(val => val.Value == null && val.DeviceName == deviceName).Count();
             return treatmentEvent;
         }
+        public int GetTotalTransmissionErrors(string deviceName, string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+            var treatmentEvent = _dbContext.FileLog
+                .Where(val => val.Value == null && val.DeviceName == deviceName && (val.CreatedOn / 1000) >= timestampFrom && (val.CreatedOn / 1000) <= timestampTo)
+                .Count();
+            return treatmentEvent;
+        }
         public int GetTotalDevicesPerCountry(string deviceName)
         {
             var treatmentEvent = _dbContext.FileLog.Where(val => val.DeviceName == deviceName).Count();
+            return treatmentEvent;
+        }
+        public int GetTotalDevicesPerCountry(string deviceName, string fromDate, string toDate)
+        {
+            DateTimeOffset dateTimeFromOffset = DateTimeOffset.Parse(fromDate);
+            long timestampFrom = dateTimeFromOffset.ToUnixTimeMilliseconds();
+            DateTimeOffset dateTimeToOffset = DateTimeOffset.Parse(toDate);
+            long timestampTo = dateTimeToOffset.ToUnixTimeMilliseconds();
+
+            var treatmentEvent = _dbContext.FileLog.Where(val => val.DeviceName == deviceName && (val.CreatedOn / 1000) >= timestampFrom && (val.CreatedOn / 1000) <= timestampTo).Count();
             return treatmentEvent;
         }
         public bool IsValidJson(string input)

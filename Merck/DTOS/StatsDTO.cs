@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
 
 namespace Merck.DTOS
 {
@@ -10,6 +12,8 @@ namespace Merck.DTOS
         public int OverallAttacks { get; set; }
         public int TransmissionError { get; set;}
         public int DeviceId { get; set; }
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
     }
 
     public class BarChartStats

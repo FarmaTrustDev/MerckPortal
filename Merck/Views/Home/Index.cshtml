@@ -19,13 +19,26 @@
         <h1 class="heading"><strong>Welcome To @concatenated  Portal</strong></h1>
     </article>
     <div class="row grey-card p-4">
+        <div class=" col-12 col-md-2">
+            
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="form-group col-12 col-md-4">
+                <label for="dateInputFrom">From Date:</label>
+                <input type="date" id="dateInputFrom" name="dateInputFrom" class="form-control" />
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="dateInputTo">To Date:</label>
+                <input type="date" id="dateInputTo" name="dateInputTo" class="form-control" onchange="onDateSelected(this.value)" />
+            </div>
+        </div>
         
         <div class=" col-12 col-md-6">
             <script src="https://cdnjs.com/libraries/Chart.js" type="text/javascript" crossorigin="anonymous"></script>
             <div class="white-card statistic_card    card-blue-hover horizontal-card col-12" style="height: 120px; ">
                 <div class="white-card col-md-12 row  mt-2 statistics-text">
                     <div class="col-md-12 row  mt-2 statistics-text">
-                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new { @class = "form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id = "deviceDropDown", @onchange = "onChangeDropDown(id)" })
+                        @Html.DropDownList("Device", (SelectList)ViewBag.Devices, new { @class = "form-control TreatmentDropdown float-right select2-hidden-accessible m-r", id = "deviceDropDown", @onchange = "onChangeDropDown(this.value)" })
 
                         <div class="col-md-4">
                             <canvas id="myChart" width="62" height="62" class="chartjs-render-monitor"></canvas>
@@ -104,10 +117,10 @@
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <script>
-    $('select').on('change', function () {
+    /*$('select').on('change', function () {
         // Do work
         onChangeDropDown($(this).val())
-    });
+    });*/
 
 
 
@@ -115,6 +128,8 @@
     var distribution = null;
     var attacks = null;
     var tranmission = null;
+    //var dtFrom = document.getElementById('dateInputFrom').value
+    //var dtTo= document.getElementById('dateInputTo').value
     function onChangeDropDown(deviceId) {
         $.ajax({
             type: "GET",
@@ -131,6 +146,8 @@
                 document.getElementById('transmissionError').innerHTML = data.transmissionError;
                 document.getElementById('attacksBlocks').innerHTML = data.overallAttacks;
                 document.getElementById('distributionPerCountry').innerHTML = data.distribution;
+                document.getElementById('dateInputFrom').value = data.fromDate;
+                document.getElementById('dateInputTo').value = data.toDate;
                 var yValues = [distribution, attacks, transmissionError];
                 var barColors = [
                     "#2255c2",
@@ -164,6 +181,55 @@
     //console.log(deviceSelect.options[1].value,"dropdown default selected value");
     onChangeDropDown(deviceSelect.options[0].value);
 
+
+    function onDateSelected(toDate) {
+        fromDate = document.getElementById('dateInputFrom').value;
+        deviceId = document.getElementById("deviceDropDown").value;
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: "/Home/GetStatsByDate",
+            data: { deviceId: deviceId, fromDate: fromDate, toDate: toDate },
+            success: function (data) {
+                distribution = data.distribution;
+                attacks = data.overallAttacks;
+                tranmission = data.noOfTransmission;
+                transmissionError = data.transmissionError;
+                //console.log(data,"statsData");
+                document.getElementById('totalTransmission').innerHTML = data.noOfTransmission;
+                document.getElementById('transmissionError').innerHTML = data.transmissionError;
+                document.getElementById('attacksBlocks').innerHTML = data.overallAttacks;
+                document.getElementById('distributionPerCountry').innerHTML = data.distribution;
+                document.getElementById('dateInputFrom').value = data.fromDate;
+                document.getElementById('dateInputTo').value = data.toDate;
+                var yValues = [distribution, attacks, transmissionError];
+                var barColors = [
+                    "#2255c2",
+                    "#f4b71a",
+                    "#fa6363",
+                ];
+
+                new Chart("myChart", {
+                    type: "doughnut",
+                    data: {
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: false,
+                                showTooltips: false
+                            }
+                        },
+                        hover: { mode: null },
+                    }
+                });
+            }
+        });
+    }
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>

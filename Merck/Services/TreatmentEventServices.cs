@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static System.Net.WebRequestMethods;
 
 namespace Merck.Services
@@ -123,6 +124,10 @@ namespace Merck.Services
         public StatsDTO GetStats(string deviceName)
         {
             return _treatmentEventRepo.GetStats(deviceName);
+        }
+        public StatsDTO GetStatsByDate(string deviceName, string fromDate, string toDate)
+        {
+            return _treatmentEventRepo.GetStatsByDate(deviceName, fromDate, toDate);
         }
         public List<StatsDTO> GetCountryStats()
         {

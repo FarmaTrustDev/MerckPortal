@@ -75,6 +75,11 @@ namespace Merck.Controllers
             var getDeviceStat = _treatmentEventservices.GetStats(deviceId);
             return getDeviceStat;
         }
+        public StatsDTO GetStatsByDate(string deviceId,string fromDate, string toDate)
+        {
+            var getDeviceStat = _treatmentEventservices.GetStatsByDate(deviceId, fromDate, toDate);
+            return getDeviceStat;
+        }
         public IActionResult Index()
         {
             var data = new SelectList(AppConstants.GetAllDevicesExcludingAll());
